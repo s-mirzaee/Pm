@@ -13,7 +13,7 @@ double Max;
 bool beInRange = true;
 int enterNumber = 0;
 bool showKeyboard = false;
-Color boxColor=Colors.white;
+Color boxColor = Colors.white;
 
 class wagerAlert extends StatefulWidget {
   int i = staticValues.getSelect();
@@ -41,7 +41,7 @@ class _wagerAlertState extends State<wagerAlert> {
     return Column(mainAxisAlignment: MainAxisAlignment.end, children: [
       InkWell(
         child: Container(
-          color:boxColor,
+          color: boxColor,
           child: Text(
             '${enterNumber}',
             style: TextStyle(
@@ -57,7 +57,7 @@ class _wagerAlertState extends State<wagerAlert> {
         ),
         onTap: () {
           setState(() {
-            boxColor=Colors.white;
+            boxColor = Colors.white;
             showKeyboard = !showKeyboard;
           });
         },
@@ -68,7 +68,12 @@ class _wagerAlertState extends State<wagerAlert> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
-            Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Container(
+              width: 60,
+              height: 100,
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
               Text(
                 'w:' + '${values.getValue(i).round()}',
                 style: TextStyle(
@@ -88,7 +93,7 @@ class _wagerAlertState extends State<wagerAlert> {
                     fontFamily: 'MTCORSVA',
                     decoration: TextDecoration.none),
               ),
-            ]),
+            ]),),
 
             beInRange
                 //if be in range
@@ -295,31 +300,32 @@ class _wagerAlertState extends State<wagerAlert> {
                                 ),
                                 onTap: () {
                                   setState(() {
-                                    if(enterNumber >= staticValues.getWager(i) && enterNumber <= Max){
+                                    if (enterNumber >=
+                                            staticValues.getWager(i) &&
+                                        enterNumber <= Max) {
                                       staticValues.setMoney(
                                           (staticValues.getMoney()) -
-                                              (enterNumber-staticValues.getWager(i)));
+                                              (enterNumber -
+                                                  staticValues.getWager(i)));
                                       staticValues.setIsClick();
                                       staticValues.setMin(
                                           i, enterNumber.toDouble());
                                       staticValues.setWager(
                                           i, enterNumber.round());
-                                      values.setValue(i, enterNumber.toDouble());
+                                      values.setValue(
+                                          i, enterNumber.toDouble());
                                       enterNumber = 0;
                                       Min = staticValues.getMin(i);
                                       Max = Min + staticValues.getMoney();
                                       showKeyboard = !showKeyboard;
                                       main();
-                                    }else{
-
+                                    } else {
                                       setState(() {
-                                        boxColor=Colors.redAccent;
-                                        showKeyboard=!showKeyboard;
+                                        boxColor = Colors.redAccent;
+                                        showKeyboard = !showKeyboard;
                                         enterNumber = 0;
                                       });
                                     }
-
-
                                   });
                                 },
                               ),
@@ -330,41 +336,72 @@ class _wagerAlertState extends State<wagerAlert> {
                         ),
                       )
                     //else show keyboard
-                    : Container(
-                        width: 500,
-                        child: SliderTheme(
-                            data: SliderTheme.of(context).copyWith(
-                              trackHeight: 6.0,
-                            ),
-                            child: Slider(
-                              onChangeEnd: (double m) {
-                                staticValues.setMoney(
-                                    (staticValues.getMoney()) -
-                                        (m.round() - staticValues.getWager(i)));
-                                staticValues.setIsClick();
-                                staticValues.setMin(i, m);
-                                staticValues.setWager(i, m.round());
+                    : Column(
+                        children: <Widget>[
+                          Row(
 
-                                setState(() {
-                                  Min = staticValues.getMin(i);
-                                  Max = Min + staticValues.getMoney();
-                                  main();
-                                });
-                              },
-                              value: values.getValue(i),
-                              min: Min,
-                              //TODO set max money
-                              max: Max,
-                              divisions: 10000,
-                              activeColor: Colors.amber,
-                              inactiveColor: Colors.grey,
-                              onChanged: (double newValue) {
-                                setState(() {
-                                  boxColor=Colors.white;
-                                  values.setValue(i, newValue);
-                                });
-                              },
-                            )),
+
+                            children: <Widget>[
+                           Container(
+                             padding: EdgeInsets.only(right: 370),
+                             child:  Text(
+                             "min:" + Min.toString(),
+                             style: TextStyle(
+                                 fontSize: 20,
+                                 fontWeight: FontWeight.bold,
+                                 color: Color.fromRGBO(255, 220, 80, 1),
+                                 fontFamily: 'MTCORSVA',
+                                 decoration: TextDecoration.none),
+                           ),),
+                            Container(
+                              child: Text(
+                              "max:" + Max.toString(),
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Color.fromRGBO(255, 220, 80, 1),
+                                  fontFamily: 'MTCORSVA',
+                                  decoration: TextDecoration.none),
+                            ),),
+                          ],),
+
+                          Container(
+                            width: 500,
+                            child: SliderTheme(
+                                data: SliderTheme.of(context).copyWith(
+                                  trackHeight: 6.0,
+                                ),
+                                child: Slider(
+                                  onChangeEnd: (double m) {
+                                    staticValues.setMoney((staticValues
+                                            .getMoney()) -
+                                        (m.round() - staticValues.getWager(i)));
+                                    staticValues.setIsClick();
+                                    staticValues.setMin(i, m);
+                                    staticValues.setWager(i, m.round());
+
+                                    setState(() {
+                                      Min = staticValues.getMin(i);
+                                      Max = Min + staticValues.getMoney();
+                                      main();
+                                    });
+                                  },
+                                  value: values.getValue(i),
+                                  min: Min,
+                                  max: Max,
+                                  divisions: 10000,
+                                  activeColor: Colors.amber,
+                                  inactiveColor: Colors.grey,
+                                  onChanged: (double newValue) {
+                                    setState(() {
+                                      boxColor = Colors.white;
+                                      values.setValue(i, newValue);
+                                    });
+                                  },
+                                )),
+                          ),
+
+                        ],
                       )
                 //else be in range
                 : Text(

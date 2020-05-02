@@ -35,9 +35,9 @@ class board {
 
                     //TODO PUT WAGER
                     Container(
-                      margin: EdgeInsets.only(top: 0, left: 50),
+                      margin: EdgeInsets.only(top: 0, left: 40),
                       child: Text(
-                        'Stack : \$ ${staticValues.getMoney()} ',
+                        'Stack : \$ ${staticValues.getMoney().round()} ',
                         style: TextStyle(
                             fontSize: 27,
                             fontWeight: FontWeight.bold,
@@ -47,9 +47,9 @@ class board {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(top: 0, left: 270),
+                      margin: EdgeInsets.only(top: 0, left: 250),
                       child: Text(
-                        'Total Wager :\$ 255 ',
+                        'Total Wager :\$ ${staticValues.totalWager()} ',
                         style: TextStyle(
                             fontSize: 27,
                             fontWeight: FontWeight.bold,

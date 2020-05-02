@@ -126,10 +126,10 @@ class _HandState extends State<Hand> {
                     color: Color.fromRGBO(240, 205, 95, 1)),
               ),
             ),
-            Container(
+            level<3&&(staticValues.wagerCounter()<(staticValues.getPlayerNo()-1)||staticValues.getWager(i)!=0) ?Container(
               child: staticValues.getIsClick() ? wagerAlert() : Text(""),
               margin: EdgeInsets.only(top: 100),
-            ),
+            ):Text(''),
           ],
         ));
   }
