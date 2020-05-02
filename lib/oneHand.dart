@@ -90,7 +90,7 @@ class _HandState extends State<Hand> {
                         ))
                     ],
                   ),
-                  width: handSize + 8,
+                  width: handSize + 7,
                   height: handSize + 25,
                 ),
               ),

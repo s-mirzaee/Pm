@@ -13,20 +13,12 @@ class board {
 
   Widget hands() {
     int n = ((list.length - 5) / 2).toInt();
-    size Size = new size(n);
-    List<double> lefts = Size.lefts();
-    List<double> tops = Size.tops();
-
-    lefts = Size.lefts();
-    tops = Size.tops();
 
     return Container(
-      //color: Color.fromRGBO(0, 0, 0, 0.8),
       child: Stack(
         children: <Widget>[
           //header
           Container(
-              //color: Colors.black,
               child: Container(
                 margin: EdgeInsets.only(top: 20),
                 child: Row(
@@ -47,7 +39,7 @@ class board {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(top: 0, left: 250),
+                      margin: EdgeInsets.only(left: 290),
                       child: Text(
                         'Total Wager :\$ ${staticValues.totalWager()} ',
                         style: TextStyle(

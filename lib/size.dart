@@ -7,7 +7,7 @@ class size {
 
   List<double> tops() {
     if (playerNo == 10) {
-      return [135, 225, 58, 245, 32, 245, 32, 225, 58, 135];
+      return [135, 215, 58, 235, 32, 235, 32, 215, 58, 135];
     } else if (playerNo == 9) {
       return [113, 113, 150, 240, 245, 145, 286, 284, 115];
     } else if (playerNo == 8) {

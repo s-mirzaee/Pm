@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+
 import 'main.dart';
 import 'table.dart';
 import 'package:flutter/material.dart';
@@ -61,9 +63,11 @@ class _GameDeskState extends State<GameDesk> {
                           return showDialog(
                             context: context,
                             builder: (context) {
-                              return AlertDialog(
+                              return AlertDialog(backgroundColor: Color.fromRGBO(255, 220, 80, 1),
 
-                                content: Text('at least,bet on a hand'),
+                                content: Container(width: 230,height: 30,child: Center(child: Text('at least,bet on a hand',style:
+                                TextStyle(fontFamily: 'MTCORSVA',fontSize: 25,fontWeight: FontWeight.w500),),)
+                                )
                               );
                             },
                           );
