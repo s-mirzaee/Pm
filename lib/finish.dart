@@ -12,7 +12,7 @@ class _finishState extends State<finish> {
     return InkWell(
       onTap: () {
         //TODO reset game
-        Navigator.pushNamed(context, '/');
+        //Navigator.pushNamed(context, '/');
 
       },
       child: Center(

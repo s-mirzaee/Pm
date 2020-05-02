@@ -1,3 +1,4 @@
+import 'package:bustem2/LogoScreen.dart';
 import 'package:flutter/material.dart';
 import 'Levels.dart';
 import 'board.dart';
@@ -40,6 +41,7 @@ class RunApp extends StatelessWidget {
         '/': (context) => MenuScreen(),
         '/Game': (context) => StartGame(),
         '/Desk': (context)=>GameDesk(),
+        '/End': (context)=>logoScreen(),
 
       },
     );

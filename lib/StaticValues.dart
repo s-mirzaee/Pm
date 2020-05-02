@@ -1,4 +1,8 @@
+import 'package:bustem2/main.dart';
+import 'package:bustem2/returnMoney.dart';
 import 'package:flutter/material.dart';
+
+import 'wagerAlert.dart';
 
 class StaticValues {
   static bool isClick = false;
@@ -82,6 +86,15 @@ class StaticValues {
       }
     }
     return count;
+  }
+  int totalReturn(){
+    int totalMoney=0;
+    for(int x=0;x<wagers.length;x++){
+      if(oddCalculator.getOdd(x)==100){
+        totalMoney=totalMoney+returns.returnCalculator(oddCalculator.getOdd(x), values.getValue(x)).round();
+      }
+    }
+    return totalMoney;
   }
 
   static List<double> ranges = [];

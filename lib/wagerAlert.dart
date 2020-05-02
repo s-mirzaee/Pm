@@ -120,7 +120,7 @@ class _wagerAlertState extends State<wagerAlert> {
                                 },
                               ),
                               width: 50,
-                              height: 50,
+                              height: 40,
                             ),
                             Container(
                               decoration: BoxDecoration(
@@ -138,7 +138,7 @@ class _wagerAlertState extends State<wagerAlert> {
                                 },
                               ),
                               width: 50,
-                              height: 50,
+                              height: 40,
                             ),
                             Container(
                               decoration: BoxDecoration(
@@ -156,7 +156,7 @@ class _wagerAlertState extends State<wagerAlert> {
                                 },
                               ),
                               width: 50,
-                              height: 50,
+                              height: 40,
                             ),
                             Container(
                               decoration: BoxDecoration(
@@ -174,7 +174,7 @@ class _wagerAlertState extends State<wagerAlert> {
                                 },
                               ),
                               width: 50,
-                              height: 50,
+                              height: 40,
                             ),
                             Container(
                               decoration: BoxDecoration(
@@ -192,7 +192,7 @@ class _wagerAlertState extends State<wagerAlert> {
                                 },
                               ),
                               width: 50,
-                              height: 50,
+                              height: 40,
                             ),
                             Container(
                               decoration: BoxDecoration(
@@ -210,7 +210,7 @@ class _wagerAlertState extends State<wagerAlert> {
                                 },
                               ),
                               width: 50,
-                              height: 50,
+                              height: 40,
                             ),
                             Container(
                               decoration: BoxDecoration(
@@ -228,7 +228,7 @@ class _wagerAlertState extends State<wagerAlert> {
                                 },
                               ),
                               width: 50,
-                              height: 50,
+                              height: 40,
                             ),
                             Container(
                               decoration: BoxDecoration(
@@ -246,7 +246,7 @@ class _wagerAlertState extends State<wagerAlert> {
                                 },
                               ),
                               width: 50,
-                              height: 50,
+                              height: 40,
                             ),
                             Container(
                               decoration: BoxDecoration(
@@ -264,7 +264,7 @@ class _wagerAlertState extends State<wagerAlert> {
                                 },
                               ),
                               width: 50,
-                              height: 50,
+                              height: 40,
                             ),
                             Container(
                               decoration: BoxDecoration(
@@ -282,7 +282,7 @@ class _wagerAlertState extends State<wagerAlert> {
                                 },
                               ),
                               width: 50,
-                              height: 50,
+                              height: 40,
                             ),
                             Container(
                               decoration: BoxDecoration(
@@ -300,7 +300,7 @@ class _wagerAlertState extends State<wagerAlert> {
                                 },
                               ),
                               width: 50,
-                              height: 50,
+                              height: 40,
                             ),
                             Container(
                               decoration: BoxDecoration(
@@ -343,7 +343,7 @@ class _wagerAlertState extends State<wagerAlert> {
                                 },
                               ),
                               width: 50,
-                              height: 50,
+                              height: 40,
                             ),
                           ],
                         ),

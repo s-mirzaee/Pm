@@ -75,7 +75,7 @@ class _GameDeskState extends State<GameDesk> {
                       }
                     }
                   },
-                    child:Text(
+                    child:level<4?Text(
                           "${staticValues.getPaseName()}",
                           style: TextStyle(
                               color: Color.fromRGBO(255, 220, 80, 1),
@@ -90,7 +90,7 @@ class _GameDeskState extends State<GameDesk> {
                             ),
                           ],
                               decoration: TextDecoration.none),
-                        ),
+                        ):Text(''),
 
               )),
         ],
