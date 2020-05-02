@@ -74,26 +74,27 @@ class _wagerAlertState extends State<wagerAlert> {
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-              Text(
-                'w:' + '${values.getValue(i).round()}',
-                style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Color.fromRGBO(255, 220, 80, 1),
-                    fontFamily: 'MTCORSVA',
-                    decoration: TextDecoration.none),
-              ),
-              Text(
-                'r:' +
-                    '${returns.returnCalculator(oddCalculator.getOdd(i), values.getValue(i)).round()}',
-                style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Color.fromRGBO(255, 220, 80, 1),
-                    fontFamily: 'MTCORSVA',
-                    decoration: TextDecoration.none),
-              ),
-            ]),),
+                    Text(
+                      'w:' + '${values.getValue(i).round()}',
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromRGBO(255, 220, 80, 1),
+                          fontFamily: 'MTCORSVA',
+                          decoration: TextDecoration.none),
+                    ),
+                    Text(
+                      'r:' +
+                          '${returns.returnCalculator(oddCalculator.getOdd(i), values.getValue(i)).round()}',
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromRGBO(255, 220, 80, 1),
+                          fontFamily: 'MTCORSVA',
+                          decoration: TextDecoration.none),
+                    ),
+                  ]),
+            ),
 
             beInRange
                 //if be in range
@@ -105,8 +106,9 @@ class _wagerAlertState extends State<wagerAlert> {
                           children: <Widget>[
                             Container(
                               decoration: BoxDecoration(
-                                  color: Colors.amberAccent,
-                                  shape: BoxShape.rectangle),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20)),
+                                  color: Color.fromRGBO(240, 205, 95, 1)),
                               child: InkWell(
                                 child: Center(
                                   child: Text('1'),
@@ -122,8 +124,9 @@ class _wagerAlertState extends State<wagerAlert> {
                             ),
                             Container(
                               decoration: BoxDecoration(
-                                  color: Colors.amberAccent,
-                                  shape: BoxShape.rectangle),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20)),
+                                  color: Color.fromRGBO(240, 205, 95, 1)),
                               child: InkWell(
                                 child: Center(
                                   child: Text('2'),
@@ -139,8 +142,9 @@ class _wagerAlertState extends State<wagerAlert> {
                             ),
                             Container(
                               decoration: BoxDecoration(
-                                  color: Colors.amberAccent,
-                                  shape: BoxShape.rectangle),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20)),
+                                  color: Color.fromRGBO(240, 205, 95, 1)),
                               child: InkWell(
                                 child: Center(
                                   child: Text('3'),
@@ -156,8 +160,9 @@ class _wagerAlertState extends State<wagerAlert> {
                             ),
                             Container(
                               decoration: BoxDecoration(
-                                  color: Colors.amberAccent,
-                                  shape: BoxShape.rectangle),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20)),
+                                  color: Color.fromRGBO(240, 205, 95, 1)),
                               child: InkWell(
                                 child: Center(
                                   child: Text('4'),
@@ -173,8 +178,9 @@ class _wagerAlertState extends State<wagerAlert> {
                             ),
                             Container(
                               decoration: BoxDecoration(
-                                  color: Colors.amberAccent,
-                                  shape: BoxShape.rectangle),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20)),
+                                  color: Color.fromRGBO(240, 205, 95, 1)),
                               child: InkWell(
                                 child: Center(
                                   child: Text('5'),
@@ -190,8 +196,9 @@ class _wagerAlertState extends State<wagerAlert> {
                             ),
                             Container(
                               decoration: BoxDecoration(
-                                  color: Colors.amberAccent,
-                                  shape: BoxShape.rectangle),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20)),
+                                  color: Color.fromRGBO(240, 205, 95, 1)),
                               child: InkWell(
                                 child: Center(
                                   child: Text('6'),
@@ -207,8 +214,9 @@ class _wagerAlertState extends State<wagerAlert> {
                             ),
                             Container(
                               decoration: BoxDecoration(
-                                  color: Colors.amberAccent,
-                                  shape: BoxShape.rectangle),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20)),
+                                  color: Color.fromRGBO(240, 205, 95, 1)),
                               child: InkWell(
                                 child: Center(
                                   child: Text('7'),
@@ -224,8 +232,9 @@ class _wagerAlertState extends State<wagerAlert> {
                             ),
                             Container(
                               decoration: BoxDecoration(
-                                  color: Colors.amberAccent,
-                                  shape: BoxShape.rectangle),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20)),
+                                  color: Color.fromRGBO(240, 205, 95, 1)),
                               child: InkWell(
                                 child: Center(
                                   child: Text('8'),
@@ -241,8 +250,9 @@ class _wagerAlertState extends State<wagerAlert> {
                             ),
                             Container(
                               decoration: BoxDecoration(
-                                  color: Colors.amberAccent,
-                                  shape: BoxShape.rectangle),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20)),
+                                  color: Color.fromRGBO(240, 205, 95, 1)),
                               child: InkWell(
                                 child: Center(
                                   child: Text('9'),
@@ -258,8 +268,9 @@ class _wagerAlertState extends State<wagerAlert> {
                             ),
                             Container(
                               decoration: BoxDecoration(
-                                  color: Colors.amberAccent,
-                                  shape: BoxShape.rectangle),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20)),
+                                  color: Color.fromRGBO(240, 205, 95, 1)),
                               child: InkWell(
                                 child: Center(
                                   child: Text('0'),
@@ -275,8 +286,9 @@ class _wagerAlertState extends State<wagerAlert> {
                             ),
                             Container(
                               decoration: BoxDecoration(
-                                  color: Colors.amberAccent,
-                                  shape: BoxShape.rectangle),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20)),
+                                  color: Color.fromRGBO(240, 205, 95, 1)),
                               child: InkWell(
                                 child: Center(
                                   child: Icon(Icons.backspace),
@@ -292,8 +304,9 @@ class _wagerAlertState extends State<wagerAlert> {
                             ),
                             Container(
                               decoration: BoxDecoration(
-                                  color: Colors.amberAccent,
-                                  shape: BoxShape.rectangle),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20)),
+                                  color: Color.fromRGBO(240, 205, 95, 1)),
                               child: InkWell(
                                 child: Center(
                                   child: Icon(Icons.done),
@@ -339,32 +352,32 @@ class _wagerAlertState extends State<wagerAlert> {
                     : Column(
                         children: <Widget>[
                           Row(
-
-
                             children: <Widget>[
-                           Container(
-                             padding: EdgeInsets.only(right: 370),
-                             child:  Text(
-                             "min:" + Min.toString(),
-                             style: TextStyle(
-                                 fontSize: 20,
-                                 fontWeight: FontWeight.bold,
-                                 color: Color.fromRGBO(255, 220, 80, 1),
-                                 fontFamily: 'MTCORSVA',
-                                 decoration: TextDecoration.none),
-                           ),),
-                            Container(
-                              child: Text(
-                              "max:" + Max.toString(),
-                              style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  color: Color.fromRGBO(255, 220, 80, 1),
-                                  fontFamily: 'MTCORSVA',
-                                  decoration: TextDecoration.none),
-                            ),),
-                          ],),
-
+                              Container(
+                                padding: EdgeInsets.only(right: 370),
+                                child: Text(
+                                  "min:" + Min.toString(),
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Color.fromRGBO(255, 220, 80, 1),
+                                      fontFamily: 'MTCORSVA',
+                                      decoration: TextDecoration.none),
+                                ),
+                              ),
+                              Container(
+                                child: Text(
+                                  "max:" + Max.toString(),
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Color.fromRGBO(255, 220, 80, 1),
+                                      fontFamily: 'MTCORSVA',
+                                      decoration: TextDecoration.none),
+                                ),
+                              ),
+                            ],
+                          ),
                           Container(
                             width: 500,
                             child: SliderTheme(
@@ -400,7 +413,6 @@ class _wagerAlertState extends State<wagerAlert> {
                                   },
                                 )),
                           ),
-
                         ],
                       )
                 //else be in range

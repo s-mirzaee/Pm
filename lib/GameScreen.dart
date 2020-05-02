@@ -51,7 +51,8 @@ class _GameDeskState extends State<GameDesk> {
                       //TODO
                       newGame();
                     } else {
-                      if(level==0 && staticValues.totalWager()!=0){
+                      if(level==0){
+                      if(staticValues.totalWager()!=0){
                         setState(() {
                           level++;
                         });
@@ -61,13 +62,15 @@ class _GameDeskState extends State<GameDesk> {
                             context: context,
                             builder: (context) {
                               return AlertDialog(
-                                // Retrieve the text the that user has entered by using the
-                                // TextEditingController.
 
                                 content: Text('at least,bet on a hand'),
                               );
                             },
                           );
+                        });
+                      }}else{
+                        setState(() {
+                          level++;
                         });
                       }
                     }

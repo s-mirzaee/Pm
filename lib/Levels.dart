@@ -1,3 +1,5 @@
+import 'package:bustem2/LogoScreen.dart';
+
 import 'wagerAlert.dart';
 
 import 'finish.dart';
@@ -76,7 +78,7 @@ class Levels {
         break;
       case 4:{
         staticValues.setPhaseName('Play Again');
-        return finish();
+        return logoScreen();
       }break;
     }
   }
