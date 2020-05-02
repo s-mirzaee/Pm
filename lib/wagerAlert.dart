@@ -1,3 +1,4 @@
+import 'package:bustem2/GameScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/rendering.dart';
 import 'returnMoney.dart';
@@ -312,13 +313,15 @@ class _wagerAlertState extends State<wagerAlert> {
                         ),
                         child: Slider(
                           onChangeEnd: (double m) {
+                            staticValues.setIsClick();
                             staticValues.setMin(i, m);
                             staticValues.setWager(i, m.round());
-                            staticValues.setMoney(
-                                (staticValues.getMoney()) - m.round());
-                            staticValues.setIsClick();
+                            staticValues.setMoney((staticValues.getMoney()) - m.round());
+
                             setState(() {
                               main();
+
+
                             });
                           },
                           value: values.getValue(i),

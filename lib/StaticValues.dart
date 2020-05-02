@@ -58,10 +58,10 @@ class StaticValues{
     wagers.clear();
     for(int i=0;i<n;i++){
       wagers.add(0);
+      print(wagers.toString()+"---------------------");
     }
   }
   int getWager(int n){
-
     return wagers[n];
   }
   void setWager(int i,int wager){

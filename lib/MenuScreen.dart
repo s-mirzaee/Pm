@@ -232,6 +232,10 @@ class _HandsState extends State<Hands> {
       ),
       actions: <Widget>[
         FlatButton(onPressed: () {
+          staticValues.createRange(staticValues.getPlayerNo());
+          staticValues.createWager(staticValues.getPlayerNo());
+          values.create(staticValues.getPlayerNo());
+          oddCalculator.oddCalculator(chooseCards);
 
 
           Navigator.pushNamed(context,'/Game');

@@ -19,24 +19,20 @@ class StartGame extends StatefulWidget {
 class _StartGameState extends State<StartGame> {
   @override
   Widget build(BuildContext context) {
-   staticValues.createRange(staticValues.getPlayerNo());
-   staticValues.createWager(staticValues.getPlayerNo());
-    values.create(staticValues.getPlayerNo());
-    oddCalculator.oddCalculator(chooseCards);
-    return gameDesk();
+    return GameDesk();
 
   }
 }
 
 
-bool how = true;
 
-class gameDesk extends StatefulWidget {
+
+class GameDesk extends StatefulWidget {
   @override
-  _gameDeskState createState() => _gameDeskState();
+  _GameDeskState createState() => _GameDeskState();
 }
 
-class _gameDeskState extends State<gameDesk> {
+class _GameDeskState extends State<GameDesk> {
 
   @override
   Widget build(BuildContext context) {

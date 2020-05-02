@@ -29,6 +29,7 @@ void newGame() {
 
 
 class RunApp extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -38,6 +39,7 @@ class RunApp extends StatelessWidget {
       routes: {
         '/': (context) => MenuScreen(),
         '/Game': (context) => StartGame(),
+        '/Desk': (context)=>GameDesk(),
 
       },
     );

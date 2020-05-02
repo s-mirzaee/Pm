@@ -107,7 +107,7 @@ class _HandState extends State<Hand> {
                       fontWeight: FontWeight.bold,
                       fontFamily: 'MTCORSVA',
                       decoration: TextDecoration.none),),
-                  Text("Wager:"+staticValues.getWager(i).toRadixString(1),
+                  Text("Wager:"+staticValues.getWager(i).toString(),
                     style: TextStyle(
                         fontSize: 17,
                         fontWeight: FontWeight.bold,
