@@ -72,7 +72,7 @@ class board {
     );
   }
 
-  Widget flap() {
+  Widget flop() {
     int n = list.length - 5;
     return // Transform.rotate(angle: math.pi/2, child:
         Container(height: 53.5, margin: const EdgeInsets.only(left: 230, top: 160),

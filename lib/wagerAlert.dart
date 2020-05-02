@@ -6,7 +6,6 @@ import 'main.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
-sliderValue values = new sliderValue();
 returnMoney returns = new returnMoney();
 double Min;
 double Max;
@@ -68,7 +67,7 @@ class _wagerAlertState extends State<wagerAlert> {
           children: <Widget>[
             Column(mainAxisAlignment: MainAxisAlignment.center, children: [
               Text(
-                'w:' + '${values.getValue(i).round().toString()}',
+                'w:' + '${staticValues.getWager(i)}',
                 style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -78,7 +77,7 @@ class _wagerAlertState extends State<wagerAlert> {
               ),
               Text(
                 'r:' +
-                    '${returns.returnCalculator(oddCalculator.getOdd(i), values.getValue(i)).round()}',
+                    '${returns.returnCalculator(oddCalculator.getOdd(i), staticValues.getWager(i).toDouble()).round()}',
                 style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,

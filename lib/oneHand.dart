@@ -100,6 +100,27 @@ class _HandState extends State<Hand> {
               width: handSize + 48,
               height: handSize + 13,
               child: Container(
+                child: Column(children: <Widget>[
+                  Text("Odd:"+oddPercent.getOdd(i).toStringAsFixed(2),
+                    style: TextStyle(
+                      fontSize: 17,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'MTCORSVA',
+                      decoration: TextDecoration.none),),
+                  Text("Wager:"+staticValues.getWager(i).toRadixString(1),
+                    style: TextStyle(
+                        fontSize: 17,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'MTCORSVA',
+                        decoration: TextDecoration.none),),
+                  Text("Return:"+returns.returnCalculator(oddCalculator.getOdd(i), staticValues.getWager(i).toDouble()).toStringAsFixed(0),
+                    style: TextStyle(
+                        fontSize: 17,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'MTCORSVA',
+                        decoration: TextDecoration.none),),
+
+                ],),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                     color: Color.fromRGBO(240, 205, 95, 1)),

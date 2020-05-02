@@ -24,7 +24,7 @@ class Levels {
     switch (level) {
       case 0:
         {
-          staticValues.setPhaseName('Flap');
+          staticValues.setPhaseName('Flop');
 
 
           return Stack(
@@ -41,7 +41,7 @@ class Levels {
           return Stack(
             children: <Widget>[
               Board.hands(),
-              Board.flap(),
+              Board.flop(),
             ],
           );
         }
@@ -53,7 +53,7 @@ class Levels {
           return Stack(
             children: <Widget>[
               Board.hands(),
-              Board.flap(),
+              Board.flop(),
               Board.turn(),
             ],
           );
@@ -67,7 +67,7 @@ class Levels {
             children: <Widget>[
 
               Board.hands(),
-              Board.flap(),
+              Board.flop(),
               Board.turn(),
               Board.river(),
             ],
