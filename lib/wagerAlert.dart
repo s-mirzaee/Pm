@@ -13,6 +13,7 @@ double Max;
 bool beInRange = true;
 int enterNumber = 0;
 bool showKeyboard = false;
+Color boxColor=Colors.white;
 
 class wagerAlert extends StatefulWidget {
   int i = staticValues.getSelect();
@@ -40,6 +41,7 @@ class _wagerAlertState extends State<wagerAlert> {
     return Column(mainAxisAlignment: MainAxisAlignment.end, children: [
       InkWell(
         child: Container(
+          color:boxColor,
           child: Text(
             '${enterNumber}',
             style: TextStyle(
@@ -50,12 +52,12 @@ class _wagerAlertState extends State<wagerAlert> {
                 decoration: TextDecoration.none),
           ),
           margin: EdgeInsets.only(right: 490, bottom: 30),
-          color: Colors.white,
           width: 65,
           height: 35,
         ),
         onTap: () {
           setState(() {
+            boxColor=Colors.white;
             showKeyboard = !showKeyboard;
           });
         },
@@ -63,12 +65,12 @@ class _wagerAlertState extends State<wagerAlert> {
       Container(
         height: 70,
         width: 660,
-        color: Colors.blue,
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
             Column(mainAxisAlignment: MainAxisAlignment.center, children: [
               Text(
-                'w:' + '${staticValues.getWager(i)}',
+                'w:' + '${values.getValue(i).round()}',
                 style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -78,7 +80,7 @@ class _wagerAlertState extends State<wagerAlert> {
               ),
               Text(
                 'r:' +
-                    '${returns.returnCalculator(oddCalculator.getOdd(i), staticValues.getWager(i).toDouble()).round()}',
+                    '${returns.returnCalculator(oddCalculator.getOdd(i), values.getValue(i)).round()}',
                 style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -293,8 +295,31 @@ class _wagerAlertState extends State<wagerAlert> {
                                 ),
                                 onTap: () {
                                   setState(() {
-                                    showKeyboard = !showKeyboard;
-                                    //TODO fix wager
+                                    if(enterNumber >= staticValues.getWager(i) && enterNumber <= Max){
+                                      staticValues.setMoney(
+                                          (staticValues.getMoney()) -
+                                              (enterNumber-staticValues.getWager(i)));
+                                      staticValues.setIsClick();
+                                      staticValues.setMin(
+                                          i, enterNumber.toDouble());
+                                      staticValues.setWager(
+                                          i, enterNumber.round());
+                                      values.setValue(i, enterNumber.toDouble());
+                                      enterNumber = 0;
+                                      Min = staticValues.getMin(i);
+                                      Max = Min + staticValues.getMoney();
+                                      showKeyboard = !showKeyboard;
+                                      main();
+                                    }else{
+
+                                      setState(() {
+                                        boxColor=Colors.redAccent;
+                                        showKeyboard=!showKeyboard;
+                                        enterNumber = 0;
+                                      });
+                                    }
+
+
                                   });
                                 },
                               ),
@@ -305,38 +330,42 @@ class _wagerAlertState extends State<wagerAlert> {
                         ),
                       )
                     //else show keyboard
-                    : SliderTheme(
-                        data: SliderTheme.of(context).copyWith(
-                          trackHeight: 6.0,
-                          overlayShape:
-                              RoundSliderOverlayShape(overlayRadius: 28.0),
-                        ),
-                        child: Slider(
-                          onChangeEnd: (double m) {
-                            staticValues.setIsClick();
-                            staticValues.setMin(i, m);
-                            staticValues.setWager(i, m.round());
-                            staticValues.setMoney((staticValues.getMoney()) - m.round());
+                    : Container(
+                        width: 500,
+                        child: SliderTheme(
+                            data: SliderTheme.of(context).copyWith(
+                              trackHeight: 6.0,
+                            ),
+                            child: Slider(
+                              onChangeEnd: (double m) {
+                                staticValues.setMoney(
+                                    (staticValues.getMoney()) -
+                                        (m.round() - staticValues.getWager(i)));
+                                staticValues.setIsClick();
+                                staticValues.setMin(i, m);
+                                staticValues.setWager(i, m.round());
 
-                            setState(() {
-                              main();
-
-
-                            });
-                          },
-                          value: values.getValue(i),
-                          min: Min,
-                          //TODO set max money
-                          max: Max,
-                          divisions: 10000,
-                          activeColor: Colors.amber,
-                          inactiveColor: Colors.grey,
-                          onChanged: (double newValue) {
-                            setState(() {
-                              values.setValue(i, newValue);
-                            });
-                          },
-                        ))
+                                setState(() {
+                                  Min = staticValues.getMin(i);
+                                  Max = Min + staticValues.getMoney();
+                                  main();
+                                });
+                              },
+                              value: values.getValue(i),
+                              min: Min,
+                              //TODO set max money
+                              max: Max,
+                              divisions: 10000,
+                              activeColor: Colors.amber,
+                              inactiveColor: Colors.grey,
+                              onChanged: (double newValue) {
+                                setState(() {
+                                  boxColor=Colors.white;
+                                  values.setValue(i, newValue);
+                                });
+                              },
+                            )),
+                      )
                 //else be in range
                 : Text(
                     "NoEnoughMoney",
