@@ -47,7 +47,7 @@ class _GameDeskState extends State<GameDesk> {
             levels.levelUp(level),
             Container(
                 padding: EdgeInsets.only(top: 60, left: 600),
-                child: InkWell(
+                child: InkWell(highlightColor: Colors.white,
                   onTap: () {
                     if (level == 4) {
                       //TODO
@@ -79,22 +79,23 @@ class _GameDeskState extends State<GameDesk> {
                       }
                     }
                   },
-                    child:level<4?Text(
-                          "${staticValues.getPaseName()}",
-                          style: TextStyle(
-                              color: Color.fromRGBO(255, 220, 80, 1),
-                              fontSize: 29,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'MTCORSVA',
-                              shadows: <Shadow>[
+                    child:level<4?Container(width: 75,height: 50,margin: EdgeInsets.only(top: 300,),//color: Colors.white,
+                      child: Text(
+                      "${staticValues.getPaseName()}",textDirection: TextDirection.rtl,
+                      style: TextStyle(
+                          color: Color.fromRGBO(255, 220, 80, 1),
+                          fontSize: 29,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'MTCORSVA',
+                          shadows: <Shadow>[
                             Shadow(
                               offset: Offset(2.0, 2.0),
                               blurRadius: 5.0,
                               color: Color.fromRGBO(255, 220, 80, 1),
                             ),
                           ],
-                              decoration: TextDecoration.none),
-                        ):Text(''),
+                          decoration: TextDecoration.none),),)
+                        :Text(''),
 
               )),
         ],
