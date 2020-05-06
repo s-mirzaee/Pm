@@ -46,7 +46,7 @@ class _GameDeskState extends State<GameDesk> {
             table(),
             levels.levelUp(level),
             Container(
-                padding: EdgeInsets.only(top: 60, left: 600),
+                padding: EdgeInsets.only(top: 350, left: 598),
                 child: InkWell(highlightColor: Colors.white,
                   onTap: () {
                     if (level == 4) {
@@ -79,22 +79,23 @@ class _GameDeskState extends State<GameDesk> {
                       }
                     }
                   },
-                    child:level<4?Container(width: 75,height: 50,margin: EdgeInsets.only(top: 300,),//color: Colors.white,
-                      child: Text(
+                    child:level<4?Container(decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(12)),border: Border(top: BorderSide(width: 5,color: Color.fromRGBO(240, 205, 95, 1)),right: BorderSide(width: 5,color: Color.fromRGBO(240, 205, 95, 1)),left: BorderSide(width: 5,color: Color.fromRGBO(240, 205, 95, 1)),bottom: BorderSide(width: 5,color: Color.fromRGBO(240, 205, 95, 1))),),
+                      child: Container(padding: EdgeInsets.only(left: 2,right: 8,bottom: 5),//color: Colors.white,
+                        child: Text(
                       "${staticValues.getPaseName()}",textDirection: TextDirection.rtl,
                       style: TextStyle(
                           color: Color.fromRGBO(255, 220, 80, 1),
-                          fontSize: 29,
+                          fontSize: 28,
                           fontWeight: FontWeight.bold,
                           fontFamily: 'MTCORSVA',
                           shadows: <Shadow>[
                             Shadow(
-                              offset: Offset(2.0, 2.0),
-                              blurRadius: 5.0,
-                              color: Color.fromRGBO(255, 220, 80, 1),
+                              offset: Offset(1.5, 1.5),
+                              blurRadius: 0,
+                              color: Color.fromRGBO(255, 220, 80, 0.5),
                             ),
                           ],
-                          decoration: TextDecoration.none),),)
+                          decoration: TextDecoration.none),),))
                         :Text(''),
 
               )),

@@ -27,7 +27,7 @@ class board {
 
                     //TODO PUT WAGER
                     Container(
-                      margin: EdgeInsets.only(top: 0, left: 40),
+                      margin: EdgeInsets.only(left: 40),
                       child: Text(
                         'Stack : \$ ${staticValues.getMoney().round()} ',
                         style: TextStyle(

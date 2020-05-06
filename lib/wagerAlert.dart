@@ -69,7 +69,7 @@ class _wagerAlertState extends State<wagerAlert> {
           height: 100,
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
             Text(
-            'w:' + '${values.getValue(i).round()}',
+            'w:' + '${values.getValue(i).round()}',textDirection: TextDirection.rtl,
             style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
@@ -99,7 +99,7 @@ class _wagerAlertState extends State<wagerAlert> {
             beInRange
                 //if be in range
                 ? showKeyboard
-                    ? Container(height: 50,margin: EdgeInsets.only(top: 60,left: 10),//color: Colors.lightBlue,
+                    ? Container(height: 60,margin: EdgeInsets.only(top: 60,left: 8),//color: Colors.lightBlue,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: <Widget>[
@@ -119,8 +119,8 @@ class _wagerAlertState extends State<wagerAlert> {
                                       });
                                     },
                                   ),
-                                  width: 45,
-                                  height: 35,
+                                  width: 44,
+                                  height: 40,
                                 )
                             ),
                             Container(margin: EdgeInsets.only(right: 4),
@@ -138,8 +138,8 @@ class _wagerAlertState extends State<wagerAlert> {
                                   });
                                 },
                               ),
-                              width: 45,
-                              height: 35,
+                              width: 44,
+                              height: 40,
                             ),
                             Container(margin: EdgeInsets.only(right: 4),
                               decoration: BoxDecoration(
@@ -181,8 +181,8 @@ class _wagerAlertState extends State<wagerAlert> {
                                   });
                                 },
                               ),
-                              width: 45,
-                              height: 35,
+                              width: 44,
+                              height: 40,
                             ),
                           ],
                         ),
@@ -192,10 +192,10 @@ class _wagerAlertState extends State<wagerAlert> {
                     child: Row(
                         children: <Widget>[
                           Container(margin: EdgeInsets.only(left: 0,top: 0),
-                            width: 400,
+                            width: 300,
                             child: SliderTheme(
                                 data: SliderTheme.of(context).copyWith(
-                                  trackHeight: 5.0,
+                                  //trackHeight: 1.0,
                                 ),
                                 child: Slider(
                                   //onChangeStart: (),
@@ -218,8 +218,8 @@ class _wagerAlertState extends State<wagerAlert> {
                                   min: Min,
                                   max: Max,
                                   divisions: 10000,
-                                  activeColor: Colors.amber,
-                                  inactiveColor: Colors.grey,
+                                  activeColor: Color.fromRGBO(240, 205, 95, 1),
+                                  inactiveColor: Color.fromRGBO(240, 205, 100, 0.9),
                                   onChanged: (double newValue) {
                                     showBox = false;
                                     setState(() {
@@ -237,7 +237,7 @@ class _wagerAlertState extends State<wagerAlert> {
                                   style: TextStyle(
                                       fontSize: 22,
                                       fontWeight: FontWeight.bold,
-                                      color: Color.fromRGBO(255, 220, 80, 1),
+                                      color: Color.fromRGBO(240, 205, 95, 1),
                                       fontFamily: 'MTCORSVA',
                                       decoration: TextDecoration.none),
                                 ),
@@ -248,7 +248,7 @@ class _wagerAlertState extends State<wagerAlert> {
                                   style: TextStyle(
                                       fontSize: 22,
                                       fontWeight: FontWeight.bold,
-                                      color: Color.fromRGBO(255, 220, 80, 1),
+                                      color: Color.fromRGBO(240, 205, 95, 1),
                                       fontFamily: 'MTCORSVA',
                                       decoration: TextDecoration.none),
                                 ),

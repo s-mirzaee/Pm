@@ -29,6 +29,7 @@ class _HandState extends State<Hand> {
   double handSize = 50;
 
 
+
   @override
   Widget build(BuildContext context) {
     int n = ((CardList.length - 5) / 2).toInt();
@@ -62,13 +63,14 @@ class _HandState extends State<Hand> {
                             Container(
                               child: Image.asset(
                                   'assets/images/${CardList[2 * i].id}.png'),
-                              margin:
-                                  const EdgeInsets.only(left: 10, bottom: 13),
+                              margin: EdgeInsets.only(left: 10, bottom: 13),
+                              //decoration: BoxDecoration(boxShadow: [BoxShadow(color: Color.fromRGBO(240, 205, 95, 1),blurRadius: 8,offset: Offset(0, 0),spreadRadius: 5)],),
                             ),
                             Container(
                               child: Image.asset(
                                   'assets/images/${CardList[(2 * i) + 1].id}.png'),
-                              margin: const EdgeInsets.only(right: 10, top: 13),
+                              margin: EdgeInsets.only(right: 10, top: 13),
+                              //decoration: BoxDecoration(boxShadow: [BoxShadow(color: Color.fromRGBO(240, 205, 95, 1),blurRadius: 12,offset: Offset(-6, 8),spreadRadius: 0)],),
                             ),
                           ],
                         ))
