@@ -1,11 +1,9 @@
-import 'package:bustem2/GameScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/rendering.dart';
 import 'returnMoney.dart';
-import 'sliderValue.dart';
 import 'main.dart';
 import 'package:flutter/material.dart';
-import 'dart:math' as math;
+
 
 returnMoney returns = new returnMoney();
 double Min;
@@ -14,6 +12,7 @@ bool beInRange = true;
 int enterNumber = 0;
 bool showKeyboard = false;
 Color boxColor = Colors.white;
+bool showBox = true;
 
 class wagerAlert extends StatefulWidget {
   int i = staticValues.getSelect();
@@ -38,256 +37,96 @@ class _wagerAlertState extends State<wagerAlert> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(mainAxisAlignment: MainAxisAlignment.end, children: [
+    MediaQueryData queryData;
+    queryData = MediaQuery.of(context);
+    var width = queryData.size.width;
+    var height = queryData.size.height;
+    return Stack( children: [
+      if (showBox)
       InkWell(
-        child: Container(
-          color: boxColor,
-          child: Text(
-            '${enterNumber}',
-            style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w100,
-                color: Colors.black,
-                fontFamily: 'MTCORSVA',
-                decoration: TextDecoration.none),
-          ),
-          margin: EdgeInsets.only(right: 490, bottom: 30),
-          width: 65,
-          height: 35,
-        ),
-        onTap: () {
-          setState(() {
-            boxColor = Colors.white;
-            showKeyboard = !showKeyboard;
-          });
-        },
+        child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(12)),border: Border(top: BorderSide(width: 5,color: Color.fromRGBO(240, 205, 95, 1)),right: BorderSide(width: 5,color: Color.fromRGBO(240, 205, 95, 1)),left: BorderSide(width: 5,color: Color.fromRGBO(240, 205, 95, 1)),bottom: BorderSide(width: 5,color: Color.fromRGBO(240, 205, 95, 1))),),
+          child: Center(child: Text(
+          '${enterNumber}',
+          style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color: Color.fromRGBO(240, 205, 95, 1),
+              fontFamily: 'MTCORSVA',
+              decoration: TextDecoration.none),
+        ),),
+        margin: EdgeInsets.only(left: 10, top: height/2),
+        width: 65,
+        height: 35,
       ),
-      Container(
-        height: 70,
-        width: 660,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: <Widget>[
-            Container(
-              width: 60,
-              height: 100,
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'w:' + '${values.getValue(i).round()}',
-                      style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromRGBO(255, 220, 80, 1),
-                          fontFamily: 'MTCORSVA',
-                          decoration: TextDecoration.none),
-                    ),
-                    Text(
-                      'r:' +
-                          '${returns.returnCalculator(oddCalculator.getOdd(i), values.getValue(i)).round()}',
-                      style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromRGBO(255, 220, 80, 1),
-                          fontFamily: 'MTCORSVA',
-                          decoration: TextDecoration.none),
-                    ),
-                  ]),
+      onTap: () {
+        setState(() {
+          boxColor = Colors.white;
+          showKeyboard = !showKeyboard;
+        });
+      },
+      ) else Container(margin: EdgeInsets.only(top: 170,left: 10),//color: Colors.lightBlue,
+          width: 60,
+          height: 100,
+          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Text(
+            'w:' + '${values.getValue(i).round()}',textDirection: TextDirection.rtl,
+            style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: Color.fromRGBO(255, 220, 80, 1),
+            fontFamily: 'MTCORSVA',
+            decoration: TextDecoration.none),
             ),
+            Text(
+            'r:' +
+            '${returns.returnCalculator(oddCalculator.getOdd(i), values.getValue(i)).round()}',
+            style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: Color.fromRGBO(255, 220, 80, 1),
+            fontFamily: 'MTCORSVA',
+            decoration: TextDecoration.none),
+            ),
+            ]),
+            ),
+
+      Container(margin: EdgeInsets.only(top: width/3.5),//color: Colors.white,
+        width: width,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
 
             beInRange
                 //if be in range
                 ? showKeyboard
-                    ? Container(
-                        color: Colors.black,
+                    ? Container(height: 60,margin: EdgeInsets.only(top: 60,left: 8),//color: Colors.lightBlue,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: <Widget>[
-                            Container(
-                              decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(20)),
-                                  color: Color.fromRGBO(240, 205, 95, 1)),
-                              child: InkWell(
-                                child: Center(
-                                  child: Text('1'),
-                                ),
-                                onTap: () {
-                                  setState(() {
-                                    enterNumber = (enterNumber * 10) + 1;
-                                  });
-                                },
-                              ),
-                              width: 50,
-                              height: 40,
+                            for(int i=0; i<10; i++)(
+                                Container(margin: EdgeInsets.only(right: 5),
+                                  decoration: BoxDecoration(
+                                      borderRadius:
+                                      BorderRadius.all(Radius.circular(15)),
+                                      color: Color.fromRGBO(240, 205, 95, 1)),
+                                  child: InkWell(
+                                    child: Center(
+                                      child: Text('$i',style: TextStyle(fontSize: 18),),
+                                    ),
+                                    onTap: () {
+                                      setState(() {
+                                        enterNumber = (enterNumber * 10) + i;
+                                      });
+                                    },
+                                  ),
+                                  width: 44,
+                                  height: 40,
+                                )
                             ),
-                            Container(
+                            Container(margin: EdgeInsets.only(right: 4),
                               decoration: BoxDecoration(
                                   borderRadius:
-                                      BorderRadius.all(Radius.circular(20)),
-                                  color: Color.fromRGBO(240, 205, 95, 1)),
-                              child: InkWell(
-                                child: Center(
-                                  child: Text('2'),
-                                ),
-                                onTap: () {
-                                  setState(() {
-                                    enterNumber = (enterNumber * 10) + 2;
-                                  });
-                                },
-                              ),
-                              width: 50,
-                              height: 40,
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(20)),
-                                  color: Color.fromRGBO(240, 205, 95, 1)),
-                              child: InkWell(
-                                child: Center(
-                                  child: Text('3'),
-                                ),
-                                onTap: () {
-                                  setState(() {
-                                    enterNumber = (enterNumber * 10) + 3;
-                                  });
-                                },
-                              ),
-                              width: 50,
-                              height: 40,
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(20)),
-                                  color: Color.fromRGBO(240, 205, 95, 1)),
-                              child: InkWell(
-                                child: Center(
-                                  child: Text('4'),
-                                ),
-                                onTap: () {
-                                  setState(() {
-                                    enterNumber = (enterNumber * 10) + 4;
-                                  });
-                                },
-                              ),
-                              width: 50,
-                              height: 40,
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(20)),
-                                  color: Color.fromRGBO(240, 205, 95, 1)),
-                              child: InkWell(
-                                child: Center(
-                                  child: Text('5'),
-                                ),
-                                onTap: () {
-                                  setState(() {
-                                    enterNumber = (enterNumber * 10) + 5;
-                                  });
-                                },
-                              ),
-                              width: 50,
-                              height: 40,
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(20)),
-                                  color: Color.fromRGBO(240, 205, 95, 1)),
-                              child: InkWell(
-                                child: Center(
-                                  child: Text('6'),
-                                ),
-                                onTap: () {
-                                  setState(() {
-                                    enterNumber = (enterNumber * 10) + 6;
-                                  });
-                                },
-                              ),
-                              width: 50,
-                              height: 40,
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(20)),
-                                  color: Color.fromRGBO(240, 205, 95, 1)),
-                              child: InkWell(
-                                child: Center(
-                                  child: Text('7'),
-                                ),
-                                onTap: () {
-                                  setState(() {
-                                    enterNumber = (enterNumber * 10) + 7;
-                                  });
-                                },
-                              ),
-                              width: 50,
-                              height: 40,
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(20)),
-                                  color: Color.fromRGBO(240, 205, 95, 1)),
-                              child: InkWell(
-                                child: Center(
-                                  child: Text('8'),
-                                ),
-                                onTap: () {
-                                  setState(() {
-                                    enterNumber = (enterNumber * 10) + 8;
-                                  });
-                                },
-                              ),
-                              width: 50,
-                              height: 40,
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(20)),
-                                  color: Color.fromRGBO(240, 205, 95, 1)),
-                              child: InkWell(
-                                child: Center(
-                                  child: Text('9'),
-                                ),
-                                onTap: () {
-                                  setState(() {
-                                    enterNumber = (enterNumber * 10) + 9;
-                                  });
-                                },
-                              ),
-                              width: 50,
-                              height: 40,
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(20)),
-                                  color: Color.fromRGBO(240, 205, 95, 1)),
-                              child: InkWell(
-                                child: Center(
-                                  child: Text('0'),
-                                ),
-                                onTap: () {
-                                  setState(() {
-                                    enterNumber = (enterNumber * 10) + 0;
-                                  });
-                                },
-                              ),
-                              width: 50,
-                              height: 40,
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(20)),
+                                      BorderRadius.all(Radius.circular(15)),
                                   color: Color.fromRGBO(240, 205, 95, 1)),
                               child: InkWell(
                                 child: Center(
@@ -299,13 +138,13 @@ class _wagerAlertState extends State<wagerAlert> {
                                   });
                                 },
                               ),
-                              width: 50,
+                              width: 44,
                               height: 40,
                             ),
-                            Container(
+                            Container(margin: EdgeInsets.only(right: 4),
                               decoration: BoxDecoration(
                                   borderRadius:
-                                      BorderRadius.all(Radius.circular(20)),
+                                      BorderRadius.all(Radius.circular(15)),
                                   color: Color.fromRGBO(240, 205, 95, 1)),
                               child: InkWell(
                                 child: Center(
@@ -342,50 +181,26 @@ class _wagerAlertState extends State<wagerAlert> {
                                   });
                                 },
                               ),
-                              width: 50,
+                              width: 44,
                               height: 40,
                             ),
                           ],
                         ),
                       )
                     //else show keyboard
-                    : Column(
+                    : Container(margin: EdgeInsets.only(top: 53),//color: Colors.white,
+                    child: Row(
                         children: <Widget>[
-                          Row(
-                            children: <Widget>[
-                              Container(
-                                padding: EdgeInsets.only(right: 370),
-                                child: Text(
-                                  "min:" + Min.toString(),
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                      color: Color.fromRGBO(255, 220, 80, 1),
-                                      fontFamily: 'MTCORSVA',
-                                      decoration: TextDecoration.none),
-                                ),
-                              ),
-                              Container(
-                                child: Text(
-                                  "max:" + Max.toString(),
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                      color: Color.fromRGBO(255, 220, 80, 1),
-                                      fontFamily: 'MTCORSVA',
-                                      decoration: TextDecoration.none),
-                                ),
-                              ),
-                            ],
-                          ),
-                          Container(
-                            width: 500,
+                          Container(margin: EdgeInsets.only(left: 0,top: 0),
+                            width: 300,
                             child: SliderTheme(
                                 data: SliderTheme.of(context).copyWith(
-                                  trackHeight: 6.0,
+                                  //trackHeight: 1.0,
                                 ),
                                 child: Slider(
+                                  //onChangeStart: (),
                                   onChangeEnd: (double m) {
+                                    showBox = true;
                                     staticValues.setMoney((staticValues
                                             .getMoney()) -
                                         (m.round() - staticValues.getWager(i)));
@@ -403,9 +218,10 @@ class _wagerAlertState extends State<wagerAlert> {
                                   min: Min,
                                   max: Max,
                                   divisions: 10000,
-                                  activeColor: Colors.amber,
-                                  inactiveColor: Colors.grey,
+                                  activeColor: Color.fromRGBO(240, 205, 95, 1),
+                                  inactiveColor: Color.fromRGBO(240, 205, 100, 0.9),
                                   onChanged: (double newValue) {
+                                    showBox = false;
                                     setState(() {
                                       boxColor = Colors.white;
                                       values.setValue(i, newValue);
@@ -413,13 +229,39 @@ class _wagerAlertState extends State<wagerAlert> {
                                   },
                                 )),
                           ),
+                          Column(//mainAxisAlignment: MainAxisAlignment.start,
+                            children: <Widget>[
+                              Container(margin: EdgeInsets.only(right: 30),
+                                child: Text(
+                                  "min:" + Min.toString(),
+                                  style: TextStyle(
+                                      fontSize: 22,
+                                      fontWeight: FontWeight.bold,
+                                      color: Color.fromRGBO(240, 205, 95, 1),
+                                      fontFamily: 'MTCORSVA',
+                                      decoration: TextDecoration.none),
+                                ),
+                              ),
+                              Container(margin: EdgeInsets.only(right: 0,top: 0),
+                                child: Text(
+                                  "max:" + Max.toString(),
+                                  style: TextStyle(
+                                      fontSize: 22,
+                                      fontWeight: FontWeight.bold,
+                                      color: Color.fromRGBO(240, 205, 95, 1),
+                                      fontFamily: 'MTCORSVA',
+                                      decoration: TextDecoration.none),
+                                ),
+                              ),
+                            ],
+                          ),
                         ],
-                      )
+                      ),)
                 //else be in range
                 : Text(
                     "NoEnoughMoney",
                     style: TextStyle(
-                        fontSize: 10,
+                        fontSize: 30,
                         fontWeight: FontWeight.bold,
                         color: Color.fromRGBO(255, 220, 75, 1),
                         fontFamily: 'MTCORSVA',
@@ -432,3 +274,4 @@ class _wagerAlertState extends State<wagerAlert> {
     ]);
   }
 }
+

@@ -70,18 +70,7 @@ class _logoScreenState extends State<logoScreen> {
               ),
             ],
           ),
-
         ),
-
-/*        Container(
-          color: Colors.red,
-          margin: EdgeInsets.only(left: width/10,right: width/8,top: height/4),
-          child: Image.asset('assets/images/spades.png'),
-        ),
-        Container(
-          margin: EdgeInsets.only(left: width/2.7 ,top: height/2.75),
-          child: Text('Bust\n  em\npoker', style: TextStyle(fontSize: 50,fontWeight: FontWeight.normal, color: Color.fromRGBO(223, 177, 54,1) ,fontFamily: 'MTCORSVA', decoration: TextDecoration.none),
-          ),)*/
       ],
       ),
     );

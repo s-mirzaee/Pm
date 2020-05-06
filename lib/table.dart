@@ -10,10 +10,10 @@ class table extends StatelessWidget {
     queryData = MediaQuery.of(context);
     var width = queryData.size.width;
     var height = queryData.size.height;
-    var deskH_t = width / 8; //top height
-    var deskH_b = width / 6; //bottom height
-    var deskW_l = height / 5; //left width
-    var deskW_r = height / 5; //right width
+    var deskH_t = width / 9; //top height
+    var deskH_b = width / 7; //bottom height
+    var deskW_l = height / 8; //left width
+    var deskW_r = height / 8; //right width
     return Container(
       color: Colors.black,
       child: Stack(
