@@ -1,3 +1,5 @@
+import 'package:bustem2/StaticValues.dart';
+
 import 'main.dart';
 import 'package:flutter/material.dart';
 import 'cards.dart';
@@ -57,20 +59,52 @@ class _HandState extends State<Hand> {
                 child: Container(
                   child: Stack(
                     children: <Widget>[
-                      if (i > 5)
+                      if (i > (StaticValues.playerNo/2)-1 && StaticValues.isClick == true)
                         (Stack(
                           children: <Widget>[
                             Container(
                               child: Image.asset(
                                   'assets/images/${CardList[2 * i].id}.png'),
                               margin: EdgeInsets.only(left: 10, bottom: 13),
-                              //decoration: BoxDecoration(boxShadow: [BoxShadow(color: Color.fromRGBO(240, 205, 95, 1),blurRadius: 8,offset: Offset(0, 0),spreadRadius: 5)],),
+                              decoration: BoxDecoration(boxShadow: [BoxShadow(color: Color.fromRGBO(240, 205, 95, 1),blurRadius: 7,offset: Offset(0, 0),spreadRadius: 5)],),
                             ),
                             Container(
                               child: Image.asset(
                                   'assets/images/${CardList[(2 * i) + 1].id}.png'),
                               margin: EdgeInsets.only(right: 10, top: 13),
-                              //decoration: BoxDecoration(boxShadow: [BoxShadow(color: Color.fromRGBO(240, 205, 95, 1),blurRadius: 12,offset: Offset(-6, 8),spreadRadius: 0)],),
+                              decoration: BoxDecoration(boxShadow: [BoxShadow(color: Color.fromRGBO(240, 205, 95, 1),blurRadius: 11,offset: Offset(-6, 5),spreadRadius: 0)],),
+                            ),
+                          ],
+                        ))
+                      else if(i> (StaticValues.playerNo/2)-1 && StaticValues.isClick == false)(Stack(
+                        children: <Widget>[
+                          Container(
+                            child: Image.asset(
+                                'assets/images/${CardList[2 * i].id}.png'),
+                            margin: EdgeInsets.only(left: 10, bottom: 13),
+
+                          ),
+                          Container(
+                            child: Image.asset(
+                                'assets/images/${CardList[(2 * i) + 1].id}.png'),
+                            margin: EdgeInsets.only(right: 10, top: 13),
+
+                          ),
+                        ],
+                      ))
+                      else if(i< StaticValues.playerNo/2 && StaticValues.isClick == true)(Stack(
+                          children: <Widget>[
+                            Container(
+                              decoration: BoxDecoration(boxShadow: [BoxShadow(color: Color.fromRGBO(240, 205, 95, 1),blurRadius: 8,offset: Offset(0, 0),spreadRadius: 5)],),
+                              child: Image.asset(
+                                  'assets/images/${CardList[2 * i].id}.png'),
+                              margin: EdgeInsets.only(right: 10, bottom: 13),
+                            ),
+                            Container(
+                              decoration: BoxDecoration(boxShadow: [BoxShadow(color: Color.fromRGBO(240, 205, 95, 1),blurRadius: 12,offset: Offset(6, 5),spreadRadius: 0)],),
+                              child: Image.asset(
+                                  'assets/images/${CardList[(2 * i) + 1].id}.png'),
+                              margin:  EdgeInsets.only(left: 10, top: 13),
                             ),
                           ],
                         ))
@@ -136,3 +170,5 @@ class _HandState extends State<Hand> {
         ));
   }
 }
+
+

@@ -45,7 +45,7 @@ class _wagerAlertState extends State<wagerAlert> {
       if (showBox)
       InkWell(
         child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(12)),border: Border(top: BorderSide(width: 5,color: Color.fromRGBO(240, 205, 95, 1)),right: BorderSide(width: 5,color: Color.fromRGBO(240, 205, 95, 1)),left: BorderSide(width: 5,color: Color.fromRGBO(240, 205, 95, 1)),bottom: BorderSide(width: 5,color: Color.fromRGBO(240, 205, 95, 1))),),
-          child: Center(child: Text(
+          child: Text(
           '${enterNumber}',
           style: TextStyle(
               fontSize: 20,
@@ -53,10 +53,10 @@ class _wagerAlertState extends State<wagerAlert> {
               color: Color.fromRGBO(240, 205, 95, 1),
               fontFamily: 'MTCORSVA',
               decoration: TextDecoration.none),
-        ),),
-        margin: EdgeInsets.only(left: 10, top: height/2),
-        width: 65,
-        height: 35,
+        ),
+        margin: EdgeInsets.only(left: 10, top: height/2),padding: EdgeInsets.all(5),
+        //width: 75,
+        //height: 35,
       ),
       onTap: () {
         setState(() {
@@ -64,29 +64,29 @@ class _wagerAlertState extends State<wagerAlert> {
           showKeyboard = !showKeyboard;
         });
       },
-      ) else Container(margin: EdgeInsets.only(top: 170,left: 10),//color: Colors.lightBlue,
-          width: 60,
-          height: 100,
-          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-            Text(
-            'w:' + '${values.getValue(i).round()}',textDirection: TextDirection.rtl,
+      ) else Container(margin: EdgeInsets.only(top: 250,left: 320),//color: Colors.white,
+          width: 70,
+          height: 60,
+          child: Column(children: [
+            Container(child: Text(
+            'w :' + '${values.getValue(i).round()}',//textDirection: TextDirection.rtl,
             style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
-            color: Color.fromRGBO(255, 220, 80, 1),
+            color: Color.fromRGBO(240, 205, 95, 1),
             fontFamily: 'MTCORSVA',
             decoration: TextDecoration.none),
-            ),
-            Text(
-            'r:' +
+            ),height: 25,width: 70,),
+            Container(child: Text(
+            'r :' +
             '${returns.returnCalculator(oddCalculator.getOdd(i), values.getValue(i)).round()}',
             style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
-            color: Color.fromRGBO(255, 220, 80, 1),
+            color: Color.fromRGBO(240, 205, 95, 1),
             fontFamily: 'MTCORSVA',
             decoration: TextDecoration.none),
-            ),
+            ),height: 25,width: 70,),
             ]),
             ),
 
@@ -198,7 +198,6 @@ class _wagerAlertState extends State<wagerAlert> {
                                   //trackHeight: 1.0,
                                 ),
                                 child: Slider(
-                                  //onChangeStart: (),
                                   onChangeEnd: (double m) {
                                     showBox = true;
                                     staticValues.setMoney((staticValues
@@ -223,7 +222,7 @@ class _wagerAlertState extends State<wagerAlert> {
                                   onChanged: (double newValue) {
                                     showBox = false;
                                     setState(() {
-                                      boxColor = Colors.white;
+                                      //boxColor = Colors.white;
                                       values.setValue(i, newValue);
                                     });
                                   },
@@ -231,9 +230,9 @@ class _wagerAlertState extends State<wagerAlert> {
                           ),
                           Column(//mainAxisAlignment: MainAxisAlignment.start,
                             children: <Widget>[
-                              Container(margin: EdgeInsets.only(right: 30),
+                              Container( height: 25,width: 200,
                                 child: Text(
-                                  "min:" + Min.toString(),
+                                  "min :" + (Min.round()).toString(),
                                   style: TextStyle(
                                       fontSize: 22,
                                       fontWeight: FontWeight.bold,
@@ -241,10 +240,11 @@ class _wagerAlertState extends State<wagerAlert> {
                                       fontFamily: 'MTCORSVA',
                                       decoration: TextDecoration.none),
                                 ),
+                                margin: EdgeInsets.only(left: 120),
                               ),
-                              Container(margin: EdgeInsets.only(right: 0,top: 0),
+                              Container( height: 25,width: 200,
                                 child: Text(
-                                  "max:" + Max.toString(),
+                                  "max :" + (Max.round()).toString(),
                                   style: TextStyle(
                                       fontSize: 22,
                                       fontWeight: FontWeight.bold,
@@ -252,6 +252,7 @@ class _wagerAlertState extends State<wagerAlert> {
                                       fontFamily: 'MTCORSVA',
                                       decoration: TextDecoration.none),
                                 ),
+                                margin: EdgeInsets.only(left: 120),
                               ),
                             ],
                           ),
