@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
 import 'main.dart';
+import 'oddCalculator/oddsEmulator.dart';
 import 'table.dart';
 import 'package:flutter/material.dart';
 import 'cards.dart';
@@ -12,7 +13,7 @@ import 'package:flutter_shine/flutter_shine.dart';
 CardList handCard = new CardList();
 List<Cards> chooseCards = handCard.cardlist(staticValues.getPlayerNo());
 board Board = new board(chooseCards);
-
+oddsEmulator oddEmulator=new oddsEmulator();
 class StartGame extends StatefulWidget {
   @override
   _StartGameState createState() => _StartGameState();
@@ -57,6 +58,8 @@ class _GameDeskState extends State<GameDesk> {
                         if(staticValues.totalWager()!=0){
                           setState(() {
                             level++;
+                            oddEmulator.emulator();
+
                           });
                         }else{
                           setState(() {
@@ -75,6 +78,7 @@ class _GameDeskState extends State<GameDesk> {
                         }}else{
                         setState(() {
                           level++;
+                          oddEmulator.emulator();
                         });
                       }
                     }

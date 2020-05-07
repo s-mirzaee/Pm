@@ -1,9 +1,9 @@
 import 'package:custom_switch/custom_switch.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
-
 import 'main.dart';
-
+import 'oddCalculator/oddsEmulator.dart';
+oddsEmulator oddEmulator=new oddsEmulator();
 class MenuScreen extends StatefulWidget {
   @override
   _MenuScreenState createState() => _MenuScreenState();
@@ -214,9 +214,9 @@ class _HandsState extends State<Hands> {
         child: Center(
           child: DropdownButton<int>(
             value: staticValues.getPlayerNo(),
-            onChanged: (int Value) {
+            onChanged: (int value) {
               setState(() {
-                staticValues.setPlayerNo(Value);
+                staticValues.setPlayerNo(value);
               });
             },
             //maghadir momken baraye bazikonan
@@ -237,6 +237,7 @@ class _HandsState extends State<Hands> {
           staticValues.createReturn(staticValues.getPlayerNo());
           values.create(staticValues.getPlayerNo());
           oddCalculator.oddCalculator(chooseCards);
+          oddEmulator.emulator();
 
 
           Navigator.pushNamed(context,'/Game');
