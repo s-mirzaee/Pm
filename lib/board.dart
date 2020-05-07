@@ -67,21 +67,21 @@ class board {
   Widget flop() {
     int n = list.length - 5;
     return // Transform.rotate(angle: math.pi/2, child:
-        Container(height: 53.5, margin: const EdgeInsets.only(left: 230, top: 160),
-          child: Row(
-            children: <Widget>[
-              Image.asset('assets/images/${list[n].id}.png'),
-              Container(
-                width: 5,
-              ),
-              Image.asset('assets/images/${list[n + 1].id}.png'),
-              Container(
-                width: 5,
-              ),
-              Image.asset('assets/images/${list[n + 2].id}.png'),
-            ],
-          ),
-        );
+      Container(height: 53.5, margin: const EdgeInsets.only(left: 230, top: 160),
+        child: Row(
+          children: <Widget>[
+            Image.asset('assets/images/${list[n].id}.png'),
+            Container(
+              width: 5,
+            ),
+            Image.asset('assets/images/${list[n + 1].id}.png'),
+            Container(
+              width: 5,
+            ),
+            Image.asset('assets/images/${list[n + 2].id}.png'),
+          ],
+        ),
+      );
   }
 
   Widget turn() {
