@@ -25,6 +25,7 @@ void newGame() {
   chooseCards = handCard.cardlist(staticValues.getPlayerNo());
   levels = new Levels(chooseCards);
   staticValues.createWager(staticValues.getPlayerNo());
+  staticValues.createReturn(staticValues.getPlayerNo());
 
 }
 

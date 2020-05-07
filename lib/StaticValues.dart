@@ -53,6 +53,25 @@ class StaticValues {
     return selectNo;
   }
 
+
+  static List<int> returnsList = [];
+
+  void createReturn(int n) {
+    returnsList.clear();
+    for (int i = 0; i < n; i++) {
+      returnsList.add(0);
+    }
+  }
+
+  int getReturn(int n) {
+    return returnsList[n];
+  }
+
+  void setReturn(int i, int r) {
+    returnsList[i] = r;
+  }
+
+
   static List<int> wagers = [];
 
   void createWager(int n) {
@@ -89,7 +108,7 @@ class StaticValues {
     int totalMoney=0;
     for(int x=0;x<wagers.length;x++){
       if(oddCalculator.getOdd(x)==100){
-        totalMoney=totalMoney+returns.returnCalculator(oddCalculator.getOdd(x), values.getValue(x)).round();
+        totalMoney=totalMoney+getReturn(x);
       }
     }
     return totalMoney;
@@ -104,17 +123,6 @@ class StaticValues {
     }
   }
 
-  double getMin(int n) {
-    return ranges[n];
-  }
-
-  void setMin(int i, double range) {
-    ranges[i] = range;
-  }
-
-  List<double> getAllMin() {
-    return ranges;
-  }
 
   static MediaQueryData queryData;
   static double width;

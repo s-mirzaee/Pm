@@ -26,6 +26,7 @@ class Levels {
     switch (level) {
       case 0:
         {
+
           oddCalculator.oddCalculator(chooseCards);
           staticValues.setPhaseName('Flop');
 

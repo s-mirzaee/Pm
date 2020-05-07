@@ -149,7 +149,7 @@ class _HandState extends State<Hand> {
                         fontWeight: FontWeight.bold,
                         fontFamily: 'MTCORSVA',
                         decoration: TextDecoration.none),),
-                  Text("Return:"+returns.returnCalculator(oddCalculator.getOdd(i), staticValues.getWager(i).toDouble()).toStringAsFixed(0),
+                  Text("Return:"+staticValues.getReturn(i).toString(),
                     style: TextStyle(
                         fontSize: 17,
                         fontWeight: FontWeight.bold,

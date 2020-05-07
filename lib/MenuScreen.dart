@@ -234,6 +234,7 @@ class _HandsState extends State<Hands> {
         FlatButton(onPressed: () {
           staticValues.createRange(staticValues.getPlayerNo());
           staticValues.createWager(staticValues.getPlayerNo());
+          staticValues.createReturn(staticValues.getPlayerNo());
           values.create(staticValues.getPlayerNo());
           oddCalculator.oddCalculator(chooseCards);
 
