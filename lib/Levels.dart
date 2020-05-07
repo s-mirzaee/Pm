@@ -26,6 +26,7 @@ class Levels {
     switch (level) {
       case 0:
         {
+          oddCalculator.oddCalculator(chooseCards);
           staticValues.setPhaseName('Flop');
 
 
@@ -38,6 +39,7 @@ class Levels {
         break;
       case 1:
         {
+          oddCalculator.oddCalculator(chooseCards);
           staticValues.setPhaseName('Turn');
 
           return Stack(
@@ -50,6 +52,7 @@ class Levels {
         break;
       case 2:
         {
+          oddCalculator.oddCalculator(chooseCards);
          staticValues.setPhaseName('River');
 
           return Stack(
@@ -63,6 +66,7 @@ class Levels {
         break;
       case 3:
         {
+          oddCalculator.oddCalculator(chooseCards);
           staticValues.setPhaseName('Finish');
 
           return Stack(
@@ -77,6 +81,7 @@ class Levels {
         }
         break;
       case 4:{
+        oddCalculator.oddCalculator(chooseCards);
         staticValues.setPhaseName('Play Again');
         return logoScreen();
       }break;

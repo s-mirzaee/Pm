@@ -106,7 +106,7 @@ class board {
       margin: const EdgeInsets.only(left: 413, top: 160),
       child: Row(
         children: <Widget>[
-          Image.asset('assets/images/${list[1].id}.png'),
+          Image.asset('assets/images/${list[n-1].id}.png'),
         ],
       ),
     );
