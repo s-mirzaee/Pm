@@ -1,4 +1,5 @@
 import 'package:bustem2/LogoScreen.dart';
+import 'package:bustem2/oddCalculator/oddsEmulator.dart';
 import 'package:flutter/material.dart';
 import 'Levels.dart';
 import 'board.dart';
@@ -19,6 +20,7 @@ CardList handCard = new CardList();
 List<Cards> chooseCards = handCard.cardlist(staticValues.getPlayerNo());
 board Board = new board(chooseCards);
 Levels levels = new Levels(chooseCards);
+
 void newGame() {
   level = 0;
   handCard = new CardList();

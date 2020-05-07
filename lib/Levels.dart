@@ -1,5 +1,6 @@
 import 'package:bustem2/LogoScreen.dart';
 
+import 'oddCalculator/oddsEmulator.dart';
 import 'wagerAlert.dart';
 
 import 'finish.dart';
@@ -15,7 +16,7 @@ class Levels {
 
   Levels(this.chooseCards);
 
-
+  oddsEmulator oddEmulator=new oddsEmulator();
 
 
 
@@ -26,7 +27,7 @@ class Levels {
     switch (level) {
       case 0:
         {
-
+oddEmulator.emulator();
           oddCalculator.oddCalculator(chooseCards);
           staticValues.setPhaseName('Flop');
 

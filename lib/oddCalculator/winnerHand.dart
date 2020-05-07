@@ -14,10 +14,10 @@ class winnerHand{
     int n = ((list.length - 5) / 2).toInt();
     value.clear();
     for(int i=0;i<n;i++){
-      print(list[2*i].rank+".."+list[(2*i)+1].rank+"...every hand");
+      //print(list[2*i].rank+".."+list[(2*i)+1].rank+"...every hand");
      value.add(r.ranking([list[2*i],list[(2*i)+1]], center));
     }
-    print(value.toString()+"final result");
+   // print(value.toString()+"final result");
 equals.clear();
     List<int> bySort=List.from(value);
     bySort.sort();

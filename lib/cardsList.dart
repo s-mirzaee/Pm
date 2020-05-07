@@ -1,3 +1,5 @@
+import 'package:bustem2/main.dart';
+
 import 'cards.dart';
 
 
@@ -65,8 +67,9 @@ class CardList {
 //list card haye random ro mide
   List cardlist(int palyerNo) {
     int n = (2 * palyerNo) + 5;
-    var list = new List<int>.generate(52, (int index) => index);
+    List<int> list = new List<int>.generate(52, (int index) => index);
     list.shuffle();
+    staticValues.setShuffle(list);
     print(list);
     List<Cards> handList = new List();
     for (int i = 0; i < n; i++) {

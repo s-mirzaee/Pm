@@ -15,10 +15,6 @@ class odds{
     for(int i=0;i<n;i++){
       handOddes.add(100/n);
     }
-    if(level==2){
-      for(int j=0;j<handOddes.length;j++){
-        handOddes[j]=handOddes[j]+10;
-      }}
     if(level==3){
       for(int j=0;j<winners.length;j++){
         handOddes[winners[j]]=100;
@@ -28,5 +24,8 @@ class odds{
   }
   double getOdd(int i){
     return handOddes[i];
+  }
+  void setOdd(int i,double o){
+    handOddes[i]=o;
   }
 }

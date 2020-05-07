@@ -122,6 +122,13 @@ class StaticValues {
       ranges.add(0);
     }
   }
+  static List<int> shuffles=[];
+  void setShuffle(List<int> l){
+    shuffles=l;
+  }
+  List<int> getShuffle(){
+    return shuffles;
+  }
 
 
   static MediaQueryData queryData;
