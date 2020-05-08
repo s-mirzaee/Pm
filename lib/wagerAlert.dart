@@ -19,7 +19,7 @@ class wagerAlert extends StatefulWidget {
   wagerAlert() {
     Max = staticValues.getMoney();
     print("0" + "==========" + Max.toString());
-    if ( values.getValue(i) > Max) {
+    if ( Max==0 ) {
       beInRange = false;
     }
   }
@@ -43,6 +43,8 @@ class _wagerAlertState extends State<wagerAlert> {
       if (showBox)
         InkWell(
           child: Container(
+            width: 70,
+            height: 40,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(12)),
               border: Border(

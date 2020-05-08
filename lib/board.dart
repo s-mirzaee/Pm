@@ -14,7 +14,6 @@ class board {
   Widget hands() {
 
     int n = ((list.length - 5) / 2).toInt();
-print("%%%%%%%%%"+n.toString());
     return Container(
       child: Stack(
         children: <Widget>[
@@ -26,7 +25,6 @@ print("%%%%%%%%%"+n.toString());
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
 
-                    //TODO PUT WAGER
                     Container(
                       margin: EdgeInsets.only(left: 40),
                       child: Text(

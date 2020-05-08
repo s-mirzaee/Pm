@@ -235,7 +235,6 @@ class _HandsState extends State<Hands> {
         FlatButton(onPressed: () {
 
           level = 0;
-          print("!!!!!!!!!!!!!!!!!!"+staticValues.getPlayerNo().toString());
           staticValues.createRange(staticValues.getPlayerNo());
           staticValues.createWager(staticValues.getPlayerNo());
           staticValues.createReturn(staticValues.getPlayerNo());

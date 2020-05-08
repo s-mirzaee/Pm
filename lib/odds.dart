@@ -1,4 +1,4 @@
-//TODO odds calculator
+
 //odds ro mohasebe mikone
 
 import 'package:bustem2/main.dart';

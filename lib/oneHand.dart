@@ -9,7 +9,7 @@ import 'size.dart';
 import 'wagerAlert.dart';
 
 //olgo koli yek daste ke do ta card to yek container va darsad ham zireshe
-//TODO fix size******************
+
 
 class Hand extends StatefulWidget {
   int i;
@@ -40,7 +40,6 @@ class _HandState extends State<Hand> {
     List<double> tops = Size.tops();
     return Container(
 
-      //TODO size goshi ro bezan
 //bayaf full screen bashe
         width: 670,
         height: 400,
@@ -50,7 +49,7 @@ class _HandState extends State<Hand> {
               margin: EdgeInsets.only(left: lefts[i], top: tops[i]),
               child: InkWell(
                 onTap: () {
-                  //TODO select shodan dast
+
                   staticValues.setSelect(i);
                   setState(() {
                     staticValues.setIsClick();
