@@ -11,8 +11,6 @@ import 'package:flutter_shine/flutter_shine.dart';
 
 
 CardList handCard = new CardList();
-List<Cards> chooseCards = handCard.cardlist(staticValues.getPlayerNo());
-board Board = new board(chooseCards);
 oddsEmulator oddEmulator=new oddsEmulator();
 class StartGame extends StatefulWidget {
   @override

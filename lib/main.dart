@@ -18,16 +18,17 @@ odds oddCalculator=new odds();
 int level = 0;
 CardList handCard = new CardList();
 List<Cards> chooseCards = handCard.cardlist(staticValues.getPlayerNo());
-board Board = new board(chooseCards);
 Levels levels = new Levels(chooseCards);
-
+board Board = new board(chooseCards);
 void newGame() {
-  level = 0;
-  handCard = new CardList();
+  staticValues=new StaticValues();
+  values=new sliderValue();
+  oddCalculator=new odds();
+   level = 0;
+  CardList handCard = new CardList();
   chooseCards = handCard.cardlist(staticValues.getPlayerNo());
+  Board = new board(chooseCards);
   levels = new Levels(chooseCards);
-  staticValues.createWager(staticValues.getPlayerNo());
-  staticValues.createReturn(staticValues.getPlayerNo());
 
 }
 

@@ -32,7 +32,7 @@ equals.clear();
       //TODO equals
 
     }
-    print(equals.toString()+"winners");
+    //print(equals.toString()+"winners");
     return equals;
   }
 

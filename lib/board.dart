@@ -12,8 +12,9 @@ class board {
 
 
   Widget hands() {
-    int n = ((list.length - 5) / 2).toInt();
 
+    int n = ((list.length - 5) / 2).toInt();
+print("%%%%%%%%%"+n.toString());
     return Container(
       child: Stack(
         children: <Widget>[

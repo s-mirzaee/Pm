@@ -1,6 +1,7 @@
 import 'package:custom_switch/custom_switch.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
+import 'board.dart';
 import 'main.dart';
 import 'oddCalculator/oddsEmulator.dart';
 oddsEmulator oddEmulator=new oddsEmulator();
@@ -232,11 +233,14 @@ class _HandsState extends State<Hands> {
       ),
       actions: <Widget>[
         FlatButton(onPressed: () {
+          print("!!!!!!!!!!!!!!!!!!"+staticValues.getPlayerNo().toString());
           staticValues.createRange(staticValues.getPlayerNo());
           staticValues.createWager(staticValues.getPlayerNo());
           staticValues.createReturn(staticValues.getPlayerNo());
           values.create(staticValues.getPlayerNo());
+          chooseCards = handCard.cardlist(staticValues.getPlayerNo());
           oddCalculator.oddCalculator(chooseCards);
+          print(chooseCards.length.toString());
           oddEmulator.emulator();
 
 

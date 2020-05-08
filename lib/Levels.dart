@@ -15,7 +15,7 @@ class Levels {
 
 
   Widget levelUp(int level) {
-    board Board = new board(chooseCards);
+
 
     switch (level) {
       case 0:
