@@ -308,17 +308,18 @@ class _wagerAlertState extends State<wagerAlert> {
                           ],
                         ),
                       )
-                //else be in range
-                : Text(
+
+                : Container(child: Text(
                     "NoEnoughMoney",
                     style: TextStyle(
-                        fontSize: 30,
+                        fontSize: 27,
                         fontWeight: FontWeight.bold,
                         color: Color.fromRGBO(255, 220, 75, 1),
                         fontFamily: 'MTCORSVA',
                         decoration: TextDecoration.none),
                   ),
-            //Text(ranges.getMax(i).toString())
+              margin: EdgeInsets.only(top: 60,left: 230),
+                  ),
           ],
         ),
       )
