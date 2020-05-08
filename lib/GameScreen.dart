@@ -48,10 +48,6 @@ class _GameDeskState extends State<GameDesk> {
                 padding: EdgeInsets.only(top: 350, left: 598),
                 child: InkWell(highlightColor: Colors.white,
                   onTap: () {
-                    if (level == 4) {
-                      //TODO
-                      newGame();
-                    } else {
                       if(level==0){
                         if(staticValues.totalWager()!=0){
                           setState(() {
@@ -79,7 +75,7 @@ class _GameDeskState extends State<GameDesk> {
                           oddEmulator.emulator();
                         });
                       }
-                    }
+
                   },
                   child:level<4?Container(decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(12)),border: Border(top: BorderSide(width: 5,color: Color.fromRGBO(240, 205, 95, 1)),right: BorderSide(width: 5,color: Color.fromRGBO(240, 205, 95, 1)),left: BorderSide(width: 5,color: Color.fromRGBO(240, 205, 95, 1)),bottom: BorderSide(width: 5,color: Color.fromRGBO(240, 205, 95, 1))),),
                       child: Container(padding: EdgeInsets.only(left: 2,right: 8,bottom: 5),//color: Colors.white,

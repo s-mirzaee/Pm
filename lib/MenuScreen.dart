@@ -233,6 +233,8 @@ class _HandsState extends State<Hands> {
       ),
       actions: <Widget>[
         FlatButton(onPressed: () {
+
+          level = 0;
           print("!!!!!!!!!!!!!!!!!!"+staticValues.getPlayerNo().toString());
           staticValues.createRange(staticValues.getPlayerNo());
           staticValues.createWager(staticValues.getPlayerNo());
@@ -240,6 +242,7 @@ class _HandsState extends State<Hands> {
           values.create(staticValues.getPlayerNo());
           chooseCards = handCard.cardlist(staticValues.getPlayerNo());
           oddCalculator.oddCalculator(chooseCards);
+          Board=new board(chooseCards);
           print(chooseCards.length.toString());
           oddEmulator.emulator();
 

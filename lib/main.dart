@@ -20,17 +20,6 @@ CardList handCard = new CardList();
 List<Cards> chooseCards = handCard.cardlist(staticValues.getPlayerNo());
 Levels levels = new Levels(chooseCards);
 board Board = new board(chooseCards);
-void newGame() {
-  staticValues=new StaticValues();
-  values=new sliderValue();
-  oddCalculator=new odds();
-   level = 0;
-  CardList handCard = new CardList();
-  chooseCards = handCard.cardlist(staticValues.getPlayerNo());
-  Board = new board(chooseCards);
-  levels = new Levels(chooseCards);
-
-}
 
 
 class RunApp extends StatelessWidget {

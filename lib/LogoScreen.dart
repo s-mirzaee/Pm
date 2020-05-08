@@ -54,7 +54,6 @@ class _logoScreenState extends State<logoScreen> {
                     decoration: TextDecoration.none),),
               InkWell(
                 onTap: (){
-                  newGame();
                   Route route = MaterialPageRoute(builder: (context) => MenuScreen());
                   Navigator.push(context, route);
                 },
