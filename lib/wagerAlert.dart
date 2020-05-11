@@ -52,13 +52,13 @@ class _wagerAlertState extends State<wagerAlert> {
               borderRadius: BorderRadius.all(Radius.circular(12)),
               border: Border(
                   top: BorderSide(
-                      width: 5, color: Color.fromRGBO(240, 205, 95, 1)),
+                      width: 5, color: boxColor),
                   right: BorderSide(
-                      width: 5, color: Color.fromRGBO(240, 205, 95, 1)),
+                      width: 5, color: boxColor),
                   left: BorderSide(
-                      width: 5, color: Color.fromRGBO(240, 205, 95, 1)),
+                      width: 5, color: boxColor),
                   bottom: BorderSide(
-                      width: 5, color: Color.fromRGBO(240, 205, 95, 1))),
+                      width: 5, color: boxColor)),
             ),
             child: Text(
               '${enterNumber}',
@@ -94,7 +94,7 @@ class _wagerAlertState extends State<wagerAlert> {
                 style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: boxColor,
+                    color: Color.fromRGBO(240, 205, 95, 1),
                     fontFamily: 'MTCORSVA',
                     decoration: TextDecoration.none),
               ),
@@ -219,7 +219,7 @@ class _wagerAlertState extends State<wagerAlert> {
                                       main();
                                     } else if(enterNumber > Max) {
                                       setState(() {
-                                        boxColor = Colors.redAccent;
+                                        boxColor = Colors.red;
                                         showKeyboard = !showKeyboard;
                                         enterNumber = 0;
                                       });
@@ -267,6 +267,7 @@ class _wagerAlertState extends State<wagerAlert> {
                                     inactiveColor:
                                         Color.fromRGBO(240, 205, 100, 0.9),
                                     onChanged: (double newValue) {
+                                      boxColor = Color.fromRGBO(240, 205, 95, 1);
                                       showBox = false;
                                       setState(() {
                                         //boxColor = Colors.white;

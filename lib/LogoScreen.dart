@@ -50,6 +50,7 @@ class _logoScreenState extends State<logoScreen> {
                   setState(() {
                     if(winAmount>0)
                       (staticValues.setMoney(staticValues.getMoney()+winAmount));
+
                     });
                   Route route = MaterialPageRoute(builder: (context) => MenuScreen());
                   Navigator.push(context, route);
