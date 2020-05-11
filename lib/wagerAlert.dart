@@ -20,9 +20,10 @@ class wagerAlert extends StatefulWidget {
 
   wagerAlert() {
     Max = staticValues.getMoney();
-    print("0" + "==========" + Max.toString());
+    //print("0" + "==========" + Max.toString());
     if ( Max==0 ) {
       beInRange = false;
+      boxShow = false;
     }
   }
 
@@ -80,7 +81,7 @@ class _wagerAlertState extends State<wagerAlert> {
             });
           },
         )
-      else
+      else if(showBox==false)
         Container(
           margin: EdgeInsets.only(top: 250, left: 320), //color: Colors.white,
           width: 70,
@@ -312,7 +313,7 @@ class _wagerAlertState extends State<wagerAlert> {
                       )
 
                 : Container(child: Text(
-                    "NoEnoughMoney",
+                    "No Enough Money",
                     style: TextStyle(
                         fontSize: 27,
                         fontWeight: FontWeight.bold,
@@ -328,3 +329,4 @@ class _wagerAlertState extends State<wagerAlert> {
     ]);
   }
 }
+

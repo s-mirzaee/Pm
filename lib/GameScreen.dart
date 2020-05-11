@@ -1,13 +1,10 @@
 import 'package:flutter/cupertino.dart';
-
 import 'main.dart';
 import 'oddCalculator/oddsEmulator.dart';
 import 'table.dart';
 import 'package:flutter/material.dart';
-import 'cards.dart';
-import 'board.dart';
 import 'cardsList.dart';
-import 'package:flutter_shine/flutter_shine.dart';
+
 
 
 CardList handCard = new CardList();
@@ -80,7 +77,7 @@ class _GameDeskState extends State<GameDesk> {
                   child:level<4?Container(decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(12)),border: Border(top: BorderSide(width: 5,color: Color.fromRGBO(240, 205, 95, 1)),right: BorderSide(width: 5,color: Color.fromRGBO(240, 205, 95, 1)),left: BorderSide(width: 5,color: Color.fromRGBO(240, 205, 95, 1)),bottom: BorderSide(width: 5,color: Color.fromRGBO(240, 205, 95, 1))),),
                       child: Container(padding: EdgeInsets.only(left: 2,right: 8,bottom: 5),//color: Colors.white,
                         child: Text(
-                          "${staticValues.getPaseName()}",textDirection: TextDirection.rtl,
+                          "${staticValues.getPhaseName()}",textDirection: TextDirection.rtl,
                           style: TextStyle(
                               color: Color.fromRGBO(255, 220, 80, 1),
                               fontSize: 28,

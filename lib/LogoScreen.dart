@@ -18,6 +18,7 @@ class _logoScreenState extends State<logoScreen> {
     MediaQueryData queryData = MediaQuery.of(context);
     var width = queryData.size.width;
     var height = queryData.size.height;
+    var winAmount = staticValues.totalReturn();
     return MaterialApp(
       debugShowCheckedModeBanner: false,
 
@@ -38,21 +39,18 @@ class _logoScreenState extends State<logoScreen> {
               color: Colors.black,
               fontFamily: 'MTCORSVA',
               decoration: TextDecoration.none),),
-              Text('\$ ${staticValues.totalReturn()-staticValues.totalWager()}',  style: TextStyle(
+              Text('\$$winAmount',  style: TextStyle(
                   fontSize: 40,
                   fontWeight: FontWeight.bold,
                   color: Colors.black,
                   fontFamily: 'MTCORSVA',
                   decoration: TextDecoration.none),),
-              /*Text ('in this game',
-                style: TextStyle(
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                    fontFamily: 'MTCORSVA',
-                    decoration: TextDecoration.none),),*/
               InkWell(
                 onTap: (){
+                  setState(() {
+                    if(winAmount>0)
+                      (staticValues.setMoney(staticValues.getMoney()+winAmount));
+                    });
                   Route route = MaterialPageRoute(builder: (context) => MenuScreen());
                   Navigator.push(context, route);
                 },

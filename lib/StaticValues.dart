@@ -29,7 +29,7 @@ class StaticValues {
     paseName = name;
   }
 
-  String getPaseName() {
+  String getPhaseName() {
     return paseName;
   }
 
