@@ -65,7 +65,7 @@ class board {
 
   Widget flop() {
     int n = list.length - 5;
-    return // Transform.rotate(angle: math.pi/2, child:
+    return
       Container(height: 53.5, margin: const EdgeInsets.only(left: 230, top: 160),
         child: Row(
           children: <Widget>[

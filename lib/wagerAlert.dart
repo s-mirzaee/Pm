@@ -10,8 +10,10 @@ double Max;
 bool beInRange = true;
 int enterNumber = 0;
 bool showKeyboard = false;
-Color boxColor = Colors.white;
+Color boxColor = Color.fromRGBO(240, 205, 95, 1);
 bool showBox = true;
+bool boxShow = true;
+
 
 class wagerAlert extends StatefulWidget {
   int i = staticValues.getSelect();
@@ -40,7 +42,7 @@ class _wagerAlertState extends State<wagerAlert> {
     var width = queryData.size.width;
     var height = queryData.size.height;
     return Stack(children: [
-      if (showBox)
+      if (showBox && boxShow)
         InkWell(
           child: Container(
             width: 70,
@@ -73,7 +75,7 @@ class _wagerAlertState extends State<wagerAlert> {
           ),
           onTap: () {
             setState(() {
-              boxColor = Colors.white;
+              boxColor = Color.fromRGBO(240, 205, 95, 1);
               showKeyboard = !showKeyboard;
             });
           },
@@ -91,7 +93,7 @@ class _wagerAlertState extends State<wagerAlert> {
                 style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: Color.fromRGBO(240, 205, 95, 1),
+                    color: boxColor,
                     fontFamily: 'MTCORSVA',
                     decoration: TextDecoration.none),
               ),
@@ -130,7 +132,7 @@ class _wagerAlertState extends State<wagerAlert> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: <Widget>[
-                            for (int i = 1; i < 10; i++)
+                            for (int i = 0; i < 10; i++)
                               (Container(
                                 margin: EdgeInsets.only(right: 5),
                                 decoration: BoxDecoration(
@@ -141,7 +143,7 @@ class _wagerAlertState extends State<wagerAlert> {
                                   child: Center(
                                     child: Text(
                                       '$i',
-                                      style: TextStyle(fontSize: 18),
+                                      style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'MTCORSVA'),
                                     ),
                                   ),
                                   onTap: () {
@@ -153,7 +155,7 @@ class _wagerAlertState extends State<wagerAlert> {
                                 width: 44,
                                 height: 40,
                               )),
-                            Container(
+                            /*Container(
                               margin: EdgeInsets.only(right: 4),
                               decoration: BoxDecoration(
                                   borderRadius:
@@ -171,7 +173,7 @@ class _wagerAlertState extends State<wagerAlert> {
                               ),
                               width: 44,
                               height: 40,
-                            ),
+                            ),*/
                             Container(
                               margin: EdgeInsets.only(right: 4),
                               decoration: BoxDecoration(
@@ -214,7 +216,7 @@ class _wagerAlertState extends State<wagerAlert> {
                                       Max =staticValues.getMoney();
                                       showKeyboard = !showKeyboard;
                                       main();
-                                    } else {
+                                    } else if(enterNumber > Max) {
                                       setState(() {
                                         boxColor = Colors.redAccent;
                                         showKeyboard = !showKeyboard;
@@ -322,7 +324,7 @@ class _wagerAlertState extends State<wagerAlert> {
                   ),
           ],
         ),
-      )
+      ),
     ]);
   }
 }

@@ -62,8 +62,8 @@ class _GameDeskState extends State<GameDesk> {
                               builder: (context) {
                                 return AlertDialog(backgroundColor: Color.fromRGBO(255, 220, 80, 1),
 
-                                    content: Container(width: 230,height: 30,child: Center(child: Text('at least,bet on a hand',style:
-                                    TextStyle(fontFamily: 'MTCORSVA',fontSize: 25,fontWeight: FontWeight.w500),),)
+                                    content: Container(width: 230,height: 30,child: Center(child: Text('bet at least on a hand',style:
+                                    TextStyle(fontFamily: 'MTCORSVA',fontSize: 25,fontWeight: FontWeight.w600),),)
                                     )
                                 );
                               },

@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 class returnMoney{
 
   double returnCalculator(double percent,double wager){
@@ -7,5 +6,7 @@ class returnMoney{
     return returnMoney;
 
   }
+
+  //double updateMoney(double won)
 
 }

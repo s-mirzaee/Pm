@@ -2,7 +2,6 @@ import 'package:bustem2/LogoScreen.dart';
 import 'cards.dart';
 import 'main.dart';
 import 'package:flutter/cupertino.dart';
-import 'board.dart';
 
 class Levels {
   List<Cards> chooseCards;
@@ -62,7 +61,7 @@ class Levels {
       case 3:
         {
           oddCalculator.oddCalculator(chooseCards);
-          staticValues.setPhaseName('Finish');
+          staticValues.setPhaseName('Result');
 
           return Stack(
             children: <Widget>[

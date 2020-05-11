@@ -4,10 +4,9 @@ import 'main.dart';
 import 'package:bustem2/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'MenuScreen.dart';
 
-//void main() => (runApp(first()));
+
 class logoScreen extends StatefulWidget {
   @override
   _logoScreenState createState() => _logoScreenState();
@@ -32,39 +31,42 @@ class _logoScreenState extends State<logoScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text('You Wone:',
+              Text('You Won :',
                 style: TextStyle(
-              fontSize: 40,
+              fontSize: 38,
               fontWeight: FontWeight.bold,
               color: Colors.black,
               fontFamily: 'MTCORSVA',
               decoration: TextDecoration.none),),
-              Text('${staticValues.totalReturn()-staticValues.totalWager()}',  style: TextStyle(
+              Text('\$ ${staticValues.totalReturn()-staticValues.totalWager()}',  style: TextStyle(
                   fontSize: 40,
                   fontWeight: FontWeight.bold,
                   color: Colors.black,
                   fontFamily: 'MTCORSVA',
                   decoration: TextDecoration.none),),
-              Text ('in this game',
+              /*Text ('in this game',
                 style: TextStyle(
                     fontSize: 40,
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
                     fontFamily: 'MTCORSVA',
-                    decoration: TextDecoration.none),),
+                    decoration: TextDecoration.none),),*/
               InkWell(
                 onTap: (){
                   Route route = MaterialPageRoute(builder: (context) => MenuScreen());
                   Navigator.push(context, route);
                 },
-                child: Container(
-                    child:Text('Play Again',
+                child: Container(//color: Colors.black12,
+                    child: Center( child: Text('Play Again',
                       style: TextStyle(
-                          fontSize: 50,
+                          fontSize: 40,
                           fontWeight: FontWeight.bold,
-                          color: Colors.black,
+                          color: Color.fromRGBO(240, 195, 85, 1),
                           fontFamily: 'MTCORSVA',
-                          decoration: TextDecoration.none),)
+                          decoration: TextDecoration.none),),),
+                  decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(10),),boxShadow: [BoxShadow(color: Colors.black45, spreadRadius: 1.5, offset: Offset(2, 4))],color: Colors.black,),
+                  margin: EdgeInsets.only(top: 50),
+                  height: 70,width: 210,
                 ),
               ),
             ],
