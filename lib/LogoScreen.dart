@@ -1,4 +1,6 @@
 
+import 'dart:io';
+
 import 'GameScreen.dart';
 import 'main.dart';
 import 'package:bustem2/main.dart';
@@ -45,17 +47,22 @@ class _logoScreenState extends State<logoScreen> {
                   color: Colors.black,
                   fontFamily: 'MTCORSVA',
                   decoration: TextDecoration.none),),
-              InkWell(
-                onTap: (){
-                  setState(() {
-                    if(winAmount>0)
-                      (staticValues.setMoney(staticValues.getMoney()+winAmount));
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+
+                InkWell(
+                  onTap: (){
+                    setState(() {
+                      if(winAmount>0)
+                        (staticValues.setMoney(staticValues.getMoney()+winAmount));
 
                     });
-                  Route route = MaterialPageRoute(builder: (context) => MenuScreen());
-                  Navigator.push(context, route);
-                },
-                child: Container(//color: Colors.black12,
+
+                    Route route = MaterialPageRoute(builder: (context) => MenuScreen());
+                    Navigator.push(context, route);
+                  },
+                  child: Container(//color: Colors.black12,
                     child: Center( child: Text('Play Again',
                       style: TextStyle(
                           fontSize: 40,
@@ -63,11 +70,35 @@ class _logoScreenState extends State<logoScreen> {
                           color: Color.fromRGBO(240, 195, 85, 1),
                           fontFamily: 'MTCORSVA',
                           decoration: TextDecoration.none),),),
-                  decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(10),),boxShadow: [BoxShadow(color: Colors.black45, spreadRadius: 1.5, offset: Offset(2, 4))],color: Colors.black,),
-                  margin: EdgeInsets.only(top: 50),
-                  height: 70,width: 210,
+                    decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(10),),boxShadow: [BoxShadow(color: Colors.black45, spreadRadius: 1.5, offset: Offset(2, 4))],color: Colors.black,),
+                    margin: EdgeInsets.only(top: 50),
+                    height: 70,width: 210,
+                  ),
                 ),
-              ),
+                InkWell(
+                  onTap: (){
+                    setState(() {
+                      if(winAmount>0)
+                        (staticValues.setMoney(staticValues.getMoney()+winAmount));
+
+                    });
+                    exit(0);
+                  },
+                  child: Container(//color: Colors.black12,
+                    child: Center( child: Text('Quit',
+                      style: TextStyle(
+                          fontSize: 40,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromRGBO(240, 195, 85, 1),
+                          fontFamily: 'MTCORSVA',
+                          decoration: TextDecoration.none),),),
+                    decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(10),),boxShadow: [BoxShadow(color: Colors.black45, spreadRadius: 1.5, offset: Offset(2, 4))],color: Colors.black,),
+                    margin: EdgeInsets.only(top: 50),
+                    height: 70,width: 210,
+                  ),
+                ),
+              ],)
+
             ],
           ),
         ),

@@ -1,3 +1,6 @@
+
+import 'dart:math';
+
 import 'package:bustem2/main.dart';
 
 import 'cards.dart';
@@ -7,67 +10,80 @@ import 'cards.dart';
 class CardList {
   List<Cards> cards = [
     //heart
-    Cards('1', 'heart', 'Ah'),
-    Cards('2', 'heart', '2h'),
-    Cards('3', 'heart', '3h'),
-    Cards('4', 'heart', '4h'),
-    Cards('5', 'heart', '5h'),
-    Cards('6', 'heart', '6h'),
-    Cards('7', 'heart', '7h'),
-    Cards('8', 'heart', '8h'),
-    Cards('9', 'heart', '9h'),
-    Cards('10', 'heart', '10h'),
-    Cards('jack', 'heart', 'Jh'),
-    Cards('queen', 'heart', 'Qh'),
-    Cards('king', 'heart', 'Kh'),
+
+    Cards(1, 'heart', 'ha'),
+    Cards(2, 'heart', 'hb'),
+    Cards(3, 'heart', 'hc'),
+    Cards(4, 'heart', 'hd'),
+    Cards(5, 'heart', 'he'),
+    Cards(6, 'heart', 'hf'),
+    Cards(7, 'heart', 'hg'),
+    Cards(8, 'heart', 'hh'),
+    Cards(9, 'heart', 'hi'),
+    Cards(10, 'heart', 'hj'),
+    Cards(11, 'heart', 'hk'),
+    Cards(12, 'heart', 'hl'),
+    Cards(13, 'heart', 'hm'),
     //spade
-    Cards('1', 'spade', 'As'),
-    Cards('2', 'spade', '2s'),
-    Cards('3', 'spade', '3s'),
-    Cards('4', 'spade', '4s'),
-    Cards('5', 'spade', '5s'),
-    Cards('6', 'spade', '6s'),
-    Cards('7', 'spade', '7s'),
-    Cards('8', 'spade', '8s'),
-    Cards('9', 'spade', '9s'),
-    Cards('10', 'spade', '10s'),
-    Cards('jack', 'spade', 'Js'),
-    Cards('queen', 'spade', 'Qs'),
-    Cards('king', 'spade', 'Ks'),
+
+    Cards(1, 'spade', 'sa'),
+    Cards(2, 'spade', 'sb'),
+    Cards(3, 'spade', 'sc'),
+    Cards(4, 'spade', 'sd'),
+    Cards(5, 'spade', 'se'),
+    Cards(6, 'spade', 'sf'),
+    Cards(7, 'spade', 'sg'),
+    Cards(8, 'spade', 'sh'),
+    Cards(9, 'spade', 'si'),
+    Cards(10, 'spade', 'sj'),
+    Cards(11, 'spade', 'sk'),
+    Cards(12, 'spade', 'sl'),
+    Cards(13, 'spade', 'sm'),
     //diamond
-    Cards('1', 'diamond', 'Ad'),
-    Cards('2', 'diamond', '2d'),
-    Cards('3', 'diamond', '3d'),
-    Cards('4', 'diamond', '4d'),
-    Cards('5', 'diamond', '5d'),
-    Cards('6', 'diamond', '6d'),
-    Cards('7', 'diamond', '7d'),
-    Cards('8', 'diamond', '8d'),
-    Cards('9', 'diamond', '9d'),
-    Cards('10', 'diamond', '10d'),
-    Cards('jack', 'diamond', 'Jd'),
-    Cards('queen', 'diamond', 'Qd'),
-    Cards('king', 'diamond', 'Kd'),
+
+    Cards(1, 'diamond', 'da'),
+    Cards(2, 'diamond', 'db'),
+    Cards(3, 'diamond', 'dc'),
+    Cards(4, 'diamond', 'dd'),
+    Cards(5, 'diamond', 'de'),
+    Cards(6, 'diamond', 'df'),
+    Cards(7, 'diamond', 'dg'),
+    Cards(8, 'diamond', 'dh'),
+    Cards(9, 'diamond', 'di'),
+    Cards(10, 'diamond', 'dj'),
+    Cards(11, 'diamond', 'dk'),
+    Cards(12, 'diamond', 'dl'),
+    Cards(13, 'diamond', 'dm'),
     //club
-    Cards('1', 'club', 'Ac'),
-    Cards('2', 'club', '2c'),
-    Cards('3', 'club', '3c'),
-    Cards('4', 'club', '4c'),
-    Cards('5', 'club', '5c'),
-    Cards('6', 'club', '6c'),
-    Cards('7', 'club', '7c'),
-    Cards('8', 'club', '8c'),
-    Cards('9', 'club', '9c'),
-    Cards('10', 'club', '10c'),
-    Cards('jack', 'club', 'Jc'),
-    Cards('queen', 'club', 'Qc'),
-    Cards('king', 'club', 'Kc')
+
+    Cards(1, 'club', 'ca'),
+    Cards(2, 'club', 'cb'),
+    Cards(3, 'club', 'cc'),
+    Cards(4, 'club', 'cd'),
+    Cards(5, 'club', 'ce'),
+    Cards(6, 'club', 'cf'),
+    Cards(7, 'club', 'cg'),
+    Cards(8, 'club', 'ch'),
+    Cards(9, 'club', 'ci'),
+    Cards(10, 'club', 'cj'),
+    Cards(11, 'club', 'ck'),
+    Cards(12, 'club', 'cl'),
+    Cards(13, 'club', 'cm')
   ];
 
 //list card haye random ro mide
   List cardlist(int palyerNo) {
     int n = (2 * palyerNo) + 5;
     List<int> list = new List<int>.generate(52, (int index) => index);
+ // list.shuffle();
+
+    var random = new Random();
+   for (var i = list.length - 1; i > 0; i--) {
+      var n = random.nextInt(i + 1);
+      var temp = list[i];
+      list[i] = list[n];
+      list[n] = temp;
+    }
     list.shuffle();
     staticValues.setShuffle(list);
     print(list);

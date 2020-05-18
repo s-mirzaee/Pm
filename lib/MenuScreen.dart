@@ -1,11 +1,14 @@
 import 'package:custom_switch/custom_switch.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'dart:math' as math;
 import 'board.dart';
 import 'main.dart';
 import 'oddCalculator/oddsEmulator.dart';
+
 oddsEmulator oddEmulator=new oddsEmulator();
 class MenuScreen extends StatefulWidget {
+
   @override
   _MenuScreenState createState() => _MenuScreenState();
 }
@@ -14,6 +17,8 @@ class _MenuScreenState extends State<MenuScreen> {
 
   @override
   Widget build(BuildContext context) {
+
+    SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
     MediaQueryData queryData = MediaQuery.of(context);
     var width = queryData.size.width;
     var height = queryData.size.height;
@@ -122,6 +127,7 @@ class Setting extends StatefulWidget {
 class _SettingState extends State<Setting> {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
     MediaQueryData queryData = MediaQuery.of(context);
     var width = queryData.size.width;
     final height = queryData.size.height;
@@ -211,7 +217,7 @@ class _HandsState extends State<Hands> {
       ),
       content: Container(
         color: Colors.black,
-        height: height/20,
+        height: height/10,
         child: Center(
           child: DropdownButton<int>(
             value: staticValues.getPlayerNo(),

@@ -1,6 +1,7 @@
 import 'package:bustem2/LogoScreen.dart';
 import 'package:bustem2/oddCalculator/oddsEmulator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'Levels.dart';
 import 'board.dart';
 import 'cards.dart';
@@ -21,9 +22,7 @@ List<Cards> chooseCards = handCard.cardlist(staticValues.getPlayerNo());
 Levels levels = new Levels(chooseCards);
 board Board = new board(chooseCards);
 
-
 class RunApp extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -35,7 +34,6 @@ class RunApp extends StatelessWidget {
         '/Game': (context) => StartGame(),
         '/Desk': (context)=>GameDesk(),
         '/End': (context)=>logoScreen(),
-
       },
     );
   }

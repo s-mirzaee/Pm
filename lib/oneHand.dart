@@ -150,7 +150,7 @@ class _HandState extends State<Hand> {
                         decoration: TextDecoration.none),),),
                       margin: EdgeInsets.only(top: 1.5,),
                       /*height: handSize -31,color: boxColor,*/
-                    decoration: BoxDecoration(borderRadius: BorderRadius.only(topRight: Radius.circular(8),topLeft: Radius.circular(8)),color: boxColor)//,boxShadow: [BoxShadow(color: Colors.black,spreadRadius: 0.7)]),
+                      decoration: BoxDecoration(borderRadius: BorderRadius.only(topRight: Radius.circular(8),topLeft: Radius.circular(8)),color: boxColor)//,boxShadow: [BoxShadow(color: Colors.black,spreadRadius: 0.7)]),
                   ),
                   Container(child: Center(child: Text("Wager :" +staticValues.getWager(i).toString(),
                     style: TextStyle(
@@ -158,7 +158,7 @@ class _HandState extends State<Hand> {
                         fontWeight: FontWeight.w500,
                         fontFamily: 'MTCORSVA',
                         decoration: TextDecoration.none),),),
-                      height: handSize -31,color: boxColor,
+                    height: handSize -31,color: boxColor,
                     margin: EdgeInsets.only(top: 0.3,bottom: 0.3),
                     //decoration: BoxDecoration(/*borderRadius: BorderRadius.all(Radius.circular(0)),*/color: boxColor,boxShadow: [BoxShadow(color: Colors.black,spreadRadius: 0.7)]),
                   ),
@@ -169,12 +169,12 @@ class _HandState extends State<Hand> {
                         fontFamily: 'MTCORSVA',
                         decoration: TextDecoration.none),),),
                       /*height: handSize -31,color: boxColor,*/
-                    decoration: BoxDecoration(borderRadius: BorderRadius.only(bottomLeft: Radius.circular(8),bottomRight: Radius.circular(8),),color: boxColor,)//boxShadow: [BoxShadow(color: Colors.black,spreadRadius: 0.7)]),
+                      decoration: BoxDecoration(borderRadius: BorderRadius.only(bottomLeft: Radius.circular(8),bottomRight: Radius.circular(8),),color: boxColor,)//boxShadow: [BoxShadow(color: Colors.black,spreadRadius: 0.7)]),
                   ),
                 ],),
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(5)),
-                    color: Colors.black,
+                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                  color: Colors.black,
                 ),
                 ///width: handSize + 100,
               ),
@@ -187,4 +187,3 @@ class _HandState extends State<Hand> {
         ));
   }
 }
-

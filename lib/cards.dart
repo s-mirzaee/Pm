@@ -1,7 +1,7 @@
 import 'size.dart';
 //class card ha ba adad va khal va id
 class Cards{
-  String _rank;
+  int _rank;
   String _suit;
   String _id;
 
@@ -21,9 +21,9 @@ class Cards{
     _id = value;
   }
 
-  String get rank => _rank;
+  int get rank => _rank;
 
-  set rank(String value) {
+  set rank(int value) {
     _rank = value;
   }
 

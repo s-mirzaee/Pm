@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
 import 'wagerAlert.dart';
@@ -6,6 +7,7 @@ import 'wagerAlert.dart';
 class table extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
     MediaQueryData queryData;
     queryData = MediaQuery.of(context);
     var width = queryData.size.width;
