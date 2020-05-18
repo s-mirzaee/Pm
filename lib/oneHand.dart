@@ -1,4 +1,5 @@
 import 'package:bustem2/StaticValues.dart';
+import 'package:flutter/cupertino.dart';
 
 import 'main.dart';
 import 'package:flutter/material.dart';
@@ -38,6 +39,11 @@ class _HandState extends State<Hand> {
     size Size = new size(n);
     List<double> lefts = Size.lefts();
     List<double> tops = Size.tops();
+    Color boxColor = Color.fromRGBO(240, 205, 95, 1);
+    MediaQueryData queryData = MediaQuery.of(context);
+    double height = queryData.size.height;
+    double width = queryData.size.width;
+
     return Container(
 
 //bayaf full screen bashe
@@ -46,7 +52,7 @@ class _HandState extends State<Hand> {
         child: Stack(
           children: <Widget>[
             Container(
-              margin: EdgeInsets.only(left: lefts[i], top: tops[i]),
+              margin: EdgeInsets.only(left: width*lefts[i], top: height*tops[i]),
               child: InkWell(
                 onTap: () {
 
@@ -131,40 +137,46 @@ class _HandState extends State<Hand> {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(left: lefts[i] - 18, top: tops[i] + 45),
-              width: handSize + 50,
-              height: handSize + 20,
+              margin: EdgeInsets.only(left: width*lefts[i] - 18, top: height*tops[i] + 46),
+              width: handSize + 53,
+              height: handSize + 7,
               child: Container(
                 child: Column(children: <Widget>[
-                  Container(child: Center(child: Text("Odd:"+oddPercent.getOdd(i).toStringAsFixed(2),
+                  Container(child: Center(child: Text("Odds :" +oddPercent.getOdd(i).toStringAsFixed(2),
                     style: TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.bold,
+                        fontSize: 15.5,
+                        fontWeight: FontWeight.w500,
                         fontFamily: 'MTCORSVA',
                         decoration: TextDecoration.none),),),
-                      color: Color.fromRGBO(240, 205, 95, 1),width: handSize + 50
+                      margin: EdgeInsets.only(top: 1.5,),
+                      /*height: handSize -31,color: boxColor,*/
+                    decoration: BoxDecoration(borderRadius: BorderRadius.only(topRight: Radius.circular(8),topLeft: Radius.circular(8)),color: boxColor)//,boxShadow: [BoxShadow(color: Colors.black,spreadRadius: 0.7)]),
                   ),
-                  Container(child: Center(child: Text("Wager:"+staticValues.getWager(i).toString(),
+                  Container(child: Center(child: Text("Wager :" +staticValues.getWager(i).toString(),
                     style: TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.bold,
+                        fontSize: 15.5,
+                        fontWeight: FontWeight.w500,
                         fontFamily: 'MTCORSVA',
                         decoration: TextDecoration.none),),),
-                      color: Color.fromRGBO(240, 205, 95, 1),width: handSize + 50,
-                    margin: EdgeInsets.only(top: 3,bottom: 3),
+                      height: handSize -31,color: boxColor,
+                    margin: EdgeInsets.only(top: 0.3,bottom: 0.3),
+                    //decoration: BoxDecoration(/*borderRadius: BorderRadius.all(Radius.circular(0)),*/color: boxColor,boxShadow: [BoxShadow(color: Colors.black,spreadRadius: 0.7)]),
                   ),
-                  Container(child: Center(child: Text("Return:"+staticValues.getReturn(i).toString(),
+                  Container(child: Center(child: Text("Return :" +staticValues.getReturn(i).toString(),
                     style: TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.bold,
+                        fontSize: 15.5,
+                        fontWeight: FontWeight.w500,
                         fontFamily: 'MTCORSVA',
                         decoration: TextDecoration.none),),),
-                      color: Color.fromRGBO(240, 205, 95, 1),width: handSize + 50
+                      /*height: handSize -31,color: boxColor,*/
+                    decoration: BoxDecoration(borderRadius: BorderRadius.only(bottomLeft: Radius.circular(8),bottomRight: Radius.circular(8),),color: boxColor,)//boxShadow: [BoxShadow(color: Colors.black,spreadRadius: 0.7)]),
                   ),
                 ],),
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                    /*color: Color.fromRGBO(240, 205, 95, 1)*/),
+                    borderRadius: BorderRadius.all(Radius.circular(5)),
+                    color: Colors.black,
+                ),
+                ///width: handSize + 100,
               ),
             ),
             level<3&&(staticValues.wagerCounter()<(staticValues.getPlayerNo()-1)||staticValues.getWager(i)!=0) ?Container(

@@ -75,12 +75,12 @@ class _GameDeskState extends State<GameDesk> {
 
                   },
                   child:level<4?Container(decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(12)),border: Border(top: BorderSide(width: 5,color: Color.fromRGBO(240, 205, 95, 1)),right: BorderSide(width: 5,color: Color.fromRGBO(240, 205, 95, 1)),left: BorderSide(width: 5,color: Color.fromRGBO(240, 205, 95, 1)),bottom: BorderSide(width: 5,color: Color.fromRGBO(240, 205, 95, 1))),),
-                      child: Container(padding: EdgeInsets.only(left: 2,right: 8,bottom: 5),//color: Colors.white,
+                      child: Container(padding: EdgeInsets.only(left: 2,right: 6,bottom: 5),//color: Colors.white,
                         child: Text(
                           "${staticValues.getPhaseName()}",textDirection: TextDirection.rtl,
                           style: TextStyle(
                               color: Color.fromRGBO(255, 220, 80, 1),
-                              fontSize: 28,
+                              fontSize: 27.5,
                               fontWeight: FontWeight.bold,
                               fontFamily: 'MTCORSVA',
                               shadows: <Shadow>[

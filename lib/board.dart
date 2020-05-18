@@ -30,9 +30,9 @@ class board {
                       child: Text(
                         'Stack : \$ ${staticValues.getMoney().round()} ',
                         style: TextStyle(
-                            fontSize: 27,
+                            fontSize: 25,
                             fontWeight: FontWeight.bold,
-                            color: Color.fromRGBO(255, 220, 75, 1),
+                            color: Color.fromRGBO(240, 205, 95, 1),
                             fontFamily: 'MTCORSVA',
                             decoration: TextDecoration.none),
                       ),
@@ -42,9 +42,9 @@ class board {
                       child: Text(
                         'Total Wager :\$ ${staticValues.totalWager()} ',
                         style: TextStyle(
-                            fontSize: 27,
+                            fontSize: 25,
                             fontWeight: FontWeight.bold,
-                            color: Color.fromRGBO(255, 220, 70, 1),
+                            color: Color.fromRGBO(240, 205, 95, 1),
                             fontFamily: 'MTCORSVA',
                             decoration: TextDecoration.none),
                       ),
