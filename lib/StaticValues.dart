@@ -3,14 +3,17 @@ import 'package:flutter/material.dart';
 import 'wagerAlert.dart';
 
 class StaticValues {
-  static bool isClick = false;
-
-  bool getIsClick() {
-    return isClick;
+  static List<bool> isClick = [false,false,false,false,false,false,false,false,false,false];
+  void isClickFalse(){
+    isClick = [false,false,false,false,false,false,false,false,false,false];
   }
 
-  void setIsClick() {
-    isClick = !isClick;
+  bool getIsClick(int i) {
+    return isClick[i];
+  }
+
+  void setIsClick(int i) {
+    isClick[i] = !isClick[i];
   }
 
   static int playerNo = 2;
