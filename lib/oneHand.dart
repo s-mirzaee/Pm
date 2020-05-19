@@ -179,7 +179,7 @@ class _HandState extends State<Hand> {
                 ///width: handSize + 100,
               ),
             ),
-            level<3&&(staticValues.wagerCounter()<(staticValues.getPlayerNo()-1)||staticValues.getWager(i)!=0) ?Container(
+            level<3&&(staticValues.wagerCounter()<((staticValues.getPlayerNo()/2).round())||staticValues.getWager(i)!=0) ?Container(
               child: staticValues.getIsClick() ? wagerAlert() : Text(""),
               margin: EdgeInsets.only(top: 100),
             ):Text(''),
