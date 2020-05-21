@@ -1,19 +1,17 @@
 import 'package:bustem2/main.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'wagerAlert.dart';
 
 class StaticValues {
-  static List<bool> isClick = [false,false,false,false,false,false,false,false,false,false];
-  void isClickFalse(){
-    isClick = [false,false,false,false,false,false,false,false,false,false];
+  static bool isClick = false;
+
+  bool getIsClick() {
+    return isClick;
   }
 
-  bool getIsClick(int i) {
-    return isClick[i];
-  }
-
-  void setIsClick(int i) {
-    isClick[i] = !isClick[i];
+  void setIsClick() {
+    isClick = !isClick;
   }
 
   static int playerNo = 2;
@@ -33,17 +31,8 @@ class StaticValues {
   }
 
   String getPhaseName() {
+
     return paseName;
-  }
-
-  static double money = 10000.0;
-
-  void setMoney(double m) {
-    money = m;
-  }
-
-  double getMoney() {
-    return money;
   }
 
   static int selectNo;
@@ -131,5 +120,33 @@ class StaticValues {
   }
   List<int> getShuffle(){
     return shuffles;
+  }
+  static double money= 10000;
+
+  void setMoney(double m) {
+    money = m;
+  }
+
+  double getMoney() {
+    return money;
+  }
+
+
+  Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+
+
+  void saveNumber() async {
+    final SharedPreferences prefs = await _prefs;
+    prefs.setDouble('savedNumber',money);
+  }
+
+  void loadNumber() async {
+    final SharedPreferences prefs = await _prefs;
+    final savedNumber = prefs.getDouble('savedNumber') ?? 10000 ;
+    money = savedNumber;
+  }
+  void resetNumber() async {
+    final SharedPreferences prefs = await _prefs;
+    prefs.setDouble('savedNumber', 9999);
   }
 }
