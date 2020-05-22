@@ -157,25 +157,6 @@ class _wagerAlertState extends State<wagerAlert> {
                       width: 44,
                       height: 40,
                     )),
-                  /*Container(
-                              margin: EdgeInsets.only(right: 4),
-                              decoration: BoxDecoration(
-                                  borderRadius:
-                                  BorderRadius.all(Radius.circular(15)),
-                                  color: Color.fromRGBO(240, 205, 95, 1)),
-                              child: InkWell(
-                                child: Center(
-                                  child: Text('0', style: TextStyle(fontSize: 18),),
-                                ),
-                                onTap: () {
-                                  setState(() {
-                                    enterNumber = (enterNumber *10);
-                                  });
-                                },
-                              ),
-                              width: 44,
-                              height: 40,
-                            ),*/
                   Container(
                     margin: EdgeInsets.only(right: 4),
                     decoration: BoxDecoration(
