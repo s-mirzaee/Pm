@@ -55,18 +55,16 @@ class _HandState extends State<Hand> {
               margin: EdgeInsets.only(left: width*lefts[i], top: height*tops[i]),
               child: InkWell(
                 onTap: () {
-                staticValues.isClickFalse();
 
                   staticValues.setSelect(i);
                   setState(() {
-                    main();
-                    staticValues.setIsClick(i);
+                    staticValues.setIsClick();
                   });
                 },
                 child: Container(
                   child: Stack(
                     children: <Widget>[
-                      if (i > (StaticValues.playerNo/2)-1 && StaticValues.isClick[i] == true)
+                      if (i > (StaticValues.playerNo/2)-1 && StaticValues.isClick == true)
                         (Stack(
                           children: <Widget>[
                             Container(
@@ -83,7 +81,7 @@ class _HandState extends State<Hand> {
                             ),
                           ],
                         ))
-                      else if(i> (StaticValues.playerNo/2)-1 && StaticValues.isClick[i] == false)(Stack(
+                      else if(i> (StaticValues.playerNo/2)-1 && StaticValues.isClick == false)(Stack(
                         children: <Widget>[
                           Container(
                             child: Image.asset(
@@ -99,7 +97,7 @@ class _HandState extends State<Hand> {
                           ),
                         ],
                       ))
-                      else if(i< (StaticValues.playerNo/2)+1 && StaticValues.isClick[i] == true)(Stack(
+                      else if(i< StaticValues.playerNo/2 && StaticValues.isClick == true)(Stack(
                           children: <Widget>[
                             Container(
                               decoration: BoxDecoration(boxShadow: [BoxShadow(color: Color.fromRGBO(220, 220, 220, 1),blurRadius: 5.5,offset: Offset(0, 0),spreadRadius: 6)],),
@@ -115,7 +113,7 @@ class _HandState extends State<Hand> {
                             ),
                           ],
                         ))
-                        else if(i< (StaticValues.playerNo/2)+1 && StaticValues.isClick[i] == false)
+                        else
                           (Stack(
                             children: <Widget>[
                               Container(
@@ -182,7 +180,7 @@ class _HandState extends State<Hand> {
               ),
             ),
             level<3&&(staticValues.wagerCounter()<((staticValues.getPlayerNo()/2).round())||staticValues.getWager(i)!=0) ?Container(
-              child: staticValues.getIsClick(i) ? wagerAlert() : Text(""),
+              child: staticValues.getIsClick() ? wagerAlert() : Text(""),
               margin: EdgeInsets.only(top: 100),
             ):Text(''),
           ],
