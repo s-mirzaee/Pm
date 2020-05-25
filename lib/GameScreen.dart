@@ -1,3 +1,4 @@
+import 'package:bustem2/wagerAlert.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'main.dart';
@@ -36,15 +37,16 @@ class _GameDeskState extends State<GameDesk> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
-    return MaterialApp(
+    return SafeArea(top: false,
+        child: MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'GameScreen',
+      title: 'Bust\'em Poker',
       home: Scaffold(
           body: Stack(children: <Widget>[
             table(),
             levels.levelUp(level),
             Container(
-                padding: EdgeInsets.only(top: 350, left: 598),
+                padding: EdgeInsets.only(top: height-55,left: width-80),
                 child: InkWell(highlightColor: Colors.white,
                   onTap: () {
                     if(level==0){
@@ -76,13 +78,14 @@ class _GameDeskState extends State<GameDesk> {
                     }
 
                   },
-                  child:level<4?Container(decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(12)),border: Border(top: BorderSide(width: 5,color: Color.fromRGBO(240, 205, 95, 1)),right: BorderSide(width: 5,color: Color.fromRGBO(240, 205, 95, 1)),left: BorderSide(width: 5,color: Color.fromRGBO(240, 205, 95, 1)),bottom: BorderSide(width: 5,color: Color.fromRGBO(240, 205, 95, 1))),),
-                      child: Container(padding: EdgeInsets.only(left: 2,right: 6,bottom: 5),//color: Colors.white,
+                  child:level<4?Container(/*height: 48,width: 80,*/padding: EdgeInsets.only(left: 2,top: 2,right: 7,bottom: 4),
+                      decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(12)),border: Border(top: BorderSide(width: 5,color: Color.fromRGBO(240, 205, 95, 1)),right: BorderSide(width: 5,color: Color.fromRGBO(240, 205, 95, 1)),left: BorderSide(width: 5,color: Color.fromRGBO(240, 205, 95, 1)),bottom: BorderSide(width: 5,color: Color.fromRGBO(240, 205, 95, 1))),),
+                      //child: Container(//color: Colors.white,
                         child: Text(
-                          "${staticValues.getPhaseName()}",textDirection: TextDirection.rtl,
+                          "${staticValues.getPhaseName()}",
                           style: TextStyle(
                               color: Color.fromRGBO(255, 220, 80, 1),
-                              fontSize: 27.5,
+                              fontSize: 27,
                               fontWeight: FontWeight.bold,
                               fontFamily: 'MTCORSVA',
                               shadows: <Shadow>[
@@ -92,12 +95,12 @@ class _GameDeskState extends State<GameDesk> {
                                   color: Color.fromRGBO(255, 220, 80, 0.5),
                                 ),
                               ],
-                              decoration: TextDecoration.none),),))
+                              decoration: TextDecoration.none),),)//)
                       :Text(''),
 
                 )),
           ],
           )),
-    );
+    ));
   }
 }

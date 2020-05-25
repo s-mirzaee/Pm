@@ -149,4 +149,25 @@ class StaticValues {
     final SharedPreferences prefs = await _prefs;
     prefs.setDouble('savedNumber', 9999);
   }
+
+  static double height=0;
+
+  void setHeight (double i){
+    height = i;
+  }
+
+  double getHeight(){
+    return height;
+  }
+
+  static double width=0;
+
+  void setWidth (double i){
+    width = i;
+  }
+
+  double getWidth(){
+    return width;
+  }
 }
+

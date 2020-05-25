@@ -1,3 +1,4 @@
+import 'package:bustem2/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
@@ -7,10 +8,9 @@ class table extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
-    MediaQueryData queryData;
-    queryData = MediaQuery.of(context);
-    var width = queryData.size.width;
-    var height = queryData.size.height;
+
+    var width = staticValues.getWidth();
+    var height = staticValues.getHeight();
     var deskH_t = height * 0.15; //top height
     var deskH_b = height *0.25; //bottom height
     var deskW_l = width *0.08; //left width

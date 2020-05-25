@@ -11,7 +11,6 @@ import 'wagerAlert.dart';
 
 //olgo koli yek daste ke do ta card to yek container va darsad ham zireshe
 
-
 class Hand extends StatefulWidget {
   int i;
   List<Cards> CardList;
@@ -29,7 +28,7 @@ class _HandState extends State<Hand> {
 
   _HandState(this.i, this.CardList);
   odds oddPercent = new odds();
-  double handSize = 50;
+  double handSize = 48;
 
 
 
@@ -40,15 +39,16 @@ class _HandState extends State<Hand> {
     List<double> lefts = Size.lefts();
     List<double> tops = Size.tops();
     Color boxColor = Color.fromRGBO(240, 205, 95, 1);
-    MediaQueryData queryData = MediaQuery.of(context);
-    double height = queryData.size.height;
-    double width = queryData.size.width;
+
+    double width = staticValues.getWidth();
+    double height = staticValues.getHeight();
 
     return Container(
 
 //bayaf full screen bashe
-        width: 670,
-        height: 400,
+        //color: Colors.greenAccent,
+        width: width,
+        height: height,
         child: Stack(
           children: <Widget>[
             Container(

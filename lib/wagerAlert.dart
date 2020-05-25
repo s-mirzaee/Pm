@@ -14,6 +14,8 @@ bool showKeyboard = false;
 Color boxColor = Color.fromRGBO(240, 205, 95, 1);
 bool showBox = true;
 bool boxShow = true;
+double width = staticValues.getWidth();
+double height = staticValues.getHeight();
 
 
 class wagerAlert extends StatefulWidget {
@@ -39,10 +41,7 @@ class _wagerAlertState extends State<wagerAlert> {
 
   @override
   Widget build(BuildContext context) {
-    MediaQueryData queryData;
-    queryData = MediaQuery.of(context);
-    var width = queryData.size.width;
-    var height = queryData.size.height;
+
     return Stack(children: [
       if (showBox && boxShow)
         InkWell(
@@ -70,7 +69,7 @@ class _wagerAlertState extends State<wagerAlert> {
                   fontFamily: 'MTCORSVA',
                   decoration: TextDecoration.none),
             ),
-            margin: EdgeInsets.only(left: 10, top: height / 2),
+            margin: EdgeInsets.only(left: width*0.015, top: height*0.5),
             padding: EdgeInsets.all(5),
             //width: 75,
             //height: 35,
@@ -81,46 +80,17 @@ class _wagerAlertState extends State<wagerAlert> {
               showKeyboard = !showKeyboard;
             });
           },
-        )
-      else if(showBox==false)
-        Container(
-          margin: EdgeInsets.only(top: 250, left: 320), //color: Colors.white,
-          width: 70,
-          height: 60,
-          child: Column(children: [
-            Container(
-              child: Text(
-                'w :' + '${values.getValue(i).round()}',
-                //textDirection: TextDirection.rtl,
-                style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Color.fromRGBO(240, 205, 95, 1),
-                    fontFamily: 'MTCORSVA',
-                    decoration: TextDecoration.none),
-              ),
-              height: 25,
-              width: 70,
-            ),
-            Container(
-              child: Text(
-                'r :' +
-                    '${returns.returnCalculator(oddCalculator.getOdd(i), values.getValue(i)).round()}',
-                style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Color.fromRGBO(240, 205, 95, 1),
-                    fontFamily: 'MTCORSVA',
-                    decoration: TextDecoration.none),
-              ),
-              height: 25,
-              width: 70,
-            ),
-          ]),
         ),
+      //else if(showBox==false)
+        /*Container(
+          margin: EdgeInsets.only(top: height*0.62, left: width*0.4), color: Colors.white,
+          width: width*0.18,*/
+
+        //),
       Container(
-        margin: EdgeInsets.only(top: width / 3.5), //color: Colors.white,
-        width: width,
+        margin: EdgeInsets.only(top: height-160), //color: Colors.white,
+        width: width*0.88,
+        height: height*0.14,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
@@ -128,15 +98,15 @@ class _wagerAlertState extends State<wagerAlert> {
             //if be in range
                 ? showKeyboard
                 ? Container(
-              height: 60,
-              margin: EdgeInsets.only(top: 60, left: 8),
+              //height: height*0.16,
+              margin: EdgeInsets.only(left: 8),
               //color: Colors.lightBlue,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
                   for (int i = 0; i < 10; i++)
                     (Container(
-                      margin: EdgeInsets.only(right: 5),
+                      margin: EdgeInsets.only(right: width*0.007),
                       decoration: BoxDecoration(
                           borderRadius:
                           BorderRadius.all(Radius.circular(15)),
@@ -154,11 +124,11 @@ class _wagerAlertState extends State<wagerAlert> {
                           });
                         },
                       ),
-                      width: 44,
-                      height: 40,
+                      width: width*0.065,
+                      height: height*0.105,
                     )),
                   Container(
-                    margin: EdgeInsets.only(right: 4),
+                    margin: EdgeInsets.only(right: width*0.007),
                     decoration: BoxDecoration(
                         borderRadius:
                         BorderRadius.all(Radius.circular(15)),
@@ -173,11 +143,11 @@ class _wagerAlertState extends State<wagerAlert> {
                         });
                       },
                     ),
-                    width: 44,
-                    height: 40,
+                    width: width*0.065,
+                    height: height*0.105,
                   ),
                   Container(
-                    margin: EdgeInsets.only(right: 4),
+                    margin: EdgeInsets.only(right: width*0.007),
                     decoration: BoxDecoration(
                         borderRadius:
                         BorderRadius.all(Radius.circular(15)),
@@ -209,20 +179,20 @@ class _wagerAlertState extends State<wagerAlert> {
                         });
                       },
                     ),
-                    width: 44,
-                    height: 40,
+                    width: width*0.065,
+                    height: height*0.105,
                   ),
                 ],
               ),
             )
             //else show keyboard
-                : Container(
-              margin: EdgeInsets.only(top: 53), //color: Colors.white,
-              child: Row(
+                : /*Container(//width: width*0.85,
+              //margin: EdgeInsets.only(top: height*0.14), //color: Color.fromRGBO(255, 255, 255, 0.1),
+              child:*/ Row(
                 children: <Widget>[
-                  Container(
-                    margin: EdgeInsets.only(left: 0, top: 0),
-                    width: 300,
+                  Container(//color:Colors.greenAccent,
+                    //margin: EdgeInsets.only(left: 0, top: 0),
+                    width: width*0.43,
                     child: SliderTheme(
                         data: SliderTheme.of(context).copyWith(
                           //trackHeight: 1.0,
@@ -259,12 +229,43 @@ class _wagerAlertState extends State<wagerAlert> {
                           },
                         )),
                   ),
+                  if(showBox==false)
+                    Column(children: [
+                      Container(//color: Colors.green,
+                        child: Text(
+                          'w :' + '${values.getValue(i).round()}',
+                          //textDirection: TextDirection.rtl,
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Color.fromRGBO(240, 205, 95, 1),
+                              fontFamily: 'MTCORSVA',
+                              decoration: TextDecoration.none),
+                        ),
+                        height: height*0.07,
+                        width: width*0.2,
+                      ),
+                      Container(//color: Colors.red,
+                        child: Text(
+                          'r :' +
+                              '${returns.returnCalculator(oddCalculator.getOdd(i), values.getValue(i)).round()}',
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Color.fromRGBO(240, 205, 95, 1),
+                              fontFamily: 'MTCORSVA',
+                              decoration: TextDecoration.none),
+                        ),
+                        height: height*0.07,
+                        width: width*0.2,
+                      ),
+                    ]),
                   Column(
                     //mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
-                      Container(
-                        height: 25,
-                        width: 200,
+                      Container(//color: Colors.red,
+                        height: height*0.07,
+                        width: width*0.22,
                         child: Text(
                           "min : 0 " ,
                           style: TextStyle(
@@ -274,11 +275,11 @@ class _wagerAlertState extends State<wagerAlert> {
                               fontFamily: 'MTCORSVA',
                               decoration: TextDecoration.none),
                         ),
-                        margin: EdgeInsets.only(left: 120),
+                        //margin: EdgeInsets.only(left: width*0.2,),
                       ),
-                      Container(
-                        height: 25,
-                        width: 200,
+                      Container(//color: Colors.greenAccent,
+                        height: height*0.07,
+                        width: width*0.22,
                         child: Text(
                           "max :" + (Max.round()).toString(),
                           style: TextStyle(
@@ -288,13 +289,13 @@ class _wagerAlertState extends State<wagerAlert> {
                               fontFamily: 'MTCORSVA',
                               decoration: TextDecoration.none),
                         ),
-                        margin: EdgeInsets.only(left: 120),
+                        //margin: EdgeInsets.only(left: width*0.2),
                       ),
                     ],
                   ),
                 ],
-              ),
-            )
+              )
+           // )
 
                 : Container(child: Text(
               "No Enough Money",

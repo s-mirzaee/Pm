@@ -1,3 +1,4 @@
+import 'package:bustem2/StaticValues.dart';
 import 'package:custom_switch/custom_switch.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -18,10 +19,14 @@ class _MenuScreenState extends State<MenuScreen> {
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
     MediaQueryData queryData = MediaQuery.of(context);
-    var width = queryData.size.width;
-    var height = queryData.size.height;
 
-    return MaterialApp(
+    staticValues.setWidth(queryData.size.width);
+    staticValues.setHeight(queryData.size.height);
+    var width= staticValues.getWidth();
+    var height = staticValues.getHeight();
+
+    return SafeArea(//top: false,
+        child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(fontFamily: 'MTCORSVA'),
         home: Container(
@@ -135,7 +140,7 @@ class _MenuScreenState extends State<MenuScreen> {
                   ),
                 ),
               ],
-            )));
+            ))));
   }
 }
 
@@ -220,19 +225,20 @@ class _SettingState extends State<Setting> {
                 ],
               ),
               FlatButton(
-                padding:EdgeInsets.all(20) ,
+                padding:EdgeInsets.only(top: 20) ,
                   onPressed: () {
                     staticValues.resetNumber();
                     Navigator.pushNamed(context, '/');
                   },
-                  child: Text(
+                  child: Padding( padding: EdgeInsets.only(top: 25),
+                      child:Text(
                     'Reste Money',
                     style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.w100,
                         color: Colors.yellow,
                         fontFamily: 'MTCORSVA'),
-                  ))
+                  )))
             ],
           )),
       actions: <Widget>[
