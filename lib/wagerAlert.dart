@@ -161,7 +161,7 @@ class _wagerAlertState extends State<wagerAlert> {
                           if (enterNumber <= Max) {
                             staticValues.setMoney(
                                 (staticValues.getMoney()) - enterNumber );
-                            staticValues.setIsClick();
+                            staticValues.setIsClick(i);
                             staticValues.setReturn(i,( staticValues.getReturn(i)+ returns.returnCalculator(odds.handOddes[i], enterNumber.toDouble())).round());
                             staticValues.setWager(
                                 i, staticValues.getWager(i)+enterNumber.round());
@@ -202,7 +202,7 @@ class _wagerAlertState extends State<wagerAlert> {
                             showBox = true;
                             staticValues.setMoney(
                                 (staticValues.getMoney()) - m.round());
-                            staticValues.setIsClick();
+                            staticValues.setIsClick(i);
                             staticValues.setWager(i, staticValues.getWager(i)+m.round());
                             staticValues.setReturn(i,( staticValues.getReturn(i)+ returns.returnCalculator(odds.handOddes[i], m)).round());
                             setState(() {

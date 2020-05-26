@@ -4,14 +4,19 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'wagerAlert.dart';
 
 class StaticValues {
-  static bool isClick = false;
+  static List<bool> isClick =[false,false,false,false,false,false,false,false,false,false];
 
-  bool getIsClick() {
-    return isClick;
+  bool getIsClick(int i) {
+    return isClick[i];
   }
 
-  void setIsClick() {
-    isClick = !isClick;
+  void setIsClick(int i) {
+    bool x1=isClick[i];
+    for(int x=0;x<10;x++){
+      isClick[x]=false;
+    }
+    isClick[i]=!x1;
+    print(isClick.toString());
   }
 
   static int playerNo = 2;

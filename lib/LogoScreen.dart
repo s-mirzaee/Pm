@@ -7,6 +7,7 @@ import 'package:bustem2/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'MenuScreen.dart';
+import 'main.dart';
 
 
 class logoScreen extends StatefulWidget {
@@ -21,6 +22,7 @@ class _logoScreenState extends State<logoScreen> {
     var width = queryData.size.width;
     var height = queryData.size.height;
     var winAmount = staticValues.totalReturn();
+    staticValues.saveNumber();
     return MaterialApp(
       debugShowCheckedModeBanner: false,
 
