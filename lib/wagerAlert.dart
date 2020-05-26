@@ -104,7 +104,7 @@ class _wagerAlertState extends State<wagerAlert> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
-                  for (int i = 0; i < 10; i++)
+                  for (int i = 1; i < 10; i++)
                     (Container(
                       margin: EdgeInsets.only(right: width*0.007),
                       decoration: BoxDecoration(
@@ -127,6 +127,28 @@ class _wagerAlertState extends State<wagerAlert> {
                       width: width*0.065,
                       height: height*0.105,
                     )),
+                  Container(
+                    margin: EdgeInsets.only(right: width*0.007),
+                    decoration: BoxDecoration(
+                        borderRadius:
+                        BorderRadius.all(Radius.circular(15)),
+                        color: Color.fromRGBO(240, 205, 95, 1)),
+                    child: InkWell(
+                      child: Center(
+                        child: Text(
+                          '0',
+                          style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'MTCORSVA'),
+                        ),
+                      ),
+                      onTap: () {
+                        setState(() {
+                          enterNumber = (enterNumber * 10) ;
+                        });
+                      },
+                    ),
+                    width: width*0.065,
+                    height: height*0.105,
+                  ),
                   Container(
                     margin: EdgeInsets.only(right: width*0.007),
                     decoration: BoxDecoration(
