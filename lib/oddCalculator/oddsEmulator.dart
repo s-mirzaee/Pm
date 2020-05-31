@@ -1,5 +1,6 @@
 import 'package:bustem2/cardsList.dart';
 import 'package:bustem2/main.dart';
+import 'package:bustem2/oddCalculator/modifiedHand.dart';
 import 'package:bustem2/oddCalculator/winnerHand.dart';
 
 import '../cards.dart';
@@ -9,7 +10,7 @@ class oddsEmulator {
   winnerHand winnerCalculator = new winnerHand();
   CardList cardList = new CardList();
   winnerHand wh=new winnerHand();
-
+  List<modifideHand> H;
   void emulator() {
 
     int total=0;
@@ -39,17 +40,13 @@ class oddsEmulator {
 
         List<Cards> list=[...handCards,...selectedCards];
 
-        List<int> winners=winnerCalculator.winner(list);
+        H=winnerCalculator.winner(list);
 
-        for(int y=0;y<winners.length;y++){
-          total++;
-          results[winners[y]]++;
-        }
       }
       print("********************************");
       //print('time : ${stopwatch.elapsed}');
       for(int z=0;z<staticValues.getPlayerNo();z++){
-        oddCalculator.setOdd(z, (results[z]/total)*100);
+        oddCalculator.setOdd(z, (H[z].total/1500)*100);
       }
 
     }else if (level == 1 ) {
@@ -67,10 +64,9 @@ class oddsEmulator {
         ];
 
         List<Cards> list=[...handCards,...selectedCards];
-        List<int> winners=winnerCalculator.winner(list);
-        for(int y=0;y<winners.length;y++){
-          total++;
-          results[winners[y]]++;
+        H=winnerCalculator.winner(list);
+        for(int z=0;z<staticValues.getPlayerNo();z++){
+          oddCalculator.setOdd(z, (H[z].total/1500)*100);
         }
       }
       for(int z=0;z<staticValues.getPlayerNo();z++){
@@ -91,10 +87,9 @@ class oddsEmulator {
         ];
 
         List<Cards> list=[...handCards,...selectedCards];
-        List<int> winners=winnerCalculator.winner(list);
-        for(int y=0;y<winners.length;y++){
-          total++;
-          results[winners[y]]++;
+        H=winnerCalculator.winner(list);
+        for(int z=0;z<staticValues.getPlayerNo();z++){
+          oddCalculator.setOdd(z, (H[z].total/1500)*100);
         }
       }
       for(int z=0;z<staticValues.getPlayerNo();z++){
@@ -102,14 +97,14 @@ class oddsEmulator {
       }
     }
     else if(level==3){
-      List<int> winners=wh.winner(chooseCards);
+      H=winnerCalculator.winner(chooseCards);
 
       for(int i=0;i<staticValues.getPlayerNo();i++){
         oddCalculator.setOdd(i, 0);
       }
 
-      for(int j=0;j<winners.length;j++){
-        oddCalculator.setOdd(winners[j], 100);
+      for(int z=0;z<staticValues.getPlayerNo();z++){
+        oddCalculator.setOdd(z, (H[z].total/1500)*100);
       }}
 
   }

@@ -10,7 +10,7 @@ class winnerHand {
   List<int> equals = [];
   List<int> value = [];
 
-  List<int> winner(List<Cards> list) {
+  List<modifideHand> winner(List<Cards> list) {
     List<int> frequencies = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     List<Cards> center = [
       list[list.length - 5],
@@ -57,10 +57,7 @@ class winnerHand {
     print("start finding");
     findWinner(H);
     print("finded");
-    for (int x = 0; x < staticValues.getPlayerNo(); x++) {
-
-    }
-    return equals;
+    return H;
 
 /*    List<int> bySort = List.from(value);
     bySort.sort();
@@ -93,6 +90,7 @@ class winnerHand {
       }
       if (counter == 1) {
         H[index].winLose = 1;
+        H[index].total++;
         //behine khodesh default 0 ee
         for (int y = 0; y < staticValues.getPlayerNo(); y++) {
           if (y != index) {
@@ -103,6 +101,7 @@ class winnerHand {
       }
       for (int y = 0; y < staticValues.getPlayerNo(); y++) {
         H[y].winLose = (1 / counter);
+        H[y].total=H[y].total+(1/counter);
       }
       return;
     }
@@ -129,15 +128,19 @@ class winnerHand {
       }
       if (counter == 1) {
         H[index].winLose = 1;
+        H[index].total++;
+        H[index].total++;
         for (int y = 0; y < staticValues.getPlayerNo(); y++) {
           if (y != index) {
             H[y].winLose = 0;
+
           }
         }
         return;
       }
       for (int y = 0; y < staticValues.getPlayerNo(); y++) {
         H[y].winLose = (1 / counter);
+        H[y].total=H[y].total+(1/counter);
       }
       return;
     }
@@ -164,6 +167,7 @@ class winnerHand {
       }
       if (counter == 1) {
         H[index].winLose = 1;
+        H[index].total++;
         for (int y = 0; y < staticValues.getPlayerNo(); y++) {
           if (y != index) {
             H[y].winLose = 0;
@@ -187,6 +191,7 @@ class winnerHand {
       }
       if (counter == 1) {
         H[index].winLose = 1;
+        H[index].total++;
         for (int y = 0; y < staticValues.getPlayerNo(); y++) {
           if (y != index) {
             H[y].winLose = 0;
@@ -197,6 +202,7 @@ class winnerHand {
       for (int x = 0; x < staticValues.getPlayerNo(); x++) {
         if (H[x].modifiedCard[1] == maxCard) {
           H[x].winLose = (1 / counter);
+          H[x].total=H[x].total+(1/counter);
         } else {
           H[x].winLose = 0;
         }
@@ -226,6 +232,7 @@ class winnerHand {
       }
       if (counter == 1) {
         H[index].winLose = 1;
+        H[index].total++;
         for (int y = 0; y < staticValues.getPlayerNo(); y++) {
           if (y != index) {
             H[y].winLose = 0;
@@ -257,6 +264,7 @@ class winnerHand {
       }
       if (counter == 1) {
         H[index].winLose = 1;
+        H[index].total++;
         for (int y = 0; y < staticValues.getPlayerNo(); y++) {
           if (y != index) {
             H[y].winLose = 0;
@@ -268,6 +276,7 @@ class winnerHand {
         if (H[x].modifiedCard[0] == maxCard) {
           if (H[x].modifiedCard[1] == maxCard) {
             H[x].winLose = (1 / counter);
+            H[x].total=H[x].total+(1/counter);
           } else {
             H[x].winLose = 0;
           }
@@ -286,6 +295,7 @@ class winnerHand {
           index < staticValues.getPlayerNo() && H[index].status != maxState) {
         index++;
       }
+      print("while");
       for (int x = 0; x < staticValues.getPlayerNo(); x++) {
         if (H[x].status == maxState) {
           if (compare(H[index].modifiedCard, H[x].modifiedCard, 5) < 0) {
@@ -302,6 +312,7 @@ class winnerHand {
       }
       if (counter == 1) {
         H[index].winLose = 1;
+        H[index].total++;
         for (int y = 0; y < staticValues.getPlayerNo(); y++) {
           if (y != index) {
             H[y].winLose = 0;
@@ -313,6 +324,7 @@ class winnerHand {
         if (H[x].status == maxState) {
           if (compare(H[index].modifiedCard, H[x].modifiedCard, 5) == 0) {
             H[x].winLose = (1 / counter);
+            H[x].total=H[x].total+(1/counter);
           } else {
             H[x].winLose = 0;
           }
@@ -345,6 +357,7 @@ class winnerHand {
       }
       if (counter == 1) {
         H[index].winLose = 1;
+        H[index].total++;
         for (int y = 0; y < staticValues.getPlayerNo(); y++) {
           if (y != index) {
             H[y].winLose = 0;
@@ -356,6 +369,7 @@ class winnerHand {
         if (H[x].status == maxState) {
           if (H[x].modifiedCard[0] == maxcard) {
             H[x].winLose = (1 / counter);
+            H[x].total=H[x].total+(1/counter);
           } else {
             H[x].winLose = 0;
           }
@@ -390,6 +404,7 @@ class winnerHand {
       }
       if (counter == 1) {
         H[index].winLose = 1;
+        H[index].total++;
         for (int y = 0; y < staticValues.getPlayerNo(); y++) {
           if (y != index) {
             H[y].winLose = 0;
@@ -401,6 +416,7 @@ class winnerHand {
         if (H[x].status == maxState) {
           if (compare(H[index].modifiedCard, H[x].modifiedCard, 3) == 0) {
             H[x].winLose = (1 / counter);
+            H[x].total=H[x].total+(1/counter);
           } else {
             H[x].winLose = 0;
           }
@@ -435,6 +451,7 @@ class winnerHand {
       }
       if (counter == 1) {
         H[index].winLose = 1;
+        H[index].total++;
         for (int y = 0; y < staticValues.getPlayerNo(); y++) {
           if (y != index) {
             H[y].winLose = 0;
@@ -446,6 +463,7 @@ class winnerHand {
         if (H[x].status == maxState) {
           if (compare(H[index].modifiedCard, H[x].modifiedCard, 3) == 0) {
             H[x].winLose = (1 / counter);
+            H[x].total=H[x].total+(1/counter);
           } else {
             H[x].winLose = 0;
           }
@@ -480,6 +498,7 @@ class winnerHand {
       }
       if (counter == 1) {
         H[index].winLose = 1;
+        H[index].total++;
         for (int y = 0; y < staticValues.getPlayerNo(); y++) {
           if (y != index) {
             H[y].winLose = 0;
@@ -491,6 +510,7 @@ class winnerHand {
         if (H[x].status == maxState) {
           if (compare(H[index].modifiedCard, H[x].modifiedCard, 4) == 0) {
             H[x].winLose = (1 / counter);
+            H[x].total=H[x].total+(1/counter);
           } else {
             H[x].winLose = 0;
           }
@@ -525,6 +545,7 @@ class winnerHand {
       }
       if (counter == 1) {
         H[index].winLose = 1;
+        H[index].total++;
         for (int y = 0; y < staticValues.getPlayerNo(); y++) {
           if (y != index) {
             H[y].winLose = 0;
@@ -536,6 +557,7 @@ class winnerHand {
         if (H[x].status == maxState) {
           if (compare(H[index].modifiedCard, H[x].modifiedCard, 5) == 0) {
             H[x].winLose = (1 / counter);
+            H[x].total=H[x].total+(1/counter);
           } else {
             H[x].winLose = 0;
           }
