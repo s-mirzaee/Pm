@@ -1,17 +1,17 @@
 import 'package:bustem2/main.dart';
 import 'package:bustem2/oddCalculator/handRanking.dart';
+import 'package:bustem2/oddCalculator/modifiedHand.dart';
 
 import '../cards.dart';
 
 class winnerHand {
-  rank r = new rank();
   int min = 11;
   int minI;
   List<int> equals = [];
   List<int> value = [];
 
   List<int> winner(List<Cards> list) {
-    List<int> f = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    List<int> frequencies = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     List<Cards> center = [
       list[list.length - 5],
       list[list.length - 4],
@@ -19,86 +19,557 @@ class winnerHand {
       list[list.length - 2],
       list[list.length - 1],
     ];
-
+/*    print("center:");
+    print(center[0].rank.toString()+center[0].suit);
+    print(center[1].rank.toString()+center[1].suit);
+    print(center[2].rank.toString()+center[2].suit);
+    print(center[3].rank.toString()+center[3].suit);
+    print(center[4].rank.toString()+center[4].suit);*/
     for (int a = 0; a < 5; a++) {
-      f[center[a].rank - 1]++;
+      frequencies[center[a].rank - 1]++;
     }
+    List<Cards> sortById = List.from(center);
+    sortById.sort((b, a) => a.id.compareTo(b.id));
 
+    List<int> sortByRank = [
+      center[0].rank,
+      center[1].rank,
+      center[2].rank,
+      center[3].rank,
+      center[4].rank
+    ];
+    sortByRank.sort((b, a) => a.compareTo(b));
 
+    rank r = new rank(sortById, sortByRank, frequencies);
+    List<modifideHand> H = [];
     value.clear();
 
     for (int i = 0; i < staticValues.getPlayerNo(); i++) {
-      List<Cards> sortById = List.from(center);
-      sortById.sort((b, a) => a.id.compareTo(b.id));
-      List<int> frequencies = List.from(f);
-      sortById.add(list[0]);
-      sortById.add(list[0]);
-      List<int> sortByRank = [center[0].rank,center[1].rank,center[2].rank,center[3].rank,center[4].rank];
-      sortByRank.sort((b, a) => a.compareTo(b));
-      sortByRank.add(list[0].rank);
-      sortByRank.add(list[0].rank);
-      //sort1
-      int j = 5;
-      while (j > 0) {
-        if ((sortById[j - 1].id).compareTo(list[2 * i].id) < 0) {
-          sortById[j] = sortById[j - 1];
-        } else {
-          break;
-        }
-        j--;
-      }
-      sortById[j] = list[2 * i];
-      frequencies[list[2 * i].rank - 1]++;
-      //sort2
-      int k = 6;
-      while (k > 0) {
-        if ((sortById[k - 1].id).compareTo(list[(2 * i) + 1].id) < 0) {
-          sortById[k] = sortById[k - 1];
-        } else {
-          break;
-        }
-        k--;
-      }
-      sortById[k] = list[(2 * i) + 1];
-      frequencies[list[(2 * i) + 1].rank - 1]++;
-
-      //sort3
-      int m = 5;
-      while (m > 0) {
-        if ((sortByRank[m - 1]) < list[2 * i].rank) {
-          sortByRank[m] = sortByRank[m - 1];
-        } else {
-          break;
-        }
-        m--;
-      }
-      sortByRank[m] = list[2 * i].rank;
-
-      //sort4
-      int n = 6;
-      while (n > 0) {
-        if ((sortByRank[n - 1]) < list[(2 * i) + 1].rank) {
-          sortByRank[n] = sortByRank[n - 1];
-        } else {
-          break;
-        }
-        n--;
-      }
-      sortByRank[n] = list[(2 * i) + 1].rank;
-      sortByRank=sortByRank.toSet().toList();
-
-      int v = r.ranking(sortById, sortByRank, frequencies);
-      value.add(v);
+      modifideHand m = new modifideHand();
+      modifideHand n = new modifideHand();
+      /*     print("hand");
+     print(list[2*i].rank.toString()+list[2*i].suit);
+      print(list[(2 * i) + 1].rank.toString()+list[(2 * i) + 1].suit);*/
+      n = r.ranking(list[2 * i], list[(2 * i) + 1], m);
+      H.add(n);
+      print("out:" + n.status.toString());
     }
+    print("start finding");
+    findWinner(H);
+    print("finded");
+    for (int x = 0; x < staticValues.getPlayerNo(); x++) {
 
-    equals.clear();
-    List<int> bySort = List.from(value);
+    }
+    return equals;
+
+/*    List<int> bySort = List.from(value);
     bySort.sort();
     for (int i = 0; i < value.length; i++) {
       if (value[i] == bySort[0]) {
         equals.add(i);
       }
+    }*/
+
+  }
+
+  void findWinner(List<modifideHand> H) {
+    int maxState = 0;
+    for (int x = 0; x < staticValues.getPlayerNo(); x++) {
+      if (maxState < H[x].status) {
+        maxState = H[x].status;
+      }
     }
-    return equals;
+    print("10");
+    //royal flush
+    if (maxState == 10) {
+      int counter = 0;
+      int index = -1;
+      for (int x = 0; x < staticValues.getPlayerNo(); x++) {
+        if (H[x].status == maxState) {
+          counter++;
+          //behine na n+1
+          index = x;
+        }
+      }
+      if (counter == 1) {
+        H[index].winLose = 1;
+        //behine khodesh default 0 ee
+        for (int y = 0; y < staticValues.getPlayerNo(); y++) {
+          if (y != index) {
+            H[y].winLose = 0;
+          }
+        }
+        return;
+      }
+      for (int y = 0; y < staticValues.getPlayerNo(); y++) {
+        H[y].winLose = (1 / counter);
+      }
+      return;
+    }
+    print("9");
+    //straight flush
+    if (maxState == 9) {
+      int counter = 0;
+      int index = -1;
+      int maxCard = 0;
+      for (int x = 0; x < staticValues.getPlayerNo(); x++) {
+        if (H[x].status == maxState) {
+          if (maxCard < H[x].modifiedCard[0]) {
+            maxCard = H[x].modifiedCard[0];
+          }
+        }
+      }
+      for (int x = 0; x < staticValues.getPlayerNo(); x++) {
+        if (H[x].status == maxState) {
+          if (maxCard == H[x].modifiedCard[0]) {
+            counter++;
+            index = x;
+          }
+        }
+      }
+      if (counter == 1) {
+        H[index].winLose = 1;
+        for (int y = 0; y < staticValues.getPlayerNo(); y++) {
+          if (y != index) {
+            H[y].winLose = 0;
+          }
+        }
+        return;
+      }
+      for (int y = 0; y < staticValues.getPlayerNo(); y++) {
+        H[y].winLose = (1 / counter);
+      }
+      return;
+    }
+    print("8");
+    //Four of a kind
+    if (maxState == 8) {
+      int counter = 0;
+      int index = -1;
+      int maxCard = 0;
+      for (int x = 0; x < staticValues.getPlayerNo(); x++) {
+        if (H[x].status == maxState) {
+          if (maxCard < H[x].modifiedCard[0]) {
+            maxCard = H[x].modifiedCard[0];
+          }
+        }
+      }
+      for (int x = 0; x < staticValues.getPlayerNo(); x++) {
+        if (H[x].status == maxState) {
+          if (maxCard == H[x].modifiedCard[0]) {
+            counter++;
+            index = x;
+          }
+        }
+      }
+      if (counter == 1) {
+        H[index].winLose = 1;
+        for (int y = 0; y < staticValues.getPlayerNo(); y++) {
+          if (y != index) {
+            H[y].winLose = 0;
+          }
+        }
+        return;
+      }
+      counter = 0;
+      index = -1;
+      maxCard = 0;
+      for (int x = 0; x < staticValues.getPlayerNo(); x++) {
+        if (maxCard < H[x].modifiedCard[1]) {
+          maxCard = H[x].modifiedCard[1];
+        }
+      }
+      for (int x = 0; x < staticValues.getPlayerNo(); x++) {
+        if (H[x].modifiedCard[1] == maxCard) {
+          counter++;
+          index = x;
+        }
+      }
+      if (counter == 1) {
+        H[index].winLose = 1;
+        for (int y = 0; y < staticValues.getPlayerNo(); y++) {
+          if (y != index) {
+            H[y].winLose = 0;
+          }
+        }
+        return;
+      }
+      for (int x = 0; x < staticValues.getPlayerNo(); x++) {
+        if (H[x].modifiedCard[1] == maxCard) {
+          H[x].winLose = (1 / counter);
+        } else {
+          H[x].winLose = 0;
+        }
+      }
+      return;
+    }
+    print("7");
+    //full house
+    if (maxState == 7) {
+      int counter = 0;
+      int index = -1;
+      int maxCard = 0;
+      for (int x = 0; x < staticValues.getPlayerNo(); x++) {
+        if (H[x].status == maxState) {
+          if (H[x].modifiedCard[0] > maxCard) {
+            maxCard = H[x].modifiedCard[0];
+          }
+        }
+      }
+      for (int x = 0; x < staticValues.getPlayerNo(); x++) {
+        if (H[x].status == maxState) {
+          if (maxCard == H[x].modifiedCard[0]) {
+            counter++;
+            index = x;
+          }
+        }
+      }
+      if (counter == 1) {
+        H[index].winLose = 1;
+        for (int y = 0; y < staticValues.getPlayerNo(); y++) {
+          if (y != index) {
+            H[y].winLose = 0;
+          }
+        }
+        return;
+      }
+      counter = 0;
+      index = -1;
+      int maxCard2 = 0;
+      for (int x = 0; x < staticValues.getPlayerNo(); x++) {
+        if (H[x].status == maxState) {
+          if (H[x].modifiedCard[0] == maxCard) {
+            if (maxCard2 < H[x].modifiedCard[1]) {
+              maxCard2 = H[x].modifiedCard[1];
+            }
+          }
+        }
+      }
+      for (int x = 0; x < staticValues.getPlayerNo(); x++) {
+        if (H[x].status == maxState) {
+          if (H[x].modifiedCard[0] == maxCard) {
+            if (H[x].modifiedCard[1] == maxCard2) {
+              counter++;
+              index = x;
+            }
+          }
+        }
+      }
+      if (counter == 1) {
+        H[index].winLose = 1;
+        for (int y = 0; y < staticValues.getPlayerNo(); y++) {
+          if (y != index) {
+            H[y].winLose = 0;
+          }
+        }
+        return;
+      }
+      for (int x = 0; x < staticValues.getPlayerNo(); x++) {
+        if (H[x].modifiedCard[0] == maxCard) {
+          if (H[x].modifiedCard[1] == maxCard) {
+            H[x].winLose = (1 / counter);
+          } else {
+            H[x].winLose = 0;
+          }
+        } else {
+          H[x].winLose = 0;
+        }
+      }
+      return;
+    }
+    print("6");
+    //flush
+    if (maxState == 6) {
+      int counter = 0;
+      int index = 0;
+      while (
+          index < staticValues.getPlayerNo() && H[index].status != maxState) {
+        index++;
+      }
+      for (int x = 0; x < staticValues.getPlayerNo(); x++) {
+        if (H[x].status == maxState) {
+          if (compare(H[index].modifiedCard, H[x].modifiedCard, 5) < 0) {
+            index = x;
+          }
+        }
+      }
+      for (int x = 0; x < staticValues.getPlayerNo(); x++) {
+        if (H[x].status == maxState) {
+          if (compare(H[index].modifiedCard, H[x].modifiedCard, 5) == 0) {
+            counter++;
+          }
+        }
+      }
+      if (counter == 1) {
+        H[index].winLose = 1;
+        for (int y = 0; y < staticValues.getPlayerNo(); y++) {
+          if (y != index) {
+            H[y].winLose = 0;
+          }
+        }
+        return;
+      }
+      for (int x = 0; x < staticValues.getPlayerNo(); x++) {
+        if (H[x].status == maxState) {
+          if (compare(H[index].modifiedCard, H[x].modifiedCard, 5) == 0) {
+            H[x].winLose = (1 / counter);
+          } else {
+            H[x].winLose = 0;
+          }
+        } else {
+          H[x].winLose = 0;
+        }
+      }
+      return;
+    }
+    print("5");
+    //straight
+    if (maxState == 5) {
+      int counter = 0;
+      int maxcard = 0;
+      int index = -1;
+      for (int x = 0; x < staticValues.getPlayerNo(); x++) {
+        if (H[x].status == maxState) {
+          if (H[x].modifiedCard[0] > maxState) {
+            maxcard = H[x].modifiedCard[0];
+          }
+        }
+      }
+      for (int x = 0; x < staticValues.getPlayerNo(); x++) {
+        if (H[x].status == maxState) {
+          if (H[x].modifiedCard[0] == maxcard) {
+            counter++;
+            index = x;
+          }
+        }
+      }
+      if (counter == 1) {
+        H[index].winLose = 1;
+        for (int y = 0; y < staticValues.getPlayerNo(); y++) {
+          if (y != index) {
+            H[y].winLose = 0;
+          }
+        }
+        return;
+      }
+      for (int x = 0; x < staticValues.getPlayerNo(); x++) {
+        if (H[x].status == maxState) {
+          if (H[x].modifiedCard[0] == maxcard) {
+            H[x].winLose = (1 / counter);
+          } else {
+            H[x].winLose = 0;
+          }
+        } else {
+          H[x].winLose = 0;
+        }
+      }
+      return;
+    }
+    print("4");
+    //three of a kind
+    if (maxState == 4) {
+      int counter = 0;
+      int index = 0;
+      while (
+          index < staticValues.getPlayerNo() && H[index].status != maxState) {
+        index++;
+      }
+      for (int x = 0; x < staticValues.getPlayerNo(); x++) {
+        if (H[x].status == maxState) {
+          if (compare(H[index].modifiedCard, H[x].modifiedCard, 3) < 0) {
+            index = x;
+          }
+        }
+      }
+      for (int x = 0; x < staticValues.getPlayerNo(); x++) {
+        if (H[x].status == maxState) {
+          if (compare(H[index].modifiedCard, H[x].modifiedCard, 3) == 0) {
+            counter++;
+          }
+        }
+      }
+      if (counter == 1) {
+        H[index].winLose = 1;
+        for (int y = 0; y < staticValues.getPlayerNo(); y++) {
+          if (y != index) {
+            H[y].winLose = 0;
+          }
+        }
+        return;
+      }
+      for (int x = 0; x < staticValues.getPlayerNo(); x++) {
+        if (H[x].status == maxState) {
+          if (compare(H[index].modifiedCard, H[x].modifiedCard, 3) == 0) {
+            H[x].winLose = (1 / counter);
+          } else {
+            H[x].winLose = 0;
+          }
+        } else {
+          H[x].winLose = 0;
+        }
+      }
+      return;
+    }
+    print("3");
+    //two pair
+    if (maxState == 3) {
+      int counter = 0;
+      int index = 0;
+      while (
+      index < staticValues.getPlayerNo() && H[index].status != maxState) {
+        index++;
+      }
+      for (int x = 0; x < staticValues.getPlayerNo(); x++) {
+        if (H[x].status == maxState) {
+          if (compare(H[index].modifiedCard, H[x].modifiedCard, 3) < 0) {
+            index = x;
+          }
+        }
+      }
+      for (int x = 0; x < staticValues.getPlayerNo(); x++) {
+        if (H[x].status == maxState) {
+          if (compare(H[index].modifiedCard, H[x].modifiedCard, 3) == 0) {
+            counter++;
+          }
+        }
+      }
+      if (counter == 1) {
+        H[index].winLose = 1;
+        for (int y = 0; y < staticValues.getPlayerNo(); y++) {
+          if (y != index) {
+            H[y].winLose = 0;
+          }
+        }
+        return;
+      }
+      for (int x = 0; x < staticValues.getPlayerNo(); x++) {
+        if (H[x].status == maxState) {
+          if (compare(H[index].modifiedCard, H[x].modifiedCard, 3) == 0) {
+            H[x].winLose = (1 / counter);
+          } else {
+            H[x].winLose = 0;
+          }
+        } else {
+          H[x].winLose = 0;
+        }
+      }
+      return;
+    }
+    print("2");
+    //pair
+    if (maxState == 2) {
+      int counter = 0;
+      int index = 0;
+      while (
+      index < staticValues.getPlayerNo() && H[index].status != maxState) {
+        index++;
+      }
+      for (int x = 0; x < staticValues.getPlayerNo(); x++) {
+        if (H[x].status == maxState) {
+          if (compare(H[index].modifiedCard, H[x].modifiedCard, 4) < 0) {
+            index = x;
+          }
+        }
+      }
+      for (int x = 0; x < staticValues.getPlayerNo(); x++) {
+        if (H[x].status == maxState) {
+          if (compare(H[index].modifiedCard, H[x].modifiedCard, 4) == 0) {
+            counter++;
+          }
+        }
+      }
+      if (counter == 1) {
+        H[index].winLose = 1;
+        for (int y = 0; y < staticValues.getPlayerNo(); y++) {
+          if (y != index) {
+            H[y].winLose = 0;
+          }
+        }
+        return;
+      }
+      for (int x = 0; x < staticValues.getPlayerNo(); x++) {
+        if (H[x].status == maxState) {
+          if (compare(H[index].modifiedCard, H[x].modifiedCard, 4) == 0) {
+            H[x].winLose = (1 / counter);
+          } else {
+            H[x].winLose = 0;
+          }
+        } else {
+          H[x].winLose = 0;
+        }
+      }
+      return;
+    }
+    print("1");
+    //highcard
+    if (maxState == 1) {
+      int counter = 0;
+      int index = 0;
+      while (
+      index < staticValues.getPlayerNo() && H[index].status != maxState) {
+        index++;
+      }
+      for (int x = 0; x < staticValues.getPlayerNo(); x++) {
+        if (H[x].status == maxState) {
+          if (compare(H[index].modifiedCard, H[x].modifiedCard, 5) < 0) {
+            index = x;
+          }
+        }
+      }
+      for (int x = 0; x < staticValues.getPlayerNo(); x++) {
+        if (H[x].status == maxState) {
+          if (compare(H[index].modifiedCard, H[x].modifiedCard, 5) == 0) {
+            counter++;
+          }
+        }
+      }
+      if (counter == 1) {
+        H[index].winLose = 1;
+        for (int y = 0; y < staticValues.getPlayerNo(); y++) {
+          if (y != index) {
+            H[y].winLose = 0;
+          }
+        }
+        return;
+      }
+      for (int x = 0; x < staticValues.getPlayerNo(); x++) {
+        if (H[x].status == maxState) {
+          if (compare(H[index].modifiedCard, H[x].modifiedCard, 5) == 0) {
+            H[x].winLose = (1 / counter);
+          } else {
+            H[x].winLose = 0;
+          }
+        } else {
+          H[x].winLose = 0;
+        }
+      }
+      return;
+    }
+    print("0");
+  }
+
+  int compare(List<int> a, List<int> b, int m) {
+    print("compare");
+    int i = 0;
+    while ( i < m) {
+      if(a[i] == b[i] ){
+        if(i<4){
+          i++;
+        }else{
+          break;
+        }
+      }else{break;}
+    }
+
+    if (i == (m - 1)) {
+      print("end");
+      return 0;
+    }
+    if (a[i] < b[i]) {
+      print("end");
+      return -1;
+    }
+    print("end");
+    return 1;
   }
 }

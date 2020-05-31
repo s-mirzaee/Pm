@@ -46,6 +46,7 @@ class _wagerAlertState extends State<wagerAlert> {
       if (showBox && boxShow)
         InkWell(
           child: Container(
+
             width: 70,
             height: 40,
             decoration: BoxDecoration(
