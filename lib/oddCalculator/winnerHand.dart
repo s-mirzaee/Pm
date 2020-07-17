@@ -8,7 +8,6 @@ class winnerHand {
   int min = 11;
   int minI;
   List<int> equals = [];
-  List<int> value = [];
 
   List<modifideHand> winner(List<Cards> list) {
     List<int> frequencies = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -19,15 +18,16 @@ class winnerHand {
       list[list.length - 2],
       list[list.length - 1],
     ];
-/*    print("center:");
+    print("center:");
     print(center[0].rank.toString()+center[0].suit);
     print(center[1].rank.toString()+center[1].suit);
     print(center[2].rank.toString()+center[2].suit);
     print(center[3].rank.toString()+center[3].suit);
-    print(center[4].rank.toString()+center[4].suit);*/
+    print(center[4].rank.toString()+center[4].suit);
     for (int a = 0; a < 5; a++) {
       frequencies[center[a].rank - 1]++;
     }
+    //print("fr:"+frequencies.toString());
     List<Cards> sortById = List.from(center);
     sortById.sort((b, a) => a.id.compareTo(b.id));
 
@@ -42,7 +42,6 @@ class winnerHand {
 
     rank r = new rank(sortById, sortByRank, frequencies);
     List<modifideHand> H = [];
-    value.clear();
 
     for (int i = 0; i < staticValues.getPlayerNo(); i++) {
       modifideHand m = new modifideHand();
