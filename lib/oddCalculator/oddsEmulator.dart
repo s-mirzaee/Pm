@@ -26,7 +26,7 @@ class oddsEmulator {
         handCards.add(cardList.cards[staticValues.getShuffle()[x]]);
       }
      // Stopwatch stopwatch = new Stopwatch()..start();
-      for (int i = 0; i < 15; i++) {
+      for (int i = 0; i < 1; i++) {
 
         newList.shuffle();
         List<Cards> selectedCards = [

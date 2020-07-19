@@ -182,10 +182,15 @@ class _wagerAlertState extends State<wagerAlert> {
                       onTap: () {
                         setState(() {
                           if (enterNumber <= Max) {
+
                             staticValues.setMoney(
                                 (staticValues.getMoney()) - enterNumber );
                             staticValues.setIsClick(i);
+
+
+                            print(staticValues.getReturn(i)+ returns.returnCalculator(odds.handOddes[i], enterNumber.toDouble()));
                             staticValues.setReturn(i,( staticValues.getReturn(i)+ returns.returnCalculator(odds.handOddes[i], enterNumber.toDouble())).round());
+
                             staticValues.setWager(
                                 i, staticValues.getWager(i)+enterNumber.round());
                             enterNumber = 0;
