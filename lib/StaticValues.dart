@@ -16,7 +16,7 @@ class StaticValues {
       isClick[x]=false;
     }
     isClick[i]=!x1;
-    print(isClick.toString());
+   // print(isClick.toString());
   }
 
   static int playerNo = 2;

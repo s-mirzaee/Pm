@@ -14,7 +14,7 @@ class table extends StatelessWidget {
     var deskH_t = height * 0.15; //top height
     var deskH_b = height *0.25; //bottom height
     var deskW_l = width *0.08; //left width
-    var deskW_r = width *0.08; //right width
+    var deskW_r = width *0.06; //right width
     return Container(
       color: Colors.black,
       child: Stack(

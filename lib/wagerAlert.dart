@@ -89,9 +89,9 @@ class _wagerAlertState extends State<wagerAlert> {
 
         //),
       Container(
-        margin: EdgeInsets.only(top: height-160), //color: Colors.white,
-        width: width*0.88,
-        height: height*0.14,
+        margin: EdgeInsets.only(top: height-172),// color: Colors.white,
+        width: width*0.845,
+        height: height*0.15,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
@@ -107,7 +107,7 @@ class _wagerAlertState extends State<wagerAlert> {
                 children: <Widget>[
                   for (int i = 1; i < 10; i++)
                     (Container(
-                      margin: EdgeInsets.only(right: width*0.007),
+                      margin: EdgeInsets.only(right: width*0.006),
                       decoration: BoxDecoration(
                           borderRadius:
                           BorderRadius.all(Radius.circular(15)),
@@ -116,7 +116,7 @@ class _wagerAlertState extends State<wagerAlert> {
                         child: Center(
                           child: Text(
                             '$i',
-                            style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'MTCORSVA'),
+                            style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold,fontFamily: 'MTCORSVA'),
                           ),
                         ),
                         onTap: () {
@@ -125,11 +125,11 @@ class _wagerAlertState extends State<wagerAlert> {
                           });
                         },
                       ),
-                      width: width*0.065,
-                      height: height*0.105,
+                      width: width*0.0635,
+                      height: height*0.113,
                     )),
                   Container(
-                    margin: EdgeInsets.only(right: width*0.007),
+                    margin: EdgeInsets.only(right: width*0.006),
                     decoration: BoxDecoration(
                         borderRadius:
                         BorderRadius.all(Radius.circular(15)),
@@ -138,7 +138,7 @@ class _wagerAlertState extends State<wagerAlert> {
                       child: Center(
                         child: Text(
                           '0',
-                          style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'MTCORSVA'),
+                          style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold,fontFamily: 'MTCORSVA'),
                         ),
                       ),
                       onTap: () {
@@ -147,11 +147,11 @@ class _wagerAlertState extends State<wagerAlert> {
                         });
                       },
                     ),
-                    width: width*0.065,
-                    height: height*0.105,
+                    width: width*0.0635,
+                    height: height*0.113,
                   ),
                   Container(
-                    margin: EdgeInsets.only(right: width*0.007),
+                    margin: EdgeInsets.only(right: width*0.006),
                     decoration: BoxDecoration(
                         borderRadius:
                         BorderRadius.all(Radius.circular(15)),
@@ -166,11 +166,11 @@ class _wagerAlertState extends State<wagerAlert> {
                         });
                       },
                     ),
-                    width: width*0.065,
-                    height: height*0.105,
+                    width: width*0.0635,
+                    height: height*0.110,
                   ),
                   Container(
-                    margin: EdgeInsets.only(right: width*0.007),
+                    margin: EdgeInsets.only(right: width*0.006),
                     decoration: BoxDecoration(
                         borderRadius:
                         BorderRadius.all(Radius.circular(15)),
@@ -207,16 +207,14 @@ class _wagerAlertState extends State<wagerAlert> {
                         });
                       },
                     ),
-                    width: width*0.065,
-                    height: height*0.105,
+                    width: width*0.0635,
+                    height: height*0.113,
                   ),
                 ],
               ),
             )
             //else show keyboard
-                : /*Container(//width: width*0.85,
-              //margin: EdgeInsets.only(top: height*0.14), //color: Color.fromRGBO(255, 255, 255, 0.1),
-              child:*/ Row(
+                : Container(/*color:Colors.greenAccent,*/child: Row(
                 children: <Widget>[
                   Container(//color:Colors.greenAccent,
                     //margin: EdgeInsets.only(left: 0, top: 0),
@@ -271,7 +269,7 @@ class _wagerAlertState extends State<wagerAlert> {
                               decoration: TextDecoration.none),
                         ),
                         height: height*0.07,
-                        width: width*0.2,
+                        width: width*0.16,
                       ),
                       Container(//color: Colors.red,
                         child: Text(
@@ -285,7 +283,7 @@ class _wagerAlertState extends State<wagerAlert> {
                               decoration: TextDecoration.none),
                         ),
                         height: height*0.07,
-                        width: width*0.2,
+                        width: width*0.16,
                       ),
                     ]),
                   Column(
@@ -293,7 +291,7 @@ class _wagerAlertState extends State<wagerAlert> {
                     children: <Widget>[
                       Container(//color: Colors.red,
                         height: height*0.07,
-                        width: width*0.22,
+                        width: width*0.18,
                         child: Text(
                           "min : 0 " ,
                           style: TextStyle(
@@ -307,7 +305,7 @@ class _wagerAlertState extends State<wagerAlert> {
                       ),
                       Container(//color: Colors.greenAccent,
                         height: height*0.07,
-                        width: width*0.22,
+                        width: width*0.18,
                         child: Text(
                           "max :" + (Max.round()).toString(),
                           style: TextStyle(
@@ -323,7 +321,7 @@ class _wagerAlertState extends State<wagerAlert> {
                   ),
                 ],
               )
-           // )
+            )
 
                 : Container(child: Text(
               "No Enough Money",
@@ -334,7 +332,8 @@ class _wagerAlertState extends State<wagerAlert> {
                   fontFamily: 'MTCORSVA',
                   decoration: TextDecoration.none),
             ),
-              margin: EdgeInsets.only(top: 60,left: 230),
+              //color: Colors.cyanAccent,
+              margin: EdgeInsets.only(left: (width*0.5)-120),
             ),
           ],
         ),

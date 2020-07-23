@@ -8,6 +8,7 @@ class board {
   List<Cards> list;
 
   board(this.list);
+  double width = staticValues.getWidth();
 
 
 
@@ -26,7 +27,7 @@ class board {
                   children: <Widget>[
 
                     Container(
-                      margin: EdgeInsets.only(left: 40),
+                      margin: EdgeInsets.only(left: width*0.015),
                       child: Text(
                         'Stack : \$ ${staticValues.getMoney().round()} ',
                         style: TextStyle(
@@ -38,7 +39,7 @@ class board {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(left: 290),
+                      margin: EdgeInsets.only(left: width*0.47),
                       child: Text(
                         'Total Wager :\$ ${staticValues.totalWager()} ',
                         style: TextStyle(
