@@ -78,19 +78,19 @@ class rank {
     //royalflush
     if (s[0].suit == s[4].suit) {
       if (s[4].rank == 9) {
-        h.status = 10;
+        h.status = 9;
         return h;
       }
     }
     if (s[1].suit == s[5].suit) {
       if (s[5].rank == 9) {
-        h.status = 10;
+        h.status = 9;
         return h;
       }
     }
     if (s[2].suit == s[6].suit) {
       if (s[6].rank == 9) {
-        h.status = 10;
+        h.status = 9;
         return h;
       }
     }
@@ -98,7 +98,7 @@ class rank {
     //straightFlush
     if (s[0].suit == s[4].suit) {
       if (s[0].rank - s[4].rank == 4) {
-        h.status = 10;
+        h.status = 9;
         h.modifiedCard[0]=s[0].rank;
         return h;
       }
@@ -112,35 +112,12 @@ class rank {
     }
     if (s[2].suit == s[6].suit) {
       if (s[2].rank - s[6].rank == 4) {
-        h.status = 10;
+        h.status = 9;
         h.modifiedCard[0]=s[2].rank;
         return h;
       }
     }
       if(s[3].suit == s[6].suit){
-      if(s[3].rank==4){
-        if(s[0].rank==13){
-          if(s[0].suit==s[3].suit){
-            h.status=9;
-            h.modifiedCard[0]=s[3].rank;
-            return h;
-          }
-        }
-        if(s[1].rank==13){
-          if(s[1].suit==s[3].suit){
-            h.status=9;
-            h.modifiedCard[0]=s[3].rank;
-            return h;
-          }
-        }
-        if(s[2].rank==13){
-          if(s[2].suit==s[3].suit){
-            h.status=9;
-            h.modifiedCard[0]=s[3].rank;
-            return h;
-          }
-        }
-      }
       if(s[3].rank==4){
         if(s[0].rank==13){
           if(s[0].suit==s[3].suit){
@@ -190,7 +167,7 @@ class rank {
       if(s[1].rank==4){
         if(s[0].rank==13){
             h.status=9;
-            h.modifiedCard[0]=s[2].rank;
+            h.modifiedCard[0]=s[1].rank;
             return h;
         }
       }

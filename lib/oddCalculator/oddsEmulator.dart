@@ -18,15 +18,14 @@ class oddsEmulator {
     results.fillRange(0, staticValues.getPlayerNo(),0);
 
     if (level == 0 ) {
-
       List newList = List.from(staticValues.getShuffle());
       newList.removeRange(0, staticValues.getPlayerNo() * 2);
       List<Cards> handCards = [];
       for (int x = 0; x < staticValues.getPlayerNo() * 2; x++) {
         handCards.add(cardList.cards[staticValues.getShuffle()[x]]);
       }
-     // Stopwatch stopwatch = new Stopwatch()..start();
-      for (int i = 0; i < 1; i++) {
+      // Stopwatch stopwatch = new Stopwatch()..start();
+      for (int i = 0; i < 20000; i++) {
 
         newList.shuffle();
         List<Cards> selectedCards = [
@@ -37,14 +36,12 @@ class oddsEmulator {
           cardList.cards[newList[4]],
         ];
 
-
         List<Cards> list=[...handCards,...selectedCards];
         H=winnerCalculator.winner(list);
       }
 
-      //print('time : ${stopwatch.elapsed}');
       for(int z=0;z<staticValues.getPlayerNo();z++){
-        print(z.toString()+"+++++++"+H[z].total.toString());
+        //print(z.toString()+"+++++++"+H[z].total.toString());
         oddCalculator.setOdd(z, (H[z].total/15)*100);
       }
 
@@ -64,12 +61,10 @@ class oddsEmulator {
 
         List<Cards> list=[...handCards,...selectedCards];
         H=winnerCalculator.winner(list);
-        for(int z=0;z<staticValues.getPlayerNo();z++){
-          oddCalculator.setOdd(z, (H[z].total/1500)*100);
-        }
+
       }
       for(int z=0;z<staticValues.getPlayerNo();z++){
-        oddCalculator.setOdd(z, (results[z]/total)*100);
+        oddCalculator.setOdd(z, (H[z].total/1500)*100);
       }
     }else if (level == 2 ) {
       List newList = List.from(staticValues.getShuffle());
@@ -87,23 +82,18 @@ class oddsEmulator {
 
         List<Cards> list=[...handCards,...selectedCards];
         H=winnerCalculator.winner(list);
-        for(int z=0;z<staticValues.getPlayerNo();z++){
-          oddCalculator.setOdd(z, (H[z].total/1500)*100);
-        }
+
       }
       for(int z=0;z<staticValues.getPlayerNo();z++){
-        oddCalculator.setOdd(z, (results[z]/total)*100);
+        oddCalculator.setOdd(z, (H[z].total/1500)*100);
       }
     }
     else if(level==3){
       H=winnerCalculator.winner(chooseCards);
 
-      for(int i=0;i<staticValues.getPlayerNo();i++){
-        oddCalculator.setOdd(i, 0);
-      }
 
       for(int z=0;z<staticValues.getPlayerNo();z++){
-        oddCalculator.setOdd(z, (H[z].total/1500)*100);
+        oddCalculator.setOdd(z, (H[z].total)*100);
       }}
 
   }
