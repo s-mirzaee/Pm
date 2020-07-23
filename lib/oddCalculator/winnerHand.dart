@@ -19,12 +19,12 @@ class winnerHand {
       list[list.length - 2],
       list[list.length - 1],
     ];
-    print("center:");
+    /*print("center:");
     print(center[0].rank.toString() + center[0].suit);
     print(center[1].rank.toString() + center[1].suit);
     print(center[2].rank.toString() + center[2].suit);
     print(center[3].rank.toString() + center[3].suit);
-    print(center[4].rank.toString() + center[4].suit);
+    print(center[4].rank.toString() + center[4].suit);*/
     for (int a = 0; a < 5; a++) {
       frequencies[center[a].rank - 1]++;
     }
@@ -52,11 +52,13 @@ class winnerHand {
       print(list[(2 * i) + 1].rank.toString()+list[(2 * i) + 1].suit);*/
       n = r.ranking(list[2 * i], list[(2 * i) + 1], m);
       H.add(n);
-      print("out:" + n.status.toString());
+      //print("out:" + n.status.toString());
+      //for(int j = 0; j<20; j++)
+        //print("11");
     }
-    print("start finding");
+    //print("start finding");
     findWinner(H);
-    print("finded");
+    //print("finded");
     return H;
 
 /*    List<int> bySort = List.from(value);
@@ -75,7 +77,7 @@ class winnerHand {
         maxState = H[x].status;
       }
     }
-    print("10");
+    //print("10");
     //royal flush
     if (maxState == 10) {
       int counter = 0;
@@ -104,7 +106,7 @@ class winnerHand {
       }
       return;
     }
-    print("9");
+    //print("9");
     //straight flush
     if (maxState == 9) {
       int counter = 0;
@@ -142,7 +144,7 @@ class winnerHand {
       }
       return;
     }
-    print("8");
+    //print("8");
     //Four of a kind
     if (maxState == 8) {
       int counter = 0;
@@ -207,7 +209,7 @@ class winnerHand {
       }
       return;
     }
-    print("7");
+    //print("7");
     //full house
     if (maxState == 7) {
       int counter = 0;
@@ -284,7 +286,7 @@ class winnerHand {
       }
       return;
     }
-    print("6");
+    //print("6");
     //flush
     if (maxState == 6) {
       int counter = 0;
@@ -293,7 +295,7 @@ class winnerHand {
           index < staticValues.getPlayerNo() && H[index].status != maxState) {
         index++;
       }
-      print("while");
+      //print("while");
       for (int x = 0; x < staticValues.getPlayerNo(); x++) {
         if (H[x].status == maxState) {
           if (isLower(H[index].modifiedCard, H[x].modifiedCard, 5)) {
@@ -332,7 +334,7 @@ class winnerHand {
       }
       return;
     }
-    print("5");
+    //print("5");
     //straight
     if (maxState == 5) {
       int counter = 0;
@@ -377,7 +379,7 @@ class winnerHand {
       }
       return;
     }
-    print("4");
+    //print("4");
     //three of a kind
     if (maxState == 4) {
       int counter = 0;
@@ -424,7 +426,7 @@ class winnerHand {
       }
       return;
     }
-    print("3");
+    //print("3");
     //two pair
     if (maxState == 3) {
       int counter = 0;
@@ -471,7 +473,7 @@ class winnerHand {
       }
       return;
     }
-    print("2");
+    //print("2");
     //pair
     if (maxState == 2) {
       int counter = 0;
@@ -518,7 +520,7 @@ class winnerHand {
       }
       return;
     }
-    print("1");
+    //print("1");
     //highcard
     if (maxState == 1) {
       int counter = 0;
@@ -565,7 +567,7 @@ class winnerHand {
       }
       return;
     }
-    print("0");
+    //print("0");
   }
 
 /*  int compare(List<int> a, List<int> b, int m) {

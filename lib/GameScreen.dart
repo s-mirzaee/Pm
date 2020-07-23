@@ -20,6 +20,7 @@ class _StartGameState extends State<StartGame> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
+    SystemChrome.setEnabledSystemUIOverlays([]);
     return GameDesk();
 
   }
@@ -46,7 +47,7 @@ class _GameDeskState extends State<GameDesk> {
             table(),
             levels.levelUp(level),
             Container(
-                padding: EdgeInsets.only(top: height-55,left: width-80),
+                padding: EdgeInsets.only(top: height-55,left: width-130),
                 child: InkWell(highlightColor: Colors.white,
                   onTap: () {
                     if(level==0){

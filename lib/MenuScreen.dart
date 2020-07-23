@@ -18,6 +18,7 @@ class _MenuScreenState extends State<MenuScreen> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
+    SystemChrome.setEnabledSystemUIOverlays([]);
     MediaQueryData queryData = MediaQuery.of(context);
 
     staticValues.setWidth(queryData.size.width);

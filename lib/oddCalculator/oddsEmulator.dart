@@ -26,7 +26,7 @@ class oddsEmulator {
         handCards.add(cardList.cards[staticValues.getShuffle()[x]]);
       }
      // Stopwatch stopwatch = new Stopwatch()..start();
-      for (int i = 0; i < 1; i++) {
+      for (int i = 0; i < 30; i++) {
 
         newList.shuffle();
         List<Cards> selectedCards = [
@@ -42,9 +42,9 @@ class oddsEmulator {
         H=winnerCalculator.winner(list);
       }
 
-      //print('time : ${stopwatch.elapsed}');
+      //rint('time : ${stopwatch.elapsed}');
       for(int z=0;z<staticValues.getPlayerNo();z++){
-        print(z.toString()+"+++++++"+H[z].total.toString());
+        //print(z.toString()+"+++++++"+H[z].total.toString());
         oddCalculator.setOdd(z, (H[z].total/15)*100);
       }
 
