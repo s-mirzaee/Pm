@@ -25,7 +25,7 @@ class RunApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "bustemHoldem",
+      title: "BustEmHoldem",
       initialRoute: '/',
       routes: {
         '/': (context) => MenuScreen(),

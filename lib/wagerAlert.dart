@@ -83,7 +83,7 @@ class _wagerAlertState extends State<wagerAlert> {
       //),
       Container(
         margin: EdgeInsets.only(top: height*0.61), //color: Colors.white,
-        width: width * 0.88,
+        width: width * 0.855,
         height: height * 0.14,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -91,16 +91,16 @@ class _wagerAlertState extends State<wagerAlert> {
             beInRange
                 //if be in range
                 ? showKeyboard
-                    ? Container(
+                    ? Container(//color: Colors.cyan,
                         //height: height*0.16,
-                        margin: EdgeInsets.only(left: 8),
+                        //margin: EdgeInsets.only(left: 8),
                         //color: Colors.lightBlue,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: <Widget>[
                             for (int i = 1; i < 10; i++)
                               (Container(
-                                margin: EdgeInsets.only(right: width * 0.007),
+                                margin: EdgeInsets.only(right: width * 0.006),
                                 decoration: BoxDecoration(
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(15)),
@@ -125,7 +125,7 @@ class _wagerAlertState extends State<wagerAlert> {
                                 height: height * 0.105,
                               )),
                             Container(
-                              margin: EdgeInsets.only(right: width * 0.007),
+                              margin: EdgeInsets.only(right: width * 0.006),
                               decoration: BoxDecoration(
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(15)),
@@ -150,7 +150,7 @@ class _wagerAlertState extends State<wagerAlert> {
                               height: height * 0.105,
                             ),
                             Container(
-                              margin: EdgeInsets.only(right: width * 0.007),
+                              margin: EdgeInsets.only(right: width * 0.006),
                               decoration: BoxDecoration(
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(15)),

@@ -69,7 +69,7 @@ class _GameDeskState extends State<GameDesk> {
                                         height: 30,
                                         child: Center(
                                           child: Text(
-                                            'bet at least on a hand',
+                                            'Bet at least on a hand',
                                             style: TextStyle(
                                                 fontFamily: 'MTCORSVA',
                                                 fontSize: 25,
