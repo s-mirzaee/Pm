@@ -188,7 +188,6 @@ class rank {
         }
       }
     }
-    //print('9');
     //four of a kind
     int lr = r.length;
     for (int j = 0; j < lr; j++) {

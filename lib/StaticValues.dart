@@ -25,7 +25,7 @@ class StaticValues {
       isClick[x] = false;
     }
     isClick[i] = !x1;
-    print(isClick.toString());
+   // print(isClick.toString());
   }
 
   static List<double> totalWin = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];

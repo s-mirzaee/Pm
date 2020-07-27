@@ -82,7 +82,7 @@ class _wagerAlertState extends State<wagerAlert> {
 
       //),
       Container(
-        margin: EdgeInsets.only(top: height - 160), //color: Colors.white,
+        margin: EdgeInsets.only(top: height*0.61), //color: Colors.white,
         width: width * 0.88,
         height: height * 0.14,
         child: Row(
@@ -332,7 +332,7 @@ class _wagerAlertState extends State<wagerAlert> {
                       )
                 // )
 
-                : Container(
+                : Container(//color: Colors.cyanAccent,
                     child: Text(
                       "No Enough Money",
                       style: TextStyle(
@@ -342,7 +342,7 @@ class _wagerAlertState extends State<wagerAlert> {
                           fontFamily: 'MTCORSVA',
                           decoration: TextDecoration.none),
                     ),
-                    margin: EdgeInsets.only(top: 60, left: 230),
+                    margin: EdgeInsets.only(left: width*0.35),
                   ),
           ],
         ),

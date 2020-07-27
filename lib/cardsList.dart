@@ -87,7 +87,7 @@ class CardList {
     list.shuffle();
     list.shuffle();
     staticValues.setShuffle(list);
-    print(list);
+   // print(list);
     List<Cards> handList = new List();
     for (int i = 0; i < n; i++) {
       handList.add(cards[list[i]]);

@@ -7,6 +7,7 @@ import 'table.dart';
 import 'package:flutter/material.dart';
 import 'cardsList.dart';
 
+
 CardList handCard = new CardList();
 oddsEmulator oddEmulator = new oddsEmulator();
 
@@ -19,6 +20,7 @@ class _StartGameState extends State<StartGame> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
+    SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
     return GameDesk();
   }
 }
@@ -32,6 +34,7 @@ class _GameDeskState extends State<GameDesk> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
+    SystemChrome.setEnabledSystemUIOverlays ([SystemUiOverlay.bottom]);
     return SafeArea(
         top: false,
         child: MaterialApp(
@@ -42,8 +45,8 @@ class _GameDeskState extends State<GameDesk> {
             children: <Widget>[
               table(),
               levels.levelUp(level),
-              Container(
-                  padding: EdgeInsets.only(top: height - 55, left: width - 80),
+              Container(//color: Colors.cyanAccent,
+                  padding: EdgeInsets.only(top: height*0.86, left: width*0.86),
                   child: InkWell(
                     highlightColor: Colors.white,
                     onTap: () {

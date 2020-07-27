@@ -38,8 +38,8 @@ class oddsEmulator {
       }
 
       for (int z = 0; z < staticValues.getPlayerNo(); z++) {
-        print(
-            z.toString() + "+++++++" + staticValues.getTotalWin(z).toString());
+        /*print(
+            z.toString() + "+++++++" + staticValues.getTotalWin(z).toString());*/
         oddCalculator.setOdd(
             z, (staticValues.getTotalWin(z) / rapidTime) * 100);
       }

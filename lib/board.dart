@@ -1,3 +1,5 @@
+import 'package:bustem2/wagerAlert.dart';
+
 import 'main.dart';
 import 'oneHand.dart';
 import 'package:flutter/material.dart';
@@ -17,12 +19,12 @@ class board {
           //header
           Container(
               child: Container(
-            margin: EdgeInsets.only(top: 20),
+            margin: EdgeInsets.only(top: height*0.02),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Container(
-                  margin: EdgeInsets.only(left: 40),
+                  margin: EdgeInsets.only(left: width*0.04),
                   child: Text(
                     'Stack : \$ ${staticValues.getMoney().round()} ',
                     style: TextStyle(
@@ -34,7 +36,7 @@ class board {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(left: 290),
+                  margin: EdgeInsets.only(left: width*0.48),
                   child: Text(
                     'Total Wager :\$ ${staticValues.totalWager()} ',
                     style: TextStyle(
