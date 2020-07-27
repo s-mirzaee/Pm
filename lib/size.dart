@@ -1,6 +1,6 @@
 class size {
   int playerNo;
-//test
+
   size(this.playerNo);
 
   List<double> tops() {
@@ -17,11 +17,23 @@ class size {
     } else if (playerNo == 5) {
       return [0.3, 0.12, 0.08, 0.12, 0.3];
     } else if (playerNo == 4) {
-      return [0.45, 0.15, 0.15, 0.45,];
+      return [
+        0.45,
+        0.15,
+        0.15,
+        0.45,
+      ];
     } else if (playerNo == 3) {
-      return [0.3, 0.08, 0.3,];
+      return [
+        0.3,
+        0.08,
+        0.3,
+      ];
     } else if (playerNo == 2) {
-      return [0.3, 0.3,];
+      return [
+        0.3,
+        0.3,
+      ];
     }
   }
 

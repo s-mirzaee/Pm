@@ -1,11 +1,8 @@
 import 'package:bustem2/StaticValues.dart';
 import 'package:flutter/cupertino.dart';
-
 import 'main.dart';
 import 'package:flutter/material.dart';
 import 'cards.dart';
-import 'main.dart';
-import 'main.dart';
 import 'odds.dart';
 import 'returnMoney.dart';
 import 'size.dart';
@@ -47,7 +44,6 @@ class _HandState extends State<Hand> {
     return Container(
 
         //bayaf full screen bashe
-        //color: Colors.greenAccent,
         width: width,
         height: height,
         child: Stack(
@@ -59,9 +55,10 @@ class _HandState extends State<Hand> {
                 onTap: () {
                   staticValues.setSelect(i);
                   setState(() {
-                    if(staticValues.wagerCounter() <
-                        ((staticValues.getPlayerNo() / 2).round()) ||
-                        staticValues.getWager(i) != 0|| staticValues.getIsClick(i)){
+                    if (staticValues.wagerCounter() <
+                            ((staticValues.getPlayerNo() / 2).round()) ||
+                        staticValues.getWager(i) != 0 ||
+                        staticValues.getIsClick(i)) {
                       staticValues.setIsClick(i);
                     }
 
@@ -205,9 +202,7 @@ class _HandState extends State<Hand> {
                             borderRadius: BorderRadius.only(
                                 topRight: Radius.circular(8),
                                 topLeft: Radius.circular(8)),
-                            color:
-                                boxColor)
-                        ),
+                            color: boxColor)),
                     Container(
                       child: Center(
                         child: Text(
@@ -219,9 +214,9 @@ class _HandState extends State<Hand> {
                               decoration: TextDecoration.none),
                         ),
                       ),
-                      height: handSize - 31, color: boxColor,
+                      height: handSize - 31,
+                      color: boxColor,
                       margin: EdgeInsets.only(top: 0.3, bottom: 0.3),
-                      //decoration: BoxDecoration(/*borderRadius: BorderRadius.all(Radius.circular(0)),*/color: boxColor,boxShadow: [BoxShadow(color: Colors.black,spreadRadius: 0.7)]),
                     ),
                     Container(
                         child: Center(
@@ -234,15 +229,13 @@ class _HandState extends State<Hand> {
                                 decoration: TextDecoration.none),
                           ),
                         ),
-                        /*height: handSize -31,color: boxColor,*/
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(8),
                             bottomRight: Radius.circular(8),
                           ),
                           color: boxColor,
-                        ) //boxShadow: [BoxShadow(color: Colors.black,spreadRadius: 0.7)]),
-                        ),
+                        )),
                   ],
                 ),
                 decoration: BoxDecoration(

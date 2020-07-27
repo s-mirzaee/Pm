@@ -1,7 +1,5 @@
 import 'package:bustem2/LogoScreen.dart';
-import 'package:bustem2/oddCalculator/oddsEmulator.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'Levels.dart';
 import 'board.dart';
 import 'cards.dart';
@@ -13,9 +11,9 @@ import 'sliderValue.dart';
 import 'StaticValues.dart';
 
 void main() => (runApp(RunApp()));
-StaticValues staticValues=new StaticValues();
-sliderValue values=new sliderValue();
-odds oddCalculator=new odds();
+StaticValues staticValues = new StaticValues();
+sliderValue values = new sliderValue();
+odds oddCalculator = new odds();
 int level = 0;
 CardList handCard = new CardList();
 List<Cards> chooseCards = handCard.cardlist(staticValues.getPlayerNo());
@@ -32,15 +30,9 @@ class RunApp extends StatelessWidget {
       routes: {
         '/': (context) => MenuScreen(),
         '/Game': (context) => StartGame(),
-        '/Desk': (context)=>GameDesk(),
-        '/End': (context)=>logoScreen(),
+        '/Desk': (context) => GameDesk(),
+        '/End': (context) => logoScreen(),
       },
     );
   }
 }
-
-
-
-
-
-

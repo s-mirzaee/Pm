@@ -8,7 +8,4 @@ class returnMoney {
       return returnMoney;
     }
   }
-
-//double updateMoney(double won)
-
 }

@@ -8,21 +8,12 @@ class Levels {
 
   Levels(this.chooseCards);
 
-
-
-
-
-
   Widget levelUp(int level) {
-
-
     switch (level) {
       case 0:
         {
-
           oddCalculator.oddCalculator(chooseCards);
           staticValues.setPhaseName('Flop');
-
 
           return Stack(
             children: <Widget>[
@@ -47,7 +38,7 @@ class Levels {
       case 2:
         {
           oddCalculator.oddCalculator(chooseCards);
-         staticValues.setPhaseName('River');
+          staticValues.setPhaseName('River');
 
           return Stack(
             children: <Widget>[
@@ -65,7 +56,6 @@ class Levels {
 
           return Stack(
             children: <Widget>[
-
               Board.hands(),
               Board.flop(),
               Board.turn(),
@@ -74,11 +64,13 @@ class Levels {
           );
         }
         break;
-      case 4:{
-        oddCalculator.oddCalculator(chooseCards);
-        staticValues.setPhaseName('Play Again');
-        return logoScreen();
-      }break;
+      case 4:
+        {
+          oddCalculator.oddCalculator(chooseCards);
+          staticValues.setPhaseName('Play Again');
+          return logoScreen();
+        }
+        break;
     }
   }
 }

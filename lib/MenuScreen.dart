@@ -1,4 +1,3 @@
-import 'package:bustem2/StaticValues.dart';
 import 'package:custom_switch/custom_switch.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -18,130 +17,129 @@ class _MenuScreenState extends State<MenuScreen> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
-    SystemChrome.setEnabledSystemUIOverlays([]);
     MediaQueryData queryData = MediaQuery.of(context);
 
     staticValues.setWidth(queryData.size.width);
     staticValues.setHeight(queryData.size.height);
-    var width= staticValues.getWidth();
+    var width = staticValues.getWidth();
     var height = staticValues.getHeight();
 
-    return SafeArea(//top: false,
+    return SafeArea(
         child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(fontFamily: 'MTCORSVA'),
-        home: Container(
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage(
-                        'assets/images/katie-harp-Em96eDRJPD8-unsplash.jpg'),
-                    fit: BoxFit.cover)),
-            child: Row(
-              children: <Widget>[
-                Container(
-                    margin: EdgeInsets.only(left: width / 4),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Transform.rotate(
-                          angle: math.pi / 9,
-                          child: Container(
-                            child: Image.asset(
-                                'assets/images/ace-of-hearts.png',
-                                height: height / 8.65),
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(fontFamily: 'MTCORSVA'),
+            home: Container(
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage(
+                            'assets/images/katie-harp-Em96eDRJPD8-unsplash.jpg'),
+                        fit: BoxFit.cover)),
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                        margin: EdgeInsets.only(left: width / 4),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Transform.rotate(
+                              angle: math.pi / 9,
+                              child: Container(
+                                child: Image.asset(
+                                    'assets/images/ace-of-hearts.png',
+                                    height: height / 8.65),
+                              ),
+                            ),
+                            Transform.rotate(
+                              angle: -math.pi / 15,
+                              child: Container(
+                                margin: EdgeInsets.only(
+                                    top: height / 14.5, bottom: height / 15),
+                                child: Image.asset(
+                                    'assets/images/ace-of-spades.png',
+                                    height: height / 8.65),
+                              ),
+                            ),
+                            Transform.rotate(
+                              angle: math.pi / 15,
+                              child: Container(
+                                child: Image.asset(
+                                    'assets/images/playing-cards.png',
+                                    height: height / 8.65),
+                              ),
+                            )
+                          ],
+                        )),
+                    Container(
+                      margin: EdgeInsets.only(top: height / 100),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          Container(
+                            child: FlatButton(
+                              child: Text('Play',
+                                  style: TextStyle(
+                                      fontSize: 38,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                      decoration: TextDecoration.none)),
+                              textColor: Colors.black,
+                              onPressed: () {
+                                return showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    return Hands();
+                                  },
+                                );
+                              },
+                            ),
                           ),
-                        ),
-                        Transform.rotate(
-                          angle: -math.pi / 15,
-                          child: Container(
+                          Container(
                             margin: EdgeInsets.only(
-                                top: height / 14.5, bottom: height / 15),
-                            child: Image.asset(
-                                'assets/images/ace-of-spades.png',
-                                height: height / 8.65),
+                                top: height / 9, bottom: height / 9.2),
+                            child: FlatButton(
+                              child: Text('Setting',
+                                  style: TextStyle(
+                                      fontSize: 38,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                      decoration: TextDecoration.none)),
+                              textColor: Colors.black,
+                              onPressed: () {
+                                return showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    return Setting();
+                                  },
+                                );
+                              },
+                            ),
                           ),
-                        ),
-                        Transform.rotate(
-                          angle: math.pi / 15,
-                          child: Container(
-                            child: Image.asset(
-                                'assets/images/playing-cards.png',
-                                height: height / 8.65),
+                          Container(
+                            child: FlatButton(
+                              child: Text('Help',
+                                  style: TextStyle(
+                                      fontSize: 38,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                      decoration: TextDecoration.none)),
+                              textColor: Colors.black,
+                              onPressed: () {
+                                return showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    return Help();
+                                  },
+                                );
+                              },
+                            ),
                           ),
-                        )
-                      ],
-                    )),
-                Container(
-                  margin: EdgeInsets.only(top: height / 100),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Container(
-                        child: FlatButton(
-                          child: Text('Play',
-                              style: TextStyle(
-                                  fontSize: 38,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black,
-                                  decoration: TextDecoration.none)),
-                          textColor: Colors.black,
-                          onPressed: () {
-                            return showDialog(
-                              context: context,
-                              builder: (context) {
-                                return Hands();
-                              },
-                            );
-                          },
-                        ),
+                        ],
                       ),
-                      Container(
-                        margin: EdgeInsets.only(
-                            top: height / 9, bottom: height / 9.2),
-                        child: FlatButton(
-                          child: Text('Setting',
-                              style: TextStyle(
-                                  fontSize: 38,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black,
-                                  decoration: TextDecoration.none)),
-                          textColor: Colors.black,
-                          onPressed: () {
-                            return showDialog(
-                              context: context,
-                              builder: (context) {
-                                return Setting();
-                              },
-                            );
-                          },
-                        ),
-                      ),
-                      Container(
-                        child: FlatButton(
-                          child: Text('Help',
-                              style: TextStyle(
-                                  fontSize: 38,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black,
-                                  decoration: TextDecoration.none)),
-                          textColor: Colors.black,
-                          onPressed: () {
-                            return showDialog(
-                              context: context,
-                              builder: (context) {
-                                return Help();
-                              },
-                            );
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ))));
+                    ),
+                  ],
+                ))));
   }
 }
 
@@ -160,7 +158,6 @@ class _SettingState extends State<Setting> {
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
     MediaQueryData queryData = MediaQuery.of(context);
-    var width = queryData.size.width;
     final height = queryData.size.height;
     return AlertDialog(
       backgroundColor: Colors.black,
@@ -226,20 +223,21 @@ class _SettingState extends State<Setting> {
                 ],
               ),
               FlatButton(
-                padding:EdgeInsets.only(top: 20) ,
+                  padding: EdgeInsets.only(top: 20),
                   onPressed: () {
                     staticValues.resetNumber();
                     Navigator.pushNamed(context, '/');
                   },
-                  child: Padding( padding: EdgeInsets.only(top: 25),
-                      child:Text(
-                    'Reste Money',
-                    style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.w100,
-                        color: Colors.yellow,
-                        fontFamily: 'MTCORSVA'),
-                  )))
+                  child: Padding(
+                      padding: EdgeInsets.only(top: 25),
+                      child: Text(
+                        'Reste Money',
+                        style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.w100,
+                            color: Colors.yellow,
+                            fontFamily: 'MTCORSVA'),
+                      )))
             ],
           )),
       actions: <Widget>[

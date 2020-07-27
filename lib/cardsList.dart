@@ -7,6 +7,7 @@ import 'cards.dart';
 
 
 //faghat list card hast
+//be tartib 2,3,4,...,10,J,Q,K,A
 class CardList {
   List<Cards> cards = [
     //heart
@@ -75,7 +76,6 @@ class CardList {
   List cardlist(int palyerNo) {
     int n = (2 * palyerNo) + 5;
     List<int> list = new List<int>.generate(52, (int index) => index);
- // list.shuffle();
 
     var random = new Random();
    for (var i = list.length - 1; i > 0; i--) {
@@ -84,6 +84,7 @@ class CardList {
       list[i] = list[n];
       list[n] = temp;
     }
+    list.shuffle();
     list.shuffle();
     staticValues.setShuffle(list);
     print(list);

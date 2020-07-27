@@ -1,22 +1,45 @@
 import 'package:bustem2/main.dart';
-import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'wagerAlert.dart';
 
 class StaticValues {
-  static List<bool> isClick =[false,false,false,false,false,false,false,false,false,false];
+  static List<bool> isClick = [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ];
 
   bool getIsClick(int i) {
     return isClick[i];
   }
 
   void setIsClick(int i) {
-    bool x1=isClick[i];
-    for(int x=0;x<10;x++){
-      isClick[x]=false;
+    bool x1 = isClick[i];
+    for (int x = 0; x < 10; x++) {
+      isClick[x] = false;
     }
-    isClick[i]=!x1;
-   // print(isClick.toString());
+    isClick[i] = !x1;
+    print(isClick.toString());
+  }
+
+  static List<double> totalWin = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+  double getTotalWin(int x) {
+    return totalWin[x];
+  }
+
+  void setTotalwins(int i, double value) {
+    totalWin[i] = totalWin[i] + value;
+  }
+
+  void resetTotalWin() {
+    totalWin = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   }
 
   static int playerNo = 2;
@@ -36,7 +59,6 @@ class StaticValues {
   }
 
   String getPhaseName() {
-
     return paseName;
   }
 
@@ -49,7 +71,6 @@ class StaticValues {
   int getSelect() {
     return selectNo;
   }
-
 
   static List<int> returnsList = [];
 
@@ -68,7 +89,6 @@ class StaticValues {
     returnsList[i] = r;
   }
 
-
   static List<int> wagers = [];
 
   void createWager(int n) {
@@ -85,27 +105,30 @@ class StaticValues {
   void setWager(int i, int wager) {
     wagers[i] = wager;
   }
-  int totalWager(){
-    int sum=0;
-    for(int x=0;x<wagers.length;x++){
-      sum=sum+wagers[x];
+
+  int totalWager() {
+    int sum = 0;
+    for (int x = 0; x < wagers.length; x++) {
+      sum = sum + wagers[x];
     }
     return sum;
   }
-  int wagerCounter(){
-    int count=0;
-    for(int x=0;x<wagers.length;x++){
-      if(wagers[x]!=0){
+
+  int wagerCounter() {
+    int count = 0;
+    for (int x = 0; x < wagers.length; x++) {
+      if (wagers[x] != 0) {
         count++;
       }
     }
     return count;
   }
-  int totalReturn(){
-    int totalMoney=0;
-    for(int x=0;x<wagers.length;x++){
-      if(oddCalculator.getOdd(x)==100){
-        totalMoney=totalMoney+getReturn(x);
+
+  int totalReturn() {
+    int totalMoney = 0;
+    for (int x = 0; x < wagers.length; x++) {
+      if (oddCalculator.getOdd(x) == 100) {
+        totalMoney = totalMoney + getReturn(x);
       }
     }
     return totalMoney;
@@ -119,14 +142,18 @@ class StaticValues {
       ranges.add(0);
     }
   }
-  static List<int> shuffles=[];
-  void setShuffle(List<int> l){
-    shuffles=l;
+
+  static List<int> shuffles = [];
+
+  void setShuffle(List<int> l) {
+    shuffles = l;
   }
-  List<int> getShuffle(){
+
+  List<int> getShuffle() {
     return shuffles;
   }
-  static double money= 10000;
+
+  static double money = 10000;
 
   void setMoney(double m) {
     money = m;
@@ -136,43 +163,41 @@ class StaticValues {
     return money;
   }
 
-
   Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
-
 
   void saveNumber() async {
     final SharedPreferences prefs = await _prefs;
-    prefs.setDouble('savedNumber',money);
+    prefs.setDouble('savedNumber', money);
   }
 
   void loadNumber() async {
     final SharedPreferences prefs = await _prefs;
-    final savedNumber = prefs.getDouble('savedNumber') ?? 10000 ;
+    final savedNumber = prefs.getDouble('savedNumber') ?? 10000;
     money = savedNumber;
   }
+
   void resetNumber() async {
     final SharedPreferences prefs = await _prefs;
     prefs.setDouble('savedNumber', 9999);
   }
 
-  static double height=0;
+  static double height = 0;
 
-  void setHeight (double i){
+  void setHeight(double i) {
     height = i;
   }
 
-  double getHeight(){
+  double getHeight() {
     return height;
   }
 
-  static double width=0;
+  static double width = 0;
 
-  void setWidth (double i){
+  void setWidth(double i) {
     width = i;
   }
 
-  double getWidth(){
+  double getWidth() {
     return width;
   }
 }
-
