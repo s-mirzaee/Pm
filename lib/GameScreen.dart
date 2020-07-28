@@ -42,93 +42,93 @@ class _GameDeskState extends State<GameDesk> {
           title: 'Bust\'em Poker',
           home: Scaffold(
               body: Stack(
-            children: <Widget>[
-              table(),
-              levels.levelUp(level),
-              Container(//color: Colors.cyanAccent,
-                  padding: EdgeInsets.only(top: height*0.86, left: width*0.86),
-                  child: InkWell(
-                    highlightColor: Colors.white,
-                    onTap: () {
-                      if (level == 0) {
-                        if (staticValues.totalWager() != 0) {
-                          setState(() {
-                            level++;
-                            oddEmulator.emulator();
-                          });
-                        } else {
-                          setState(() {
-                            return showDialog(
-                              context: context,
-                              builder: (context) {
-                                return AlertDialog(
-                                    backgroundColor:
+                children: <Widget>[
+                  table(),
+                  levels.levelUp(level),
+                  Container(//color: Colors.cyanAccent,
+                      padding: EdgeInsets.only(top: height*0.86, left: width*0.86),
+                      child: InkWell(
+                        highlightColor: Colors.white,
+                        onTap: () {
+                          if (level == 0) {
+                            if (staticValues.totalWager() != 0) {
+                              setState(() {
+                                level++;
+                                oddEmulator.emulator();
+                              });
+                            } else {
+                              setState(() {
+                                return showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    return AlertDialog(
+                                        backgroundColor:
                                         Color.fromRGBO(255, 220, 80, 1),
-                                    content: Container(
-                                        width: 230,
-                                        height: 30,
-                                        child: Center(
-                                          child: Text(
-                                            'bet at least on a hand',
-                                            style: TextStyle(
-                                                fontFamily: 'MTCORSVA',
-                                                fontSize: 25,
-                                                fontWeight: FontWeight.w600),
-                                          ),
-                                        )));
-                              },
-                            );
-                          });
-                        }
-                      } else {
-                        setState(() {
-                          level++;
-                          oddEmulator.emulator();
-                        });
-                      }
-                    },
-                    child: level < 4
-                        ? Container(
-                            padding: EdgeInsets.only(
-                                left: 2, top: 2, right: 7, bottom: 4),
-                            decoration: BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(12)),
-                              border: Border(
-                                  top: BorderSide(
-                                      width: 5,
-                                      color: Color.fromRGBO(240, 205, 95, 1)),
-                                  right: BorderSide(
-                                      width: 5,
-                                      color: Color.fromRGBO(240, 205, 95, 1)),
-                                  left: BorderSide(
-                                      width: 5,
-                                      color: Color.fromRGBO(240, 205, 95, 1)),
-                                  bottom: BorderSide(
-                                      width: 5,
-                                      color: Color.fromRGBO(240, 205, 95, 1))),
-                            ),
-                            child: Text(
-                              "${staticValues.getPhaseName()}",
-                              style: TextStyle(
-                                  color: Color.fromRGBO(255, 220, 80, 1),
-                                  fontSize: 27,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: 'MTCORSVA',
-                                  shadows: <Shadow>[
-                                    Shadow(
-                                      offset: Offset(1.5, 1.5),
-                                      blurRadius: 0,
-                                      color: Color.fromRGBO(255, 220, 80, 0.5),
-                                    ),
-                                  ],
-                                  decoration: TextDecoration.none),
-                            ),
-                          )
-                        : Text(''),
-                  )),
-            ],
-          )),
+                                        content: Container(
+                                            width: 230,
+                                            height: 30,
+                                            child: Center(
+                                              child: Text(
+                                                'Bet at least on a hand',
+                                                style: TextStyle(
+                                                    fontFamily: 'MTCORSVA',
+                                                    fontSize: 25,
+                                                    fontWeight: FontWeight.w600),
+                                              ),
+                                            )));
+                                  },
+                                );
+                              });
+                            }
+                          } else {
+                            setState(() {
+                              level++;
+                              oddEmulator.emulator();
+                            });
+                          }
+                        },
+                        child: level < 4
+                            ? Container(
+                          padding: EdgeInsets.only(
+                              left: 2, top: 2, right: 7, bottom: 4),
+                          decoration: BoxDecoration(
+                            borderRadius:
+                            BorderRadius.all(Radius.circular(12)),
+                            border: Border(
+                                top: BorderSide(
+                                    width: 5,
+                                    color: Color.fromRGBO(240, 205, 95, 1)),
+                                right: BorderSide(
+                                    width: 5,
+                                    color: Color.fromRGBO(240, 205, 95, 1)),
+                                left: BorderSide(
+                                    width: 5,
+                                    color: Color.fromRGBO(240, 205, 95, 1)),
+                                bottom: BorderSide(
+                                    width: 5,
+                                    color: Color.fromRGBO(240, 205, 95, 1))),
+                          ),
+                          child: Text(
+                            "${staticValues.getPhaseName()}",
+                            style: TextStyle(
+                                color: Color.fromRGBO(255, 220, 80, 1),
+                                fontSize: 27,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'MTCORSVA',
+                                shadows: <Shadow>[
+                                  Shadow(
+                                    offset: Offset(1.5, 1.5),
+                                    blurRadius: 0,
+                                    color: Color.fromRGBO(255, 220, 80, 0.5),
+                                  ),
+                                ],
+                                decoration: TextDecoration.none),
+                          ),
+                        )
+                            : Text(''),
+                      )),
+                ],
+              )),
         ));
   }
 }

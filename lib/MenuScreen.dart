@@ -1,4 +1,5 @@
 import 'package:custom_switch/custom_switch.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:math' as math;
@@ -37,18 +38,18 @@ class _MenuScreenState extends State<MenuScreen> {
                         fit: BoxFit.cover)),
                 child: Row(
                   children: <Widget>[
-                    Container(
-                        margin: EdgeInsets.only(left: width / 4),
+                    Container(//color: Colors.black12,
+                        margin: EdgeInsets.only(left: width*0.25),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                          //crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Transform.rotate(
                               angle: math.pi / 9,
                               child: Container(
                                 child: Image.asset(
                                     'assets/images/ace-of-hearts.png',
-                                    height: height / 8.65),
+                                    height: height*0.122),
                               ),
                             ),
                             Transform.rotate(
@@ -58,7 +59,7 @@ class _MenuScreenState extends State<MenuScreen> {
                                     top: height / 14.5, bottom: height / 15),
                                 child: Image.asset(
                                     'assets/images/ace-of-spades.png',
-                                    height: height / 8.65),
+                                    height: height*0.125),
                               ),
                             ),
                             Transform.rotate(
@@ -66,16 +67,26 @@ class _MenuScreenState extends State<MenuScreen> {
                               child: Container(
                                 child: Image.asset(
                                     'assets/images/playing-cards.png',
-                                    height: height / 8.65),
+                                    height: height* 0.125),
                               ),
+                            ),
+                            Container(child: Transform.rotate(
+                              angle: -math.pi / 12,
+                              child: Container(
+                                child: Image.asset(
+                                    'assets/images/ace-of-clubs.png',
+                                    height: height *0.125),
+                              ),
+                            ),
+                              margin: EdgeInsets.only(top: 35),
                             )
                           ],
                         )),
                     Container(
-                      margin: EdgeInsets.only(top: height / 100),
+                      //margin: EdgeInsets.only(bottom: (height*0.5)-200),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
+                        //crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
                           Container(
                             child: FlatButton(
@@ -97,8 +108,7 @@ class _MenuScreenState extends State<MenuScreen> {
                             ),
                           ),
                           Container(
-                            margin: EdgeInsets.only(
-                                top: height / 9, bottom: height / 9.2),
+                            margin: EdgeInsets.only(top: height*0.07),
                             child: FlatButton(
                               child: Text('Setting',
                                   style: TextStyle(
@@ -117,7 +127,7 @@ class _MenuScreenState extends State<MenuScreen> {
                               },
                             ),
                           ),
-                          Container(
+                          Container(margin: EdgeInsets.only(top: height*0.076),
                             child: FlatButton(
                               child: Text('Help',
                                   style: TextStyle(
@@ -131,6 +141,25 @@ class _MenuScreenState extends State<MenuScreen> {
                                   context: context,
                                   builder: (context) {
                                     return Help();
+                                  },
+                                );
+                              },
+                            ),
+                          ),
+                          Container(margin: EdgeInsets.only(top: height*0.075),
+                            child: FlatButton(
+                              child: Text('About',
+                                  style: TextStyle(
+                                      fontSize: 38,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                      decoration: TextDecoration.none)),
+                              textColor: Colors.black,
+                              onPressed: () {
+                                return showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    return About();
                                   },
                                 );
                               },
@@ -158,8 +187,8 @@ class _SettingState extends State<Setting> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
-    MediaQueryData queryData = MediaQuery.of(context);
-    final height = queryData.size.height;
+    //MediaQueryData queryData = MediaQuery.of(context);
+    //final height = queryData.size.height;
     return AlertDialog(
       backgroundColor: Colors.black,
       title: Text(
@@ -173,7 +202,7 @@ class _SettingState extends State<Setting> {
       ),
       content: Container(
           color: Colors.black,
-          height: height,
+          height: staticValues.getHeight(),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -201,7 +230,7 @@ class _SettingState extends State<Setting> {
                 ],
               ),
               SizedBox(
-                height: height / 35,
+                height: staticValues.getHeight() / 35,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -323,7 +352,7 @@ class _HandsState extends State<Hands> {
               chooseCards = handCard.cardlist(staticValues.getPlayerNo());
               oddCalculator.oddCalculator(chooseCards);
               Board = new board(chooseCards);
-              print(chooseCards.length.toString());
+              //print(chooseCards.length.toString());
               oddEmulator.emulator();
               staticValues.loadNumber();
 
@@ -345,8 +374,8 @@ class _HandsState extends State<Hands> {
 class Help extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    MediaQueryData queryData = MediaQuery.of(context);
-    var height = queryData.size.height;
+    //MediaQueryData queryData = MediaQuery.of(context);
+    //var height = queryData.size.height;
     return AlertDialog(
       backgroundColor: Colors.black,
       title: Text(
@@ -363,7 +392,54 @@ class Help extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               SizedBox(
-                height: height / 25,
+                height: staticValues.getHeight()*0.1,
+              ),
+              Text(
+                'Despite the mind-game aspect of poker, usually the highest-value hand determines the winner – unless youre bluffing of course! It’s important to aim to make the strongest poker hand – especially for beginners. The best high hand in most poker formats is a Royal Flush.' +
+                    '\n' +
+                    'Position is everything in poker and all action centres around the Button – except for Stud. Early Position, like the Small and Big Blinds, are to the left of the Button and act first after the flop. Seats to the right of the Button are Late Position (acting last post-flop), and seats in between are Middle Position.' +
+                    '\n' +
+                    'Pre-flop action begins with the player seated left of the BB (Big Blind). Action then continues clockwise with the BB acting last. Pre-flop, players have three courses of action; folding, calling, or raising. Once all players have acted and the pot is right the betting round ends.' +
+                    '\n' +
+                    'The Flop is made up of the first 3 of 5 community cards. Post-flop, players have the option to check (bet nothing), bet, call, fold or raise – depending on their position at the table and any other prior action.' +
+                    '\n' +
+                    'This fourth community card is dealt directly after the post-flop betting round comes to an end. Youll have the same options post-flop as pre-flop; check (bet nothing), bet, call, fold or raise – depending on your position and any prior action.' +
+                    '\n' +
+                    'When you finally arrive at the river – the fifth community card – you should have a hand that can win. Or you might even try a bluff if everyone checks to it to you. Plus, there are no more cards that can beat you!' +
+                    '\n' +
+                    'For a showdown to happen, there have to be at least 2 players left. The winning player must reveal their cards to win the hand. The winner is determined by who has the best 5-card hand. That player gets to scoop in the pot. In Omaha, there are two pots to scoop!' +
+                    '\n' +
+                    'Once the winner has been settled on, it’s time to shuffle up and deal the next round. Whether you’re playing Texas Hold’em, Omaha Hi or Omaha Hi/Lo; Tournaments, Sit & Gos or at the Cash Tables, there’s always a seat with your name on it at 888poker!',
+                style: TextStyle(fontFamily: 'MTCORSVA', color: Colors.yellow),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class About extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      backgroundColor: Colors.black,
+      title: Text(
+        'How To Play:',
+        style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 25,
+            fontFamily: 'MTCORSVA',
+            color: Colors.yellow),
+      ),
+      content: Container(
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              SizedBox(
+                height: staticValues.getHeight()*0.1,
               ),
               Text(
                 'Despite the mind-game aspect of poker, usually the highest-value hand determines the winner – unless youre bluffing of course! It’s important to aim to make the strongest poker hand – especially for beginners. The best high hand in most poker formats is a Royal Flush.' +

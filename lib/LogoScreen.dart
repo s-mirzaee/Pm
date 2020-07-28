@@ -1,9 +1,9 @@
 import 'dart:io';
-import 'main.dart';
 import 'package:bustem2/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'MenuScreen.dart';
+import 'board.dart';
 
 class logoScreen extends StatefulWidget {
   @override
@@ -13,9 +13,8 @@ class logoScreen extends StatefulWidget {
 class _logoScreenState extends State<logoScreen> {
   @override
   Widget build(BuildContext context) {
-    MediaQueryData queryData = MediaQuery.of(context);
-    var width = queryData.size.width;
-    var height = queryData.size.height;
+    var width = staticValues.getWidth();
+    var height = staticValues.getHeight();
     var winAmount = staticValues.totalReturn();
     staticValues.saveNumber();
     return MaterialApp(
@@ -74,7 +73,7 @@ class _logoScreenState extends State<logoScreen> {
                           child: Text(
                             'Play Again',
                             style: TextStyle(
-                                fontSize: 38,
+                                fontSize: 37,
                                 fontWeight: FontWeight.bold,
                                 color: Color.fromRGBO(240, 195, 85, 1),
                                 fontFamily: 'MTCORSVA',
@@ -94,9 +93,9 @@ class _logoScreenState extends State<logoScreen> {
                           color: Colors.black,
                         ),
                         margin: EdgeInsets.only(
-                            top: height * 0.15, right: width * 0.1),
-                        height: 60,
-                        width: 170,
+                            top: height * 0.15, right: width * 0.07),
+                        height: 55,
+                        width: 165,
                       ),
                     ),
                     InkWell(
@@ -113,7 +112,7 @@ class _logoScreenState extends State<logoScreen> {
                           child: Text(
                             'Quit',
                             style: TextStyle(
-                                fontSize: 38,
+                                fontSize: 37,
                                 fontWeight: FontWeight.bold,
                                 color: Color.fromRGBO(240, 195, 85, 1),
                                 fontFamily: 'MTCORSVA',
@@ -133,8 +132,61 @@ class _logoScreenState extends State<logoScreen> {
                           color: Colors.black,
                         ),
                         margin: EdgeInsets.only(top: height * 0.15),
-                        height: 60,
-                        width: 170,
+                        height: 55,
+                        width: 165,
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          if (winAmount > 0)
+                            (staticValues
+                                .setMoney(staticValues.getMoney() + winAmount));
+                        });
+
+                        level = 0;
+                        staticValues.createRange(staticValues.getPlayerNo());
+                        staticValues.createWager(staticValues.getPlayerNo());
+                        staticValues.createReturn(staticValues.getPlayerNo());
+                        values.create(staticValues.getPlayerNo());
+                        chooseCards = handCard.cardlist(staticValues.getPlayerNo());
+                        oddCalculator.oddCalculator(chooseCards);
+                        Board = new board(chooseCards);
+                        //print(chooseCards.length.toString());
+                        oddEmulator.emulator();
+                        staticValues.loadNumber();
+
+                        Navigator.pushNamed(context, '/Game');
+                      },
+                      child: Container(
+                        //color: Colors.black12,
+                        child: Center(
+                          child: Text(
+                            'Repeat',
+                            style: TextStyle(
+                                fontSize: 37,
+                                fontWeight: FontWeight.bold,
+                                color: Color.fromRGBO(240, 195, 85, 1),
+                                fontFamily: 'MTCORSVA',
+                                decoration: TextDecoration.none),
+                          ),
+                        ),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(10),
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.black45,
+                                spreadRadius: 1.5,
+                                offset: Offset(2, 4))
+                          ],
+                          color: Colors.black,
+                        ),
+                        margin: EdgeInsets.only(
+                            top: height * 0.15, left: width * 0.07),
+                        height: 55,
+                        width: 165,
                       ),
                     ),
                   ],

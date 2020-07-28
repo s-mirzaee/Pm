@@ -127,7 +127,7 @@ class StaticValues {
   int totalReturn() {
     int totalMoney = 0;
     for (int x = 0; x < wagers.length; x++) {
-      if (oddCalculator.getOdd(x) == 100) {
+      if (oddCalculator.getOdd(x) != 0&&level>2) {
         totalMoney = totalMoney + getReturn(x);
       }
     }

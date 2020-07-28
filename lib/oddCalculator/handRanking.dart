@@ -92,7 +92,7 @@ class rank {
     //straightFlush
     if (s[0].suit == s[4].suit) {
       if (s[0].rank - s[4].rank == 4) {
-        h.status = 10;
+        h.status = 9;
         h.modifiedCard[0] = s[0].rank;
         return h;
       }
@@ -106,7 +106,7 @@ class rank {
     }
     if (s[2].suit == s[6].suit) {
       if (s[2].rank - s[6].rank == 4) {
-        h.status = 10;
+        h.status = 9;
         h.modifiedCard[0] = s[2].rank;
         return h;
       }
