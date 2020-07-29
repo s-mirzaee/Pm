@@ -6,7 +6,7 @@ import 'package:bustem2/oddCalculator/winnerHand.dart';
 import '../cards.dart';
 
 class oddsEmulator {
-  int rapidTime = 100000;
+  int rapidTime = 10000;
   winnerHand winnerCalculator = new winnerHand();
   CardList cardList = new CardList();
   winnerHand wh = new winnerHand();

@@ -20,30 +20,30 @@ class board {
               child: Container(margin: EdgeInsets.only(top: height*0.02),
                 child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
                   Container(margin: EdgeInsets.only(left: width*0.04),
-                    child: Text(
-                      'Stack : \$ ${staticValues.getMoney().round()} ',
-                      style: TextStyle(
-                          fontSize: 25,
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromRGBO(240, 205, 95, 1),
-                          fontFamily: 'MTCORSVA',
-                          decoration: TextDecoration.none),
-                    ),
+                   child: Text(
+                    'Stack : \$ ${staticValues.getMoney().round()} ',
+                    style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromRGBO(240, 205, 95, 1),
+                        fontFamily: 'MTCORSVA',
+                        decoration: TextDecoration.none),
                   ),
-                  Container(margin: EdgeInsets.only(left: width*0.48),
-                    child: Text(
-                      'Total Wager :\$ ${staticValues.totalWager()} ',
-                      style: TextStyle(
-                          fontSize: 25,
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromRGBO(240, 205, 95, 1),
-                          fontFamily: 'MTCORSVA',
-                          decoration: TextDecoration.none),
-                    ),
-                  ),
-                ],
                 ),
-              )),
+                 Container(margin: EdgeInsets.only(left: width*0.48),
+                  child: Text(
+                    'Total Wager :\$ ${staticValues.totalWager()} ',
+                    style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromRGBO(240, 205, 95, 1),
+                        fontFamily: 'MTCORSVA',
+                        decoration: TextDecoration.none),
+                  ),
+                ),
+              ],
+            ),
+          )),
           for (int i = 0; i < n; i++)
             Stack(
               children: <Widget>[

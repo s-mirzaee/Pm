@@ -28,7 +28,7 @@ class _HandState extends State<Hand> {
   _HandState(this.i, this.CardList);
 
   odds oddPercent = new odds();
-  double handSize = 49;
+  double handSize = 48;
 
   @override
   Widget build(BuildContext context) {
@@ -43,80 +43,82 @@ class _HandState extends State<Hand> {
 
     return Container(
 
-      //bayaf full screen bashe
+        //bayaf full screen bashe
         width: width,
         height: height,
-        child: Stack(children: <Widget>[
-          Container(
-            margin: EdgeInsets.only(left: width * lefts[i], top: height * tops[i]),
-            child: InkWell(
-              onTap: () {
-                staticValues.setSelect(i);
-                setState(() {
-                  if (staticValues.wagerCounter() <
-                      ((staticValues.getPlayerNo() / 2).round()) ||
-                      staticValues.getWager(i) != 0 ||
-                      staticValues.getIsClick(i)) {
-                    staticValues.setIsClick(i);
-                  }
+        child: Stack(
+          children: <Widget>[
+            Container(
+              margin: EdgeInsets.only(
+                  left: width * lefts[i], top: height * tops[i]),
+              child: InkWell(
+                onTap: () {
+                  staticValues.setSelect(i);
+                  setState(() {
+                    if (staticValues.wagerCounter() <
+                            ((staticValues.getPlayerNo() / 2).round()) ||
+                        staticValues.getWager(i) != 0 ||
+                        staticValues.getIsClick(i)) {
+                      staticValues.setIsClick(i);
+                    }
 
-                  main();
-                });
-              },
-              child: Container(
-                child: Stack(
-                  children: <Widget>[
-                    if (i > (StaticValues.playerNo / 2) - 1 &&
-                        StaticValues.isClick[i] == true)
-                      (Stack(
-                        children: <Widget>[
-                          Container(
-                            child: Image.asset(
-                                'assets/images/${CardList[2 * i].id}.png'),
-                            margin: EdgeInsets.only(left: 12, bottom: 18),
-                            decoration: BoxDecoration(
-                              boxShadow: [
-                                BoxShadow(
-                                    color: Color.fromRGBO(220, 220, 220, 1),
-                                    blurRadius: 5.5,
-                                    offset: Offset(0, 0),
-                                    spreadRadius: 6)
-                              ],
+                    main();
+                  });
+                },
+                child: Container(
+                  child: Stack(
+                    children: <Widget>[
+                      if (i > (StaticValues.playerNo / 2) - 1 &&
+                          StaticValues.isClick[i] == true)
+                        (Stack(
+                          children: <Widget>[
+                            Container(
+                              child: Image.asset(
+                                  'assets/images/${CardList[2 * i].id}.png'),
+                              margin: EdgeInsets.only(left: 12, bottom: 18),
+                              decoration: BoxDecoration(
+                                boxShadow: [
+                                  BoxShadow(
+                                      color: Color.fromRGBO(220, 220, 220, 1),
+                                      blurRadius: 5.5,
+                                      offset: Offset(0, 0),
+                                      spreadRadius: 6)
+                                ],
+                              ),
                             ),
-                          ),
-                          Container(
-                            child: Image.asset(
-                                'assets/images/${CardList[(2 * i) + 1].id}.png'),
-                            margin: EdgeInsets.only(right: 12, top: 18),
-                            decoration: BoxDecoration(
-                              boxShadow: [
-                                BoxShadow(
-                                    color: Color.fromRGBO(220, 220, 220, 1),
-                                    blurRadius: 5.5,
-                                    offset: Offset(-6, 4),
-                                    spreadRadius: 2.5)
-                              ],
+                            Container(
+                              child: Image.asset(
+                                  'assets/images/${CardList[(2 * i) + 1].id}.png'),
+                              margin: EdgeInsets.only(right: 12, top: 18),
+                              decoration: BoxDecoration(
+                                boxShadow: [
+                                  BoxShadow(
+                                      color: Color.fromRGBO(220, 220, 220, 1),
+                                      blurRadius: 5.5,
+                                      offset: Offset(-6, 4),
+                                      spreadRadius: 2.5)
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
-                      ))
-                    else if (i > (StaticValues.playerNo / 2) - 1 &&
-                        StaticValues.isClick[i] == false)
-                      (Stack(
-                        children: <Widget>[
-                          Container(
-                            child: Image.asset(
-                                'assets/images/${CardList[2 * i].id}.png'),
-                            margin: EdgeInsets.only(left: 12, bottom: 18),
-                          ),
-                          Container(
-                            child: Image.asset(
-                                'assets/images/${CardList[(2 * i) + 1].id}.png'),
-                            margin: EdgeInsets.only(right: 12, top: 18),
-                          ),
-                        ],
-                      ))
-                    else if (i < StaticValues.playerNo / 2 &&
+                          ],
+                        ))
+                      else if (i > (StaticValues.playerNo / 2) - 1 &&
+                          StaticValues.isClick[i] == false)
+                        (Stack(
+                          children: <Widget>[
+                            Container(
+                              child: Image.asset(
+                                  'assets/images/${CardList[2 * i].id}.png'),
+                              margin: EdgeInsets.only(left: 12, bottom: 18),
+                            ),
+                            Container(
+                              child: Image.asset(
+                                  'assets/images/${CardList[(2 * i) + 1].id}.png'),
+                              margin: EdgeInsets.only(right: 12, top: 18),
+                            ),
+                          ],
+                        ))
+                      else if (i < StaticValues.playerNo / 2 &&
                           StaticValues.isClick[i] == true)
                         (Stack(
                           children: <Widget>[
@@ -157,7 +159,7 @@ class _HandState extends State<Hand> {
                               child: Image.asset(
                                   'assets/images/${CardList[2 * i].id}.png'),
                               margin:
-                              const EdgeInsets.only(right: 12, bottom: 18),
+                                  const EdgeInsets.only(right: 12, bottom: 18),
                             ),
                             Container(
                               child: Image.asset(
@@ -241,19 +243,19 @@ class _HandState extends State<Hand> {
                 color: Colors.black,
               ),
 
-              ///width: handSize + 100,
+                ///width: handSize + 100,
+              ),
             ),
-          ),
-          level < 3 &&
-              (staticValues.wagerCounter() <
-                  ((staticValues.getPlayerNo() / 2).round()) ||
-                  staticValues.getWager(i) != 0)
-              ? Container(
-            child: staticValues.getIsClick(i) ? wagerAlert() : Text(""),
-            margin: EdgeInsets.only(top: 100),
-          )
-              : Text(''),
-        ],
+            level < 3 &&
+                    (staticValues.wagerCounter() <
+                            ((staticValues.getPlayerNo() / 2).round()) ||
+                        staticValues.getWager(i) != 0)
+                ? Container(
+                    child: staticValues.getIsClick(i) ? wagerAlert() : Text(""),
+                    margin: EdgeInsets.only(top: 100),
+                  )
+                : Text(''),
+          ],
         ));
   }
 }
