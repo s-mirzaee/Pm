@@ -42,6 +42,20 @@ class StaticValues {
     totalWin = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   }
 
+
+  static List<double> totalTie = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+  double getTotalTie(int x) {
+    return totalTie[x];
+  }
+
+  void setTotalTie(int i, double value) {
+    totalTie[i] = totalTie[i] + value;
+  }
+
+  void resetTotalTie() {
+    totalTie = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  }
   static int playerNo = 2;
 
   int getPlayerNo() {
@@ -127,8 +141,11 @@ class StaticValues {
   int totalReturn() {
     int totalMoney = 0;
     for (int x = 0; x < wagers.length; x++) {
-      if (oddCalculator.getOdd(x) == 100) {
+      if (oddCalculator.getOdd(x) != 0&&level>2) {
         totalMoney = totalMoney + getReturn(x);
+      }
+      if (oddCalculator.getTie(x) != 0&&level>2) {
+        totalMoney = totalMoney + getWager(x);
       }
     }
     return totalMoney;
@@ -178,7 +195,7 @@ class StaticValues {
 
   void resetNumber() async {
     final SharedPreferences prefs = await _prefs;
-    prefs.setDouble('savedNumber', 9999);
+    prefs.setDouble('savedNumber', 10000);
   }
 
   static double height = 0;

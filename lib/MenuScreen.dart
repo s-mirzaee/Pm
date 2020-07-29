@@ -6,6 +6,7 @@ import 'dart:math' as math;
 import 'board.dart';
 import 'main.dart';
 import 'oddCalculator/oddsEmulator.dart';
+import 'package:flutter_circular_text/circular_text.dart';
 
 oddsEmulator oddEmulator = new oddsEmulator();
 
@@ -148,7 +149,7 @@ class _MenuScreenState extends State<MenuScreen> {
                           ),
                           Container(margin: EdgeInsets.only(top: height*0.075),
                             child: FlatButton(
-                              child: Text('About',
+                              child: Text('About us',
                                   style: TextStyle(
                                       fontSize: 38,
                                       fontWeight: FontWeight.bold,
@@ -168,8 +169,84 @@ class _MenuScreenState extends State<MenuScreen> {
                         ],
                       ),
                     ),
+                    Container(margin: EdgeInsets.only(left: 0,top: 0),
+                      child: Stack(children: <Widget>[
+                        Container(
+                          child:CircularText(children: [
+                            TextItem(
+                              text: Text(
+                                "Business strategy empowered by poker",
+                                style: TextStyle(
+                                    fontSize: 28,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,fontFamily: 'MTCORSVA'
+                                ),
+                              ),
+                              space: 9.7,
+                              startAngle: 180,
+                              startAngleAlignment: StartAngleAlignment.center,
+                              //direction: CircularTextDirection.clockwise,
+                            ),
+                          ],
+                          radius: 120,
+                          position: CircularTextPosition.inside,
+                          //backgroundPaint: Paint()..color = Colors.grey.shade200,
+                        ),
+                          margin: EdgeInsets.only(left: 98,top: 98),
+                        ),
+                        Container(child: CircularText(
+                          children: [
+                            TextItem(
+                              text: Text(
+                                "Business strategy empowered by poker",
+                                style: TextStyle(
+                                    fontSize: 28,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,fontFamily: 'MTCORSVA'
+                                ),
+                              ),
+                              space: 9.7,
+                              //startAngle: 0,
+                              startAngleAlignment: StartAngleAlignment.center,
+                              //direction: CircularTextDirection.clockwise,
+                            ),
+                          ],
+                          radius: 120,
+                          position: CircularTextPosition.inside,
+                          //backgroundPaint: Paint()..color = Colors.grey.shade200,
+                        ),),
+                      ],),
+                      /*Stack(children: <Widget>[
+                      Container(child:
+                        Transform.rotate(angle: 45, child:
+                          Text('Business',style: TextStyle(decoration: TextDecoration.none,color: Colors.black,fontSize: 35,fontFamily: 'MTCORSVA',),),
+                        ),
+                        margin: EdgeInsets.only(top: 160,left: 10),
+                      ),
+                      Container(child:
+                        Transform.rotate(angle: -44.9, child:
+                          Text('strategy',style: TextStyle(decoration: TextDecoration.none,color: Colors.black,fontSize: 35,fontFamily: 'MTCORSVA'),),
+                        ),
+                        margin: EdgeInsets.only(left: 125,top: 158),
+                      ),
+                      Container(child:
+                        Transform.rotate(angle: 45, child:
+                          Text('empowered',style: TextStyle(decoration: TextDecoration.none,color: Colors.black,fontSize: 35,fontFamily: 'MTCORSVA'),),
+                        ),
+                        margin: EdgeInsets.only(left: 125,top: 10),
+                      ),
+                      Container(child:
+                        Transform.rotate(angle: -44.9, child:
+                          Text('by poker',style: TextStyle(decoration: TextDecoration.none,color: Colors.black,fontSize: 35,fontFamily: 'MTCORSVA'),),
+                        ),
+                      ),
+                    ],
+                    ),*/),
                   ],
-                ))));
+                )
+            )
+        )
+    );
   }
 }
 
@@ -426,7 +503,7 @@ class About extends StatelessWidget {
     return AlertDialog(
       backgroundColor: Colors.black,
       title: Text(
-        'How To Play:',
+        'About us:',
         style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 25,
