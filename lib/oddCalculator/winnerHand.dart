@@ -9,9 +9,10 @@ class winnerHand {
   int min = 11;
   int minI;
   List<int> equals = [];
-  int playerNo = staticValues.getPlayerNo();
+
 
   List<modifideHand> winner(List<Cards> list) {
+    int playerNo = staticValues.getPlayerNo();
     List<int> frequencies = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     List<Cards> center = [
       list[list.length - 5],
@@ -52,6 +53,7 @@ class winnerHand {
   }
 
   void findWinner(List<modifideHand> H) {
+    int playerNo = staticValues.getPlayerNo();
     int maxState = 0;
     for (int x = 0; x < playerNo; x++) {
       if (maxState < H[x].status) {

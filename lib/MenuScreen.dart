@@ -7,6 +7,7 @@ import 'board.dart';
 import 'main.dart';
 import 'oddCalculator/oddsEmulator.dart';
 
+
 oddsEmulator oddEmulator = new oddsEmulator();
 
 class MenuScreen extends StatefulWidget {
@@ -148,7 +149,7 @@ class _MenuScreenState extends State<MenuScreen> {
                           ),
                           Container(margin: EdgeInsets.only(top: height*0.075),
                             child: FlatButton(
-                              child: Text('About',
+                              child: Text('About us',
                                   style: TextStyle(
                                       fontSize: 38,
                                       fontWeight: FontWeight.bold,
@@ -426,7 +427,7 @@ class About extends StatelessWidget {
     return AlertDialog(
       backgroundColor: Colors.black,
       title: Text(
-        'How To Play:',
+        'About us:',
         style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 25,
@@ -438,27 +439,20 @@ class About extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              SizedBox(
-                height: staticValues.getHeight()*0.1,
-              ),
-              Text(
-                'Despite the mind-game aspect of poker, usually the highest-value hand determines the winner – unless youre bluffing of course! It’s important to aim to make the strongest poker hand – especially for beginners. The best high hand in most poker formats is a Royal Flush.' +
-                    '\n' +
-                    'Position is everything in poker and all action centres around the Button – except for Stud. Early Position, like the Small and Big Blinds, are to the left of the Button and act first after the flop. Seats to the right of the Button are Late Position (acting last post-flop), and seats in between are Middle Position.' +
-                    '\n' +
-                    'Pre-flop action begins with the player seated left of the BB (Big Blind). Action then continues clockwise with the BB acting last. Pre-flop, players have three courses of action; folding, calling, or raising. Once all players have acted and the pot is right the betting round ends.' +
-                    '\n' +
-                    'The Flop is made up of the first 3 of 5 community cards. Post-flop, players have the option to check (bet nothing), bet, call, fold or raise – depending on their position at the table and any other prior action.' +
-                    '\n' +
-                    'This fourth community card is dealt directly after the post-flop betting round comes to an end. Youll have the same options post-flop as pre-flop; check (bet nothing), bet, call, fold or raise – depending on your position and any prior action.' +
-                    '\n' +
-                    'When you finally arrive at the river – the fifth community card – you should have a hand that can win. Or you might even try a bluff if everyone checks to it to you. Plus, there are no more cards that can beat you!' +
-                    '\n' +
-                    'For a showdown to happen, there have to be at least 2 players left. The winning player must reveal their cards to win the hand. The winner is determined by who has the best 5-card hand. That player gets to scoop in the pot. In Omaha, there are two pots to scoop!' +
-                    '\n' +
-                    'Once the winner has been settled on, it’s time to shuffle up and deal the next round. Whether you’re playing Texas Hold’em, Omaha Hi or Omaha Hi/Lo; Tournaments, Sit & Gos or at the Cash Tables, there’s always a seat with your name on it at 888poker!',
-                style: TextStyle(fontFamily: 'MTCORSVA', color: Colors.yellow),
-              )
+              Text('Owner:', style: TextStyle(fontFamily: 'georgia', color: Colors.yellow,fontSize: 22,),),
+              Text('  M. Ala Saadegh-Vaziri', style: TextStyle(fontFamily: 'MTCORSVA', color: Colors.yellow,)),
+              Text('      vaziri@optonline.net', style: TextStyle(fontFamily: 'MTCORSVA', color: Colors.yellow,)),
+              Text('Supervisor:', style: TextStyle( color: Colors.yellow,fontWeight: FontWeight.bold),),
+              Text('  Marzieh Eskandari', style: TextStyle(fontFamily: 'MTCORSVA', color: Colors.yellow,)),
+              Text('      marzieh211@yahoo.com', style: TextStyle(fontFamily: 'MTCORSVA', color: Colors.yellow,)),
+              Text('Developers:', style: TextStyle(fontFamily: 'MTCORSVA', color: Colors.yellow,fontWeight: FontWeight.bold),),
+              Text('  Diba Rashidi', style: TextStyle(fontFamily: 'MTCORSVA', color: Colors.yellow,)),
+              Text('      dibra.1379@gmail.com', style: TextStyle(fontFamily: 'MTCORSVA', color: Colors.yellow,)),
+              Text('      www.linkedin.com/in/d-rashidi', style: TextStyle(fontFamily: 'MTCORSVA', color: Colors.yellow,)),
+              Text('  Salehe Mirzaee', style: TextStyle(fontFamily: 'MTCORSVA', color: Colors.white70,)),
+              Text('      sally.mirz@gmail.com ', style: TextStyle(fontFamily: 'MTCORSVA', color: Colors.yellow,)),
+              //TODO
+              Text('      www.linkedin.com/in/d-rashidi', style: TextStyle(fontFamily: 'MTCORSVA', color: Colors.yellow,)),
             ],
           ),
         ),

@@ -41,8 +41,7 @@ class _GameDeskState extends State<GameDesk> {
           debugShowCheckedModeBanner: false,
           title: 'Bust\'em Poker',
           home: Scaffold(
-              body: Stack(
-                children: <Widget>[
+              body: Stack(children: <Widget>[
                 table(),
                 levels.levelUp(level),
                 Container(//color: Colors.cyanAccent,

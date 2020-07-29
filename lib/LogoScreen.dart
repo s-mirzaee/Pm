@@ -142,7 +142,7 @@ class _logoScreenState extends State<logoScreen> {
                     ),
                     InkWell(
                       onTap: () {
-                        setState(() {
+                      /*  setState(() {
                           if (winAmount > 0)
                             (staticValues
                                 .setMoney(staticValues.getMoney() + winAmount));
@@ -166,7 +166,7 @@ class _logoScreenState extends State<logoScreen> {
 
                         print('Game Done');
 
-                        Navigator.pushNamed(context, '/Game');
+                        Navigator.pushNamed(context, '/Game');*/
                       },
                       child: Container(
                         //color: Colors.black12,

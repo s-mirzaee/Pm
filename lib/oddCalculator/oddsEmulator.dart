@@ -16,8 +16,9 @@ class oddsEmulator {
   void emulator() {
     List<int> results = new List(staticValues.getPlayerNo());
     results.fillRange(0, staticValues.getPlayerNo(), 0);
-print(staticValues.getPlayerNo());
+
     if (level == 0) {
+
       List newList = List.from(staticValues.getShuffle());
       newList.removeRange(0, staticValues.getPlayerNo() * 2);
       List<Cards> handCards = [];
@@ -39,9 +40,6 @@ print(staticValues.getPlayerNo());
         H = winnerCalculator.winner(list);
       }
       for (int z = 0; z < staticValues.getPlayerNo(); z++) {
-        print("w:"+staticValues.getTotalWin(z) .toString());
-        print("w:"+staticValues.getTotalTie(z) .toString());
-
         oddCalculator.setOdd(z, (staticValues.getTotalWin(z) / rapidTime) * 100);
         oddCalculator.setTie(z, (staticValues.getTotalTie(z) *100)/ rapidTime);
       }
@@ -57,10 +55,9 @@ print(staticValues.getPlayerNo());
       }
         //49=52-3
         int cartCount=49-(staticValues.getPlayerNo()*2);
-      int test=0;
+
         for(int x=0;x<cartCount;x++){
           for(int y=x+1;y<cartCount;y++){
-            test++;
             List<Cards> selectedCards = [
               cardList.cards[newList[x]],
               cardList.cards[newList[y]],
@@ -71,7 +68,6 @@ print(staticValues.getPlayerNo());
           }
         }
 
-        print(test);
       for (int z = 0; z < staticValues.getPlayerNo(); z++) {
         oddCalculator.setOdd(z, (staticValues.getTotalWin(z) / (cartCount*(cartCount-1)/2)) * 100);
         oddCalculator.setTie(z, (staticValues.getTotalTie(z) *100)/ rapidTime);
@@ -108,8 +104,7 @@ print(staticValues.getPlayerNo());
         oddCalculator.setOdd(i, 0);
       }
       for (int z = 0; z < staticValues.getPlayerNo(); z++) {
-        print(staticValues.getTotalWin(z));
-        print(staticValues.getTotalTie(z));
+
         oddCalculator.setOdd(z, (staticValues.getTotalWin(z)) * 100);
         oddCalculator.setTie(z, (staticValues.getTotalTie(z)) * 100);
       }
