@@ -28,7 +28,7 @@ class _HandState extends State<Hand> {
   _HandState(this.i, this.CardList);
 
   odds oddPercent = new odds();
-  double handSize = 48;
+  double handSize = 49;
 
   @override
   Widget build(BuildContext context) {
@@ -46,11 +46,9 @@ class _HandState extends State<Hand> {
         //bayaf full screen bashe
         width: width,
         height: height,
-        child: Stack(
-          children: <Widget>[
+        child: Stack(children: <Widget>[
             Container(
-              margin: EdgeInsets.only(
-                  left: width * lefts[i], top: height * tops[i]),
+              margin: EdgeInsets.only(left: width * lefts[i], top: height * tops[i]),
               child: InkWell(
                 onTap: () {
                   staticValues.setSelect(i);
@@ -170,23 +168,25 @@ class _HandState extends State<Hand> {
                         ))
                     ],
                   ),
-                  width: handSize + 12,
+                  width: handSize + 15,
                   height: handSize + 38,
+                 // color: Colors.cyan,
                 ),
               ),
             ),
             Container(
               margin: EdgeInsets.only(
-                  left: width * lefts[i] - 18, top: height * tops[i] + 46),
-              width: handSize + 53,
-              height: handSize + 7,
+                  left: width * lefts[i] - 25, top: height * tops[i] + 46),
+              width: handSize + 70,
+              height: handSize + 9,
+              //color: Colors.amberAccent,
               child: Container(
                 child: Column(
                   children: <Widget>[
                     Container(
                         child: Center(
                           child: Text(
-                            "Odds :" + oddPercent.getOdd(i).toStringAsFixed(2),
+                            "W/ T: 10.12/ 23.52" /*+ oddPercent.getOdd(i).toStringAsFixed(2)*/,
                             style: TextStyle(
                                 fontSize: 15.5,
                                 fontWeight: FontWeight.w500,
@@ -194,9 +194,7 @@ class _HandState extends State<Hand> {
                                 decoration: TextDecoration.none),
                           ),
                         ),
-                        margin: EdgeInsets.only(
-                          top: 1.5,
-                        ),
+                        margin: EdgeInsets.only(top: 2,),
                         /*height: handSize -31,color: boxColor,*/
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.only(
@@ -214,11 +212,11 @@ class _HandState extends State<Hand> {
                               decoration: TextDecoration.none),
                         ),
                       ),
-                      height: handSize - 31,
+                      height: handSize - 30,
                       color: boxColor,
-                      margin: EdgeInsets.only(top: 0.3, bottom: 0.3),
+                      margin: EdgeInsets.only(top: 0.5, bottom: 0.5),
                     ),
-                    Container(
+                    Container(//margin: EdgeInsets.only(top: 0, bottom: 0),
                         child: Center(
                           child: Text(
                             "Return :" + staticValues.getReturn(i).toString(),
