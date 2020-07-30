@@ -43,10 +43,8 @@ class _wagerAlertState extends State<wagerAlert> {
   Widget build(BuildContext context) {
     return Stack(children: [
       if (showBox && boxShow)
-        InkWell(
+        Container(child: InkWell(
           child: Container(
-            width: 70,
-            height: 40,
 
             decoration: BoxDecoration(
 
@@ -66,7 +64,7 @@ class _wagerAlertState extends State<wagerAlert> {
                   fontFamily: 'MTCORSVA',
                   decoration: TextDecoration.none),
             ),
-            margin: EdgeInsets.only(left: width * 0.015, top: height * 0.5),
+
             padding: EdgeInsets.all(5),
             //width: 75,
             //height: 35,
@@ -77,6 +75,10 @@ class _wagerAlertState extends State<wagerAlert> {
               showKeyboard = !showKeyboard;
             });
           },
+        ),
+          width: 70,
+          height: 40,
+          margin: EdgeInsets.only(left: width * 0.015, top: height * 0.5)
         ),
 
       Container(
