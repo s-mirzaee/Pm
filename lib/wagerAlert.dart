@@ -43,7 +43,8 @@ class _wagerAlertState extends State<wagerAlert> {
   Widget build(BuildContext context) {
     return Stack(children: [
       if (showBox && boxShow)
-        Container(child: InkWell(
+        //Container(child:
+        InkWell(
           child: Container(
 
             decoration: BoxDecoration(
@@ -66,8 +67,8 @@ class _wagerAlertState extends State<wagerAlert> {
             ),
 
             padding: EdgeInsets.all(5),
-            //width: 75,
-            //height: 35,
+            width: 70,
+            height: 40,
           ),
           onTap: () {
             setState(() {
@@ -76,10 +77,10 @@ class _wagerAlertState extends State<wagerAlert> {
             });
           },
         ),
-          width: 70,
+        /*  width: 70,
           height: 40,
           margin: EdgeInsets.only(left: width * 0.015, top: height * 0.5)
-        ),
+        ),*/
 
       Container(
         margin: EdgeInsets.only(top: height*0.61), //color: Colors.white,
