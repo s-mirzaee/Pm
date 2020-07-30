@@ -179,7 +179,7 @@ class _HandState extends State<Hand> {
           Container(
             margin: EdgeInsets.only(
                 left: width * lefts[i] - 25, top: height * tops[i] + 46),
-            width: handSize + 70,
+            width: handSize + 68,
             height: handSize + 9,
             //color: Colors.amberAccent,
             child: Container(

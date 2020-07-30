@@ -59,7 +59,7 @@ class board {
     int n = list.length - 5;
 
     return Container(//color: Colors.cyan,
-      height: 61,
+      height: 59,
       margin:  EdgeInsets.only(left: width*0.3, top: height*0.39),
       child: Row(
         children: <Widget>[
@@ -80,8 +80,8 @@ class board {
   Widget turn() {
     int n = list.length;
     return Container(
-      height: 61,
-      margin:  EdgeInsets.only(left: width*0.5, top: height* 0.39),
+      height: 59,
+      margin:  EdgeInsets.only(left: width*0.51, top: height* 0.39),
       child: Row(
         children: <Widget>[
           Image.asset('assets/images/${list[n - 2].id}.png'),
@@ -93,8 +93,8 @@ class board {
   Widget river() {
     int n = list.length;
     return Container(
-      height: 61,
-      margin:  EdgeInsets.only(left: width*0.57, top: height*0.39),
+      height: 59,
+      margin:  EdgeInsets.only(left: width*0.585, top: height*0.39),
       child: Row(
         children: <Widget>[
           Image.asset('assets/images/${list[n - 1].id}.png'),
