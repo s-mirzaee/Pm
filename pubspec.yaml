@@ -57,4 +57,4 @@ flutter:
   fonts:
     - family: MTCORSVA
       fonts:
-        - asset: assets/font/
+        - asset: assets/font/MTCORSVA.TTF

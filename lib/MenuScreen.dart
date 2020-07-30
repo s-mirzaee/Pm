@@ -8,7 +8,6 @@ import 'main.dart';
 import 'oddCalculator/oddsEmulator.dart';
 import 'package:flutter_circular_text/circular_text.dart';
 
-
 oddsEmulator oddEmulator = new oddsEmulator();
 
 class MenuScreen extends StatefulWidget {
@@ -32,7 +31,8 @@ class _MenuScreenState extends State<MenuScreen> {
         child: MaterialApp(
             debugShowCheckedModeBanner: false,
             theme: ThemeData(fontFamily: 'MTCORSVA'),
-            home: Container(
+            home: Stack(children: <Widget>[
+              Container(
                 decoration: BoxDecoration(
                     image: DecorationImage(
                         image: AssetImage(
@@ -170,54 +170,7 @@ class _MenuScreenState extends State<MenuScreen> {
                         ],
                       ),
                     ),
-                    Container(margin: EdgeInsets.only(left: 0,top: 0),
-                      child: Stack(children: <Widget>[
-                        Container(
-                          child:CircularText(children: [
-                            TextItem(
-                              text: Text(
-                                "Business strategy empowered by poker",
-                                style: TextStyle(
-                                    fontSize: 28,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,fontFamily: 'MTCORSVA'
-                                ),
-                              ),
-                              space: 9.7,
-                              startAngle: 180,
-                              startAngleAlignment: StartAngleAlignment.center,
-                              //direction: CircularTextDirection.clockwise,
-                            ),
-                          ],
-                          radius: 120,
-                          position: CircularTextPosition.inside,
-                          //backgroundPaint: Paint()..color = Colors.grey.shade200,
-                        ),
-                          margin: EdgeInsets.only(left: 98,top: 98),
-                        ),
-                        Container(child: CircularText(
-                          children: [
-                            TextItem(
-                              text: Text(
-                                "Business strategy empowered by poker",
-                                style: TextStyle(
-                                    fontSize: 28,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,fontFamily: 'MTCORSVA'
-                                ),
-                              ),
-                              space: 9.7,
-                              //startAngle: 0,
-                              startAngleAlignment: StartAngleAlignment.center,
-                              //direction: CircularTextDirection.clockwise,
-                            ),
-                          ],
-                          radius: 120,
-                          position: CircularTextPosition.inside,
-                          //backgroundPaint: Paint()..color = Colors.grey.shade200,
-                        ),),
-                      ],),
-                      /*Stack(children: <Widget>[
+                    /*Stack(children: <Widget>[
                       Container(child:
                         Transform.rotate(angle: 45, child:
                           Text('Business',style: TextStyle(decoration: TextDecoration.none,color: Colors.black,fontSize: 35,fontFamily: 'MTCORSVA',),),
@@ -242,10 +195,104 @@ class _MenuScreenState extends State<MenuScreen> {
                         ),
                       ),
                     ],
-                    ),*/),
+                    ),*/
                   ],
-                )
-            )
+                ),
+              ),
+              Container(
+                child:CircularText(children: [
+                  TextItem(
+                    text: Text(
+                      "strategy empowered by poker",
+                      style: TextStyle(
+                          fontSize: 28,
+                          color: Colors.black26,
+                          fontWeight: FontWeight.bold,fontFamily: 'MTCORSVA'
+                      ),
+                    ),
+                    space: 9.7,
+                    startAngle: 180,
+                    startAngleAlignment: StartAngleAlignment.center,
+                    //direction: CircularTextDirection.clockwise,
+                  ),
+                ],
+                  radius: 110,
+                  position: CircularTextPosition.inside,
+                  //backgroundPaint: Paint()..color = Colors.grey.shade200,
+                ),
+                margin: EdgeInsets.only(left: width*0.02,top: height*0.1),
+              ),
+              Container(child: CircularText(
+                children: [
+                  TextItem(
+                    text: Text(
+                      "Business",
+                      style: TextStyle(
+                          fontSize: 33,
+                          color: Color.fromRGBO(0, 0, 0, 0.2),
+                          fontWeight: FontWeight.bold,fontFamily: 'MTCORSVA'
+                      ),
+                    ),
+                    space: 33,
+                    startAngle: 10,
+                    startAngleAlignment: StartAngleAlignment.center,
+                    //direction: CircularTextDirection.anticlockwise,
+                  ),
+                ],
+                radius: 58,
+                position: CircularTextPosition.inside,
+                //backgroundPaint: Paint()..color = Colors.grey.shade200,
+              ),
+                margin: EdgeInsets.only(left: width*0.45,top: height*0.63),
+              ),
+              Container(child: CircularText(
+                children: [
+                  TextItem(
+                    text: Text(
+                      "Business strategy empowered by poker",
+                      style: TextStyle(
+                          fontSize: 29,
+                          color: Color.fromRGBO(0, 0, 0, 0.17),
+                          fontWeight: FontWeight.bold,fontFamily: 'MTCORSVA'
+                      ),
+                    ),
+                    space: 9.5,
+                    startAngle: 90,
+                    startAngleAlignment: StartAngleAlignment.center,
+                    //direction: CircularTextDirection.clockwise,
+                  ),
+                ],
+                radius: 122,
+                position: CircularTextPosition.inside,
+                //backgroundPaint: Paint()..color = Colors.grey.shade200,
+              ),
+                margin: EdgeInsets.only(left: width*0.52,top: height*0.03),
+              ),
+              Container(child: CircularText(
+                children: [
+                  TextItem(
+                    text: Text(
+                      "Business strategy empowered by poker",
+                      style: TextStyle(
+                          fontSize: 40,
+                          color: Color.fromRGBO(0, 0, 0, 0.16),
+                          fontWeight: FontWeight.bold,fontFamily: 'MTCORSVA'
+                      ),
+                    ),
+                    space: 9.7,
+                    //startAngle: 0,
+                    startAngleAlignment: StartAngleAlignment.center,
+                    //direction: CircularTextDirection.clockwise,
+                  ),
+                ],
+                radius: 160,
+                position: CircularTextPosition.inside,
+                //backgroundPaint: Paint()..color = Colors.grey.shade200,
+              ),
+                margin: EdgeInsets.only(left: width*0.65,top: height*0.26),
+              ),
+            ],)
+          /**/
         )
     );
   }
@@ -516,11 +563,14 @@ class About extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Text('Owner:', style: TextStyle(fontFamily: 'georgia', color: Colors.yellow,fontSize: 22,),),
-              Text('  M. Ala Saadegh-Vaziri', style: TextStyle(fontFamily: 'MTCORSVA', color: Colors.yellow,)),
+              SizedBox(
+                height: staticValues.getHeight()*0.1,
+              ),
+              Text('Owner:', style: TextStyle(fontFamily: 'segoeui', color: Colors.yellow,fontSize: 22,),),
+               Text('  M. Ala Saadegh-Vaziri', style: TextStyle(fontFamily: 'MTCORSVA', color: Colors.yellow,)),
               Text('      vaziri@optonline.net', style: TextStyle(fontFamily: 'MTCORSVA', color: Colors.yellow,)),
-              Text('Supervisor:', style: TextStyle( color: Colors.yellow,fontWeight: FontWeight.bold),),
-              Text('  Marzieh Eskandari', style: TextStyle(fontFamily: 'MTCORSVA', color: Colors.yellow,)),
+              Text('Supervisor:', style: TextStyle( color: Colors.yellow,fontWeight: FontWeight.bold,fontFamily: 'segoeui'),),
+              Text('  Marzieh Eskandari', style: TextStyle(fontFamily: 'segoeui', color: Colors.yellow,)),
               Text('      marzieh211@yahoo.com', style: TextStyle(fontFamily: 'MTCORSVA', color: Colors.yellow,)),
               Text('Developers:', style: TextStyle(fontFamily: 'MTCORSVA', color: Colors.yellow,fontWeight: FontWeight.bold),),
               Text('  Diba Rashidi', style: TextStyle(fontFamily: 'MTCORSVA', color: Colors.yellow,)),

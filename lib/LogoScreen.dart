@@ -1,8 +1,5 @@
 import 'dart:io';
-//import 'package:bustem2/GameScreen.dart';
-
-//import 'main.dart';
-import 'package:bustem2/GameScreen.dart';
+import 'package:bustem2/GameScreen.dart' as screen;
 import 'package:bustem2/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -142,7 +139,7 @@ class _logoScreenState extends State<logoScreen> {
                     ),
                     InkWell(
                       onTap: () {
-                      /*  setState(() {
+                        setState(() {
                           if (winAmount > 0)
                             (staticValues
                                 .setMoney(staticValues.getMoney() + winAmount));
@@ -153,20 +150,17 @@ class _logoScreenState extends State<logoScreen> {
                         staticValues.createWager(staticValues.getPlayerNo());
                         staticValues.createReturn(staticValues.getPlayerNo());
                         values.create(staticValues.getPlayerNo());
-                        //chooseCards = handCard.cardlist(staticValues.getPlayerNo());
+                        chooseCards = handCard.cardlist(staticValues.getPlayerNo()) ;
                         oddCalculator.oddCalculator(chooseCards);
                         Board = new board(chooseCards);
+                        staticValues.totalReturn();
                         //print(chooseCards.length.toString());
-                        //oddEmulator.emulator();
-                        staticValues.loadNumber();
+                        oddEmulator.emulator();
 
-                        print('Repeat Done');
 
-                        //StartGame();
-
-                        print('Game Done');
-
-                        Navigator.pushNamed(context, '/Game');*/
+                        Route route = MaterialPageRoute(
+                            builder: (context) => screen.StartGame());
+                        Navigator.push(context, route);
                       },
                       child: Container(
                         //color: Colors.black12,
