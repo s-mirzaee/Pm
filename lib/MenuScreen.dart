@@ -509,7 +509,7 @@ class Help extends StatelessWidget {
             fontWeight: FontWeight.bold,
             fontSize: 25,
             fontFamily: 'MTCORSVA',
-            color: Colors.yellow),
+            color: Color.fromRGBO(240, 205, 95, 1)),
       ),
       content: Container(
         child: SingleChildScrollView(
@@ -535,7 +535,7 @@ class Help extends StatelessWidget {
                     'For a showdown to happen, there have to be at least 2 players left. The winning player must reveal their cards to win the hand. The winner is determined by who has the best 5-card hand. That player gets to scoop in the pot. In Omaha, there are two pots to scoop!' +
                     '\n' +
                     'Once the winner has been settled on, it’s time to shuffle up and deal the next round. Whether you’re playing Texas Hold’em, Omaha Hi or Omaha Hi/Lo; Tournaments, Sit & Gos or at the Cash Tables, there’s always a seat with your name on it at 888poker!',
-                style: TextStyle(fontFamily: 'MTCORSVA', color: Colors.yellow),
+                style: TextStyle(fontFamily: 'MTCORSVA', color: Color.fromRGBO(240, 205, 95, 1)),
               )
             ],
           ),
