@@ -17,8 +17,8 @@ class board {
         children: <Widget>[
           //header
           Container(
-              child: Container(margin: EdgeInsets.only(top: height*0.02),
-                child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
+              child: Container(margin: EdgeInsets.only(top: height*0.01),
+                child: Stack(children: <Widget>[
                   Container(margin: EdgeInsets.only(left: width*0.04),
                    child: Text(
                     'Stack : \$ ${staticValues.getMoney().round()} ',
@@ -30,7 +30,7 @@ class board {
                         decoration: TextDecoration.none),
                   ),
                 ),
-                 Container(margin: EdgeInsets.only(left: width*0.48),
+                 Container(margin: EdgeInsets.only(left: width*0.62),
                   child: Text(
                     'Total Wager :\$ ${staticValues.totalWager()} ',
                     style: TextStyle(
