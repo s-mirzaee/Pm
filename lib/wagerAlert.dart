@@ -43,18 +43,20 @@ class _wagerAlertState extends State<wagerAlert> {
   Widget build(BuildContext context) {
     return Stack(children: [
       if (showBox && boxShow)
-        InkWell(
-          child: Container(
-            width: 70,
-            height: 40,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(12)),
-              border: Border(
-                  top: BorderSide(width: 5, color: boxColor),
-                  right: BorderSide(width: 5, color: boxColor),
-                  left: BorderSide(width: 5, color: boxColor),
-                  bottom: BorderSide(width: 5, color: boxColor)),
-            ),
+        Container(
+          margin: EdgeInsets.only(left: width * 0.015, top: height * 0.5),
+          padding: EdgeInsets.all(5),
+          width: 70,
+          height: 40,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(12)),
+            border: Border(
+                top: BorderSide(width: 5, color: boxColor),
+                right: BorderSide(width: 5, color: boxColor),
+                left: BorderSide(width: 5, color: boxColor),
+                bottom: BorderSide(width: 5, color: boxColor)),
+          ),
+          child: InkWell(
             child: Text(
               '${enterNumber}',
               style: TextStyle(
@@ -64,17 +66,14 @@ class _wagerAlertState extends State<wagerAlert> {
                   fontFamily: 'MTCORSVA',
                   decoration: TextDecoration.none),
             ),
-            margin: EdgeInsets.only(left: width * 0.015, top: height * 0.5),
-            padding: EdgeInsets.all(5),
-            //width: 75,
-            //height: 35,
+            onTap: () {
+              setState(() {
+                boxColor = Color.fromRGBO(240, 205, 95, 1);
+                showKeyboard = !showKeyboard;
+              });
+            },
           ),
-          onTap: () {
-            setState(() {
-              boxColor = Color.fromRGBO(240, 205, 95, 1);
-              showKeyboard = !showKeyboard;
-            });
-          },
+
         ),
       //else if(showBox==false)
       /*Container(
