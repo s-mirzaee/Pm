@@ -48,7 +48,7 @@ class _HandState extends State<Hand> {
         height: height,
         child: Stack(
           children: <Widget>[
-            Container(
+            Container(//color: Colors.white,
               margin: EdgeInsets.only(
                   left: width * lefts[i], top: height * tops[i]),
               child: InkWell(
