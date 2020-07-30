@@ -42,41 +42,49 @@ class _wagerAlertState extends State<wagerAlert> {
   @override
   Widget build(BuildContext context) {
     return Stack(children: [
-      if (showBox && boxShow)
-        //Container(child:
-        InkWell(
-          child: Container(
+      Container(
+        child: Stack(children: <Widget>[
+          if (showBox && boxShow)
+          //Container(child:
+            InkWell(
+              child: Container(
 
-            decoration: BoxDecoration(
+                  decoration: BoxDecoration(
 
-              borderRadius: BorderRadius.all(Radius.circular(12)),
-              border: Border(
-                  top: BorderSide(width: 5, color: boxColor),
-                  right: BorderSide(width: 5, color: boxColor),
-                  left: BorderSide(width: 5, color: boxColor),
-                  bottom: BorderSide(width: 5, color: boxColor)),
+                    borderRadius: BorderRadius.all(Radius.circular(12)),
+                    border: Border(
+                        top: BorderSide(width: 5, color: boxColor),
+                        right: BorderSide(width: 5, color: boxColor),
+                        left: BorderSide(width: 5, color: boxColor),
+                        bottom: BorderSide(width: 5, color: boxColor)),
+                  ),
+                  child: Text(
+                    '${enterNumber}',
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromRGBO(240, 205, 95, 1),
+                        fontFamily: 'MTCORSVA',
+                        decoration: TextDecoration.none),
+                  ),
+
+                  padding: EdgeInsets.all(5),
+                  width: 70,
+                  height: 40,
+                 // margin: EdgeInsets.only(left: width * 0.015, top: height * 0.5)
+              ),
+              onTap: () {
+                setState(() {
+                  boxColor = Color.fromRGBO(240, 205, 95, 1);
+                  showKeyboard = !showKeyboard;
+                });
+              },
             ),
-            child: Text(
-              '${enterNumber}',
-              style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Color.fromRGBO(240, 205, 95, 1),
-                  fontFamily: 'MTCORSVA',
-                  decoration: TextDecoration.none),
-            ),
-
-            padding: EdgeInsets.all(5),
-            width: 70,
-            height: 40,
-          ),
-          onTap: () {
-            setState(() {
-              boxColor = Color.fromRGBO(240, 205, 95, 1);
-              showKeyboard = !showKeyboard;
-            });
-          },
-        ),
+        ],),
+          width: 70,
+          height: 40,
+          margin: EdgeInsets.only(left: width * 0.015, top: height * 0.5),//color: Colors.teal,
+      ),
         /*  width: 70,
           height: 40,
           margin: EdgeInsets.only(left: width * 0.015, top: height * 0.5)
