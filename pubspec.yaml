@@ -58,3 +58,6 @@ flutter:
     - family: MTCORSVA
       fonts:
         - asset: assets/font/MTCORSVA.TTF
+    - family: seguihis
+      fonts:
+        - asset: assets/font/seguihis.ttf
