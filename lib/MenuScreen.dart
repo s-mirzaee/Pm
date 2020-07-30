@@ -555,7 +555,7 @@ class About extends StatelessWidget {
         style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 25,
-            color: Colors.yellow),
+            color: Color.fromRGBO(240, 205, 95, 1)),
       ),
       content: Container(
         child: SingleChildScrollView(
@@ -565,17 +565,17 @@ class About extends StatelessWidget {
               SizedBox(
                 height: staticValues.getHeight()*0.001,
               ),
-              Text('Owner:', style: TextStyle( color: Colors.yellow,fontWeight: FontWeight.bold,),),
-               Text('   M. Ala Saadegh-Vaziri', style: TextStyle( color: Colors.yellow,)),
+              Text('\nOwner:\n', style: TextStyle( color: Color.fromRGBO(240, 205, 95, 1),fontWeight: FontWeight.bold,),),
+               Text('   M. Ala Saadegh-Vaziri', style: TextStyle( color: Color.fromRGBO(240, 205, 95, 1),)),
               Text('      vaziri@optonline.net', style: TextStyle( color: Colors.white70,)),
-              Text('Supervisor:', style: TextStyle( color: Colors.yellow,fontWeight: FontWeight.bold),),
-              Text('    Marzieh Eskandari', style: TextStyle(color: Colors.yellow,)),
+              Text('\nSupervisor:\n', style: TextStyle( color: Color.fromRGBO(240, 205, 95, 1),fontWeight: FontWeight.bold),),
+              Text('    Marzieh Eskandari', style: TextStyle(color: Color.fromRGBO(240, 205, 95, 1),)),
               Text('      marzieh211@yahoo.com', style: TextStyle(color: Colors.white70,)),
-              Text('Developers:', style: TextStyle( color: Colors.yellow,fontWeight: FontWeight.bold),),
-              Text('    Diba Rashidi', style: TextStyle( color: Colors.yellow,)),
+              Text('\nDevelopers:\n', style: TextStyle( color: Color.fromRGBO(240, 205, 95, 1),fontWeight: FontWeight.bold),),
+              Text('    Diba Rashidi', style: TextStyle( color: Color.fromRGBO(240, 205, 95, 1),)),
               Text('      dibra.1379@gmail.com', style: TextStyle( color: Colors.white70,)),
               Text('      www.linkedin.com/in/d-rashidi', style: TextStyle( color: Colors.white70,)),
-              Text('    Salehe Mirzaee', style: TextStyle( color: Colors.yellow,)),
+              Text('    Salehe Mirzaee', style: TextStyle( color: Color.fromRGBO(240, 205, 95, 1),)),
               Text('      sally.mirz@gmail.com ', style: TextStyle(color: Colors.white70, )),
               //TODO
               Text('      www.linkedin.com/in/d-rashidi', style: TextStyle(color: Colors.white70,)),

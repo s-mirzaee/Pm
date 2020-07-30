@@ -30,7 +30,7 @@ class board {
                         decoration: TextDecoration.none),
                   ),
                 ),
-                 Container(margin: EdgeInsets.only(left: width*0.62),
+                 Container(margin: EdgeInsets.only(left: width*0.63),
                   child: Text(
                     'Total Wager :\$ ${staticValues.totalWager()} ',
                     style: TextStyle(
