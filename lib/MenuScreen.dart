@@ -170,32 +170,6 @@ class _MenuScreenState extends State<MenuScreen> {
                         ],
                       ),
                     ),
-                    /*Stack(children: <Widget>[
-                      Container(child:
-                        Transform.rotate(angle: 45, child:
-                          Text('Business',style: TextStyle(decoration: TextDecoration.none,color: Colors.black,fontSize: 35,fontFamily: 'MTCORSVA',),),
-                        ),
-                        margin: EdgeInsets.only(top: 160,left: 10),
-                      ),
-                      Container(child:
-                        Transform.rotate(angle: -44.9, child:
-                          Text('strategy',style: TextStyle(decoration: TextDecoration.none,color: Colors.black,fontSize: 35,fontFamily: 'MTCORSVA'),),
-                        ),
-                        margin: EdgeInsets.only(left: 125,top: 158),
-                      ),
-                      Container(child:
-                        Transform.rotate(angle: 45, child:
-                          Text('empowered',style: TextStyle(decoration: TextDecoration.none,color: Colors.black,fontSize: 35,fontFamily: 'MTCORSVA'),),
-                        ),
-                        margin: EdgeInsets.only(left: 125,top: 10),
-                      ),
-                      Container(child:
-                        Transform.rotate(angle: -44.9, child:
-                          Text('by poker',style: TextStyle(decoration: TextDecoration.none,color: Colors.black,fontSize: 35,fontFamily: 'MTCORSVA'),),
-                        ),
-                      ),
-                    ],
-                    ),*/
                   ],
                 ),
               ),
@@ -321,7 +295,7 @@ class _SettingState extends State<Setting> {
         style: TextStyle(
             fontSize: 40,
             fontWeight: FontWeight.w100,
-            color: Colors.yellow,
+            color: Color.fromRGBO(240, 205, 95, 1),
             fontFamily: 'MTCORSVA',
             decoration: TextDecoration.none),
       ),
@@ -339,12 +313,12 @@ class _SettingState extends State<Setting> {
                     style: TextStyle(
                         fontSize: 28,
                         fontWeight: FontWeight.w100,
-                        color: Colors.yellow,
+                        color: Color.fromRGBO(240, 205, 95, 1),
                         fontFamily: 'MTCORSVA',
                         decoration: TextDecoration.none),
                   ),
                   CustomSwitch(
-                    activeColor: Colors.amberAccent,
+                    activeColor: Color.fromRGBO(240, 205, 95, 1),
                     value: SoundVolume,
                     onChanged: (value) {
                       setState(() {
@@ -364,10 +338,10 @@ class _SettingState extends State<Setting> {
                       style: TextStyle(
                           fontSize: 28,
                           fontWeight: FontWeight.w100,
-                          color: Colors.yellow,
+                          color: Color.fromRGBO(240, 205, 95, 1),
                           fontFamily: 'MTCORSVA')),
                   CustomSwitch(
-                    activeColor: Colors.amberAccent,
+                    activeColor: Color.fromRGBO(240, 205, 95, 1),
                     value: MusicVolume,
                     onChanged: (value) {
                       setState(() {
@@ -390,7 +364,7 @@ class _SettingState extends State<Setting> {
                         style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.w100,
-                            color: Colors.yellow,
+                            color: Color.fromRGBO(240, 205, 95, 1),
                             fontFamily: 'MTCORSVA'),
                       )))
             ],
@@ -407,7 +381,7 @@ class _SettingState extends State<Setting> {
               style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.w100,
-                  color: Colors.yellow,
+                  color: Color.fromRGBO(240, 205, 95, 1),
                   fontFamily: 'MTCORSVA'),
             )),
       ],
@@ -433,7 +407,7 @@ class _HandsState extends State<Hands> {
           style: TextStyle(
               fontSize: 30,
               fontWeight: FontWeight.w100,
-              color: Colors.yellow,
+              color: Color.fromRGBO(240, 205, 95, 1),
               fontFamily: 'MTCORSVA'),
         ),
       ),
@@ -488,7 +462,7 @@ class _HandsState extends State<Hands> {
               style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.w100,
-                  color: Colors.yellow,
+                  color: Color.fromRGBO(240, 205, 95, 1),
                   fontFamily: 'MTCORSVA'),
             ))
       ],
