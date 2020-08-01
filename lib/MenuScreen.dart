@@ -19,7 +19,7 @@ class _MenuScreenState extends State<MenuScreen> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
-    SystemChrome.setEnabledSystemUIOverlays ([SystemUiOverlay.bottom]);
+    SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
     MediaQueryData queryData = MediaQuery.of(context);
 
     staticValues.setWidth(queryData.size.width);
@@ -31,244 +31,257 @@ class _MenuScreenState extends State<MenuScreen> {
         child: MaterialApp(
             debugShowCheckedModeBanner: false,
             theme: ThemeData(fontFamily: 'MTCORSVA'),
-            home: Stack(children: <Widget>[
-              Container(
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage(
-                            'assets/images/katie-harp-Em96eDRJPD8-unsplash.jpg'),
-                        fit: BoxFit.cover)),
-                child: Row(
-                  children: <Widget>[
-                    Container(//color: Colors.black12,
-                        margin: EdgeInsets.only(left: width*0.25),
+            home: Stack(
+              children: <Widget>[
+                Container(
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage(
+                              'assets/images/katie-harp-Em96eDRJPD8-unsplash.jpg'),
+                          fit: BoxFit.cover)),
+                  child: Row(
+                    children: <Widget>[
+                      Container(
+                          //color: Colors.black12,
+                          margin: EdgeInsets.only(left: width * 0.25),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            //crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Transform.rotate(
+                                angle: math.pi / 9,
+                                child: Container(
+                                  child: Image.asset(
+                                      'assets/images/ace-of-hearts.png',
+                                      height: height * 0.122),
+                                ),
+                              ),
+                              Transform.rotate(
+                                angle: -math.pi / 15,
+                                child: Container(
+                                  margin: EdgeInsets.only(
+                                      top: height / 14.5, bottom: height / 15),
+                                  child: Image.asset(
+                                      'assets/images/ace-of-spades.png',
+                                      height: height * 0.125),
+                                ),
+                              ),
+                              Transform.rotate(
+                                angle: math.pi / 15,
+                                child: Container(
+                                  child: Image.asset(
+                                      'assets/images/playing-cards.png',
+                                      height: height * 0.125),
+                                ),
+                              ),
+                              Container(
+                                child: Transform.rotate(
+                                  angle: -math.pi / 12,
+                                  child: Container(
+                                    child: Image.asset(
+                                        'assets/images/ace-of-clubs.png',
+                                        height: height * 0.125),
+                                  ),
+                                ),
+                                margin: EdgeInsets.only(top: 35),
+                              )
+                            ],
+                          )),
+                      Container(
+                        //margin: EdgeInsets.only(bottom: (height*0.5)-200),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          //crossAxisAlignment: CrossAxisAlignment.start,
+                          //crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
-                            Transform.rotate(
-                              angle: math.pi / 9,
-                              child: Container(
-                                child: Image.asset(
-                                    'assets/images/ace-of-hearts.png',
-                                    height: height*0.122),
+                            Container(
+                              child: FlatButton(
+                                child: Text('Play',
+                                    style: TextStyle(
+                                        fontSize: 38,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                        decoration: TextDecoration.none)),
+                                textColor: Colors.black,
+                                onPressed: () {
+                                  return showDialog(
+                                    context: context,
+                                    builder: (context) {
+                                      return Hands();
+                                    },
+                                  );
+                                },
                               ),
                             ),
-                            Transform.rotate(
-                              angle: -math.pi / 15,
-                              child: Container(
-                                margin: EdgeInsets.only(
-                                    top: height / 14.5, bottom: height / 15),
-                                child: Image.asset(
-                                    'assets/images/ace-of-spades.png',
-                                    height: height*0.125),
+                            Container(
+                              margin: EdgeInsets.only(top: height * 0.07),
+                              child: FlatButton(
+                                child: Text('Setting',
+                                    style: TextStyle(
+                                        fontSize: 38,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                        decoration: TextDecoration.none)),
+                                textColor: Colors.black,
+                                onPressed: () {
+                                  return showDialog(
+                                    context: context,
+                                    builder: (context) {
+                                      return Setting();
+                                    },
+                                  );
+                                },
                               ),
                             ),
-                            Transform.rotate(
-                              angle: math.pi / 15,
-                              child: Container(
-                                child: Image.asset(
-                                    'assets/images/playing-cards.png',
-                                    height: height* 0.125),
+                            Container(
+                              margin: EdgeInsets.only(top: height * 0.076),
+                              child: FlatButton(
+                                child: Text('Help',
+                                    style: TextStyle(
+                                        fontSize: 38,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                        decoration: TextDecoration.none)),
+                                textColor: Colors.black,
+                                onPressed: () {
+                                  return showDialog(
+                                    context: context,
+                                    builder: (context) {
+                                      return Help();
+                                    },
+                                  );
+                                },
                               ),
                             ),
-                            Container(child: Transform.rotate(
-                              angle: -math.pi / 12,
-                              child: Container(
-                                child: Image.asset(
-                                    'assets/images/ace-of-clubs.png',
-                                    height: height *0.125),
+                            Container(
+                              margin: EdgeInsets.only(top: height * 0.075),
+                              child: FlatButton(
+                                child: Text('About us',
+                                    style: TextStyle(
+                                        fontSize: 38,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                        decoration: TextDecoration.none)),
+                                textColor: Colors.black,
+                                onPressed: () {
+                                  return showDialog(
+                                    context: context,
+                                    builder: (context) {
+                                      return About();
+                                    },
+                                  );
+                                },
                               ),
                             ),
-                              margin: EdgeInsets.only(top: 35),
-                            )
                           ],
-                        )),
-                    Container(
-                      //margin: EdgeInsets.only(bottom: (height*0.5)-200),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        //crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          Container(
-                            child: FlatButton(
-                              child: Text('Play',
-                                  style: TextStyle(
-                                      fontSize: 38,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.black,
-                                      decoration: TextDecoration.none)),
-                              textColor: Colors.black,
-                              onPressed: () {
-                                return showDialog(
-                                  context: context,
-                                  builder: (context) {
-                                    return Hands();
-                                  },
-                                );
-                              },
-                            ),
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(top: height*0.07),
-                            child: FlatButton(
-                              child: Text('Setting',
-                                  style: TextStyle(
-                                      fontSize: 38,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.black,
-                                      decoration: TextDecoration.none)),
-                              textColor: Colors.black,
-                              onPressed: () {
-                                return showDialog(
-                                  context: context,
-                                  builder: (context) {
-                                    return Setting();
-                                  },
-                                );
-                              },
-                            ),
-                          ),
-                          Container(margin: EdgeInsets.only(top: height*0.076),
-                            child: FlatButton(
-                              child: Text('Help',
-                                  style: TextStyle(
-                                      fontSize: 38,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.black,
-                                      decoration: TextDecoration.none)),
-                              textColor: Colors.black,
-                              onPressed: () {
-                                return showDialog(
-                                  context: context,
-                                  builder: (context) {
-                                    return Help();
-                                  },
-                                );
-                              },
-                            ),
-                          ),
-                          Container(margin: EdgeInsets.only(top: height*0.075),
-                            child: FlatButton(
-                              child: Text('About us',
-                                  style: TextStyle(
-                                      fontSize: 38,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.black,
-                                      decoration: TextDecoration.none)),
-                              textColor: Colors.black,
-                              onPressed: () {
-                                return showDialog(
-                                  context: context,
-                                  builder: (context) {
-                                    return About();
-                                  },
-                                );
-                              },
-                            ),
-                          ),
-                        ],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              Container(
-                child:CircularText(children: [
-                  TextItem(
-                    text: Text(
-                      "strategy empowered by poker",
-                      style: TextStyle(
-                          fontSize: 28,
-                          color: Colors.black26,
-                          fontWeight: FontWeight.bold,fontFamily: 'MTCORSVA'
+                Container(
+                  child: CircularText(
+                    children: [
+                      TextItem(
+                        text: Text(
+                          "strategy empowered by poker",
+                          style: TextStyle(
+                              fontSize: 28,
+                              color: Colors.black26,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'MTCORSVA'),
+                        ),
+                        space: 9.7,
+                        startAngle: 180,
+                        startAngleAlignment: StartAngleAlignment.center,
+                        //direction: CircularTextDirection.clockwise,
                       ),
-                    ),
-                    space: 9.7,
-                    startAngle: 180,
-                    startAngleAlignment: StartAngleAlignment.center,
-                    //direction: CircularTextDirection.clockwise,
+                    ],
+                    radius: 110,
+                    position: CircularTextPosition.inside,
+                    //backgroundPaint: Paint()..color = Colors.grey.shade200,
                   ),
-                ],
-                  radius: 110,
-                  position: CircularTextPosition.inside,
-                  //backgroundPaint: Paint()..color = Colors.grey.shade200,
+                  margin:
+                      EdgeInsets.only(left: width * 0.02, top: height * 0.1),
                 ),
-                margin: EdgeInsets.only(left: width*0.02,top: height*0.1),
-              ),
-              Container(child: CircularText(
-                children: [
-                  TextItem(
-                    text: Text(
-                      "Business",
-                      style: TextStyle(
-                          fontSize: 33,
-                          color: Color.fromRGBO(0, 0, 0, 0.2),
-                          fontWeight: FontWeight.bold,fontFamily: 'MTCORSVA'
+                Container(
+                  child: CircularText(
+                    children: [
+                      TextItem(
+                        text: Text(
+                          "Business",
+                          style: TextStyle(
+                              fontSize: 33,
+                              color: Color.fromRGBO(0, 0, 0, 0.2),
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'MTCORSVA'),
+                        ),
+                        space: 33,
+                        startAngle: 10,
+                        startAngleAlignment: StartAngleAlignment.center,
+                        //direction: CircularTextDirection.anticlockwise,
                       ),
-                    ),
-                    space: 33,
-                    startAngle: 10,
-                    startAngleAlignment: StartAngleAlignment.center,
-                    //direction: CircularTextDirection.anticlockwise,
+                    ],
+                    radius: 58,
+                    position: CircularTextPosition.inside,
+                    //backgroundPaint: Paint()..color = Colors.grey.shade200,
                   ),
-                ],
-                radius: 58,
-                position: CircularTextPosition.inside,
-                //backgroundPaint: Paint()..color = Colors.grey.shade200,
-              ),
-                margin: EdgeInsets.only(left: width*0.45,top: height*0.63),
-              ),
-              Container(child: CircularText(
-                children: [
-                  TextItem(
-                    text: Text(
-                      "Business strategy empowered by poker",
-                      style: TextStyle(
-                          fontSize: 29,
-                          color: Color.fromRGBO(0, 0, 0, 0.17),
-                          fontWeight: FontWeight.bold,fontFamily: 'MTCORSVA'
+                  margin:
+                      EdgeInsets.only(left: width * 0.45, top: height * 0.63),
+                ),
+                Container(
+                  child: CircularText(
+                    children: [
+                      TextItem(
+                        text: Text(
+                          "Business strategy empowered by poker",
+                          style: TextStyle(
+                              fontSize: 29,
+                              color: Color.fromRGBO(0, 0, 0, 0.17),
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'MTCORSVA'),
+                        ),
+                        space: 9.5,
+                        startAngle: 90,
+                        startAngleAlignment: StartAngleAlignment.center,
+                        //direction: CircularTextDirection.clockwise,
                       ),
-                    ),
-                    space: 9.5,
-                    startAngle: 90,
-                    startAngleAlignment: StartAngleAlignment.center,
-                    //direction: CircularTextDirection.clockwise,
+                    ],
+                    radius: 122,
+                    position: CircularTextPosition.inside,
+                    //backgroundPaint: Paint()..color = Colors.grey.shade200,
                   ),
-                ],
-                radius: 122,
-                position: CircularTextPosition.inside,
-                //backgroundPaint: Paint()..color = Colors.grey.shade200,
-              ),
-                margin: EdgeInsets.only(left: width*0.52,top: height*0.03),
-              ),
-              Container(child: CircularText(
-                children: [
-                  TextItem(
-                    text: Text(
-                      "Business strategy empowered by poker",
-                      style: TextStyle(
-                          fontSize: 40,
-                          color: Color.fromRGBO(0, 0, 0, 0.16),
-                          fontWeight: FontWeight.bold,fontFamily: 'MTCORSVA'
+                  margin:
+                      EdgeInsets.only(left: width * 0.52, top: height * 0.03),
+                ),
+                Container(
+                  child: CircularText(
+                    children: [
+                      TextItem(
+                        text: Text(
+                          "Business strategy empowered by poker",
+                          style: TextStyle(
+                              fontSize: 40,
+                              color: Color.fromRGBO(0, 0, 0, 0.16),
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'MTCORSVA'),
+                        ),
+                        space: 9.7,
+                        //startAngle: 0,
+                        startAngleAlignment: StartAngleAlignment.center,
+                        //direction: CircularTextDirection.clockwise,
                       ),
-                    ),
-                    space: 9.7,
-                    //startAngle: 0,
-                    startAngleAlignment: StartAngleAlignment.center,
-                    //direction: CircularTextDirection.clockwise,
+                    ],
+                    radius: 160,
+                    position: CircularTextPosition.inside,
+                    //backgroundPaint: Paint()..color = Colors.grey.shade200,
                   ),
-                ],
-                radius: 160,
-                position: CircularTextPosition.inside,
-                //backgroundPaint: Paint()..color = Colors.grey.shade200,
-              ),
-                margin: EdgeInsets.only(left: width*0.65,top: height*0.26),
-              ),
-            ],)
-          /**/
-        )
-    );
+                  margin:
+                      EdgeInsets.only(left: width * 0.65, top: height * 0.26),
+                ),
+              ],
+            )
+            /**/
+            ));
   }
 }
 
@@ -302,7 +315,8 @@ class _SettingState extends State<Setting> {
       content: Container(
           color: Colors.black,
           height: staticValues.getHeight(),
-          child: Column(
+          child: SingleChildScrollView(
+              child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Row(
@@ -368,7 +382,7 @@ class _SettingState extends State<Setting> {
                             fontFamily: 'MTCORSVA'),
                       )))
             ],
-          )),
+          ))),
       actions: <Widget>[
         FlatButton(
             onPressed: () {
@@ -491,7 +505,7 @@ class Help extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               SizedBox(
-                height: staticValues.getHeight()*0.1,
+                height: staticValues.getHeight() * 0.1,
               ),
               Text(
                 'Despite the mind-game aspect of poker, usually the highest-value hand determines the winner – unless youre bluffing of course! It’s important to aim to make the strongest poker hand – especially for beginners. The best high hand in most poker formats is a Royal Flush.' +
@@ -509,7 +523,9 @@ class Help extends StatelessWidget {
                     'For a showdown to happen, there have to be at least 2 players left. The winning player must reveal their cards to win the hand. The winner is determined by who has the best 5-card hand. That player gets to scoop in the pot. In Omaha, there are two pots to scoop!' +
                     '\n' +
                     'Once the winner has been settled on, it’s time to shuffle up and deal the next round. Whether you’re playing Texas Hold’em, Omaha Hi or Omaha Hi/Lo; Tournaments, Sit & Gos or at the Cash Tables, there’s always a seat with your name on it at 888poker!',
-                style: TextStyle(fontFamily: 'MTCORSVA', color: Color.fromRGBO(240, 205, 95, 1)),
+                style: TextStyle(
+                    fontFamily: 'MTCORSVA',
+                    color: Color.fromRGBO(240, 205, 95, 1)),
               )
             ],
           ),
@@ -537,22 +553,67 @@ class About extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               SizedBox(
-                height: staticValues.getHeight()*0.001,
+                height: staticValues.getHeight() * 0.001,
               ),
-              Text('\nOwner:\n', style: TextStyle( color: Color.fromRGBO(240, 205, 95, 1),fontWeight: FontWeight.bold,),),
-               Text('   M. Ala Saadegh-Vaziri', style: TextStyle( color: Color.fromRGBO(240, 205, 95, 1),)),
-              Text('      vaziri@optonline.net', style: TextStyle( color: Colors.white70,)),
-              Text('\nSupervisor:\n', style: TextStyle( color: Color.fromRGBO(240, 205, 95, 1),fontWeight: FontWeight.bold),),
-              Text('    Marzieh Eskandari', style: TextStyle(color: Color.fromRGBO(240, 205, 95, 1),)),
-              Text('      marzieh211@yahoo.com', style: TextStyle(color: Colors.white70,)),
-              Text('\nDevelopers:\n', style: TextStyle( color: Color.fromRGBO(240, 205, 95, 1),fontWeight: FontWeight.bold),),
-              Text('    Diba Rashidi', style: TextStyle( color: Color.fromRGBO(240, 205, 95, 1),)),
-              Text('      dibra.1379@gmail.com', style: TextStyle( color: Colors.white70,)),
-              Text('      www.linkedin.com/in/d-rashidi', style: TextStyle( color: Colors.white70,)),
-              Text('    Salehe Mirzaee', style: TextStyle( color: Color.fromRGBO(240, 205, 95, 1),)),
-              Text('      sally.mirz@gmail.com ', style: TextStyle(color: Colors.white70, )),
-              //TODO
-              Text('      www.linkedin.com/in/d-rashidi', style: TextStyle(color: Colors.white70,)),
+              Text(
+                '\nOwner:\n',
+                style: TextStyle(
+                  color: Color.fromRGBO(240, 205, 95, 1),
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text('   M. Ala Saadegh-Vaziri',
+                  style: TextStyle(
+                    color: Color.fromRGBO(240, 205, 95, 1),
+                  )),
+              Text('      vaziri@optonline.net',
+                  style: TextStyle(
+                    color: Colors.white70,
+                  )),
+              Text(
+                '\nSupervisor:\n',
+                style: TextStyle(
+                    color: Color.fromRGBO(240, 205, 95, 1),
+                    fontWeight: FontWeight.bold),
+              ),
+              Text('    Marzieh Eskandari',
+                  style: TextStyle(
+                    color: Color.fromRGBO(240, 205, 95, 1),
+                  )),
+              Text('      marzieh211@yahoo.com',
+                  style: TextStyle(
+                    color: Colors.white70,
+                  )),
+              Text(
+                '\nDevelopers:\n',
+                style: TextStyle(
+                    color: Color.fromRGBO(240, 205, 95, 1),
+                    fontWeight: FontWeight.bold),
+              ),
+              Text('    Diba Rashidi',
+                  style: TextStyle(
+                    color: Color.fromRGBO(240, 205, 95, 1),
+                  )),
+              Text('      dibra.1379@gmail.com',
+                  style: TextStyle(
+                    color: Colors.white70,
+                  )),
+              Text('      www.linkedin.com/in/d-rashidi',
+                  style: TextStyle(
+                    color: Colors.white70,
+                  )),
+              Text('    Salehe Mirzaie',
+                  style: TextStyle(
+                    color: Color.fromRGBO(240, 205, 95, 1),
+                  )),
+              Text('      sally.mirz@gmail.com ',
+                  style: TextStyle(
+                    color: Colors.white70,
+                  )),
+              Text('      www.linkedin.com/in/sally-mirzaee',
+                  style: TextStyle(
+                    color: Colors.white70,
+                  )),
             ],
           ),
         ),

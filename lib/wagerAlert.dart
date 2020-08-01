@@ -23,7 +23,7 @@ class wagerAlert extends StatefulWidget {
 
   wagerAlert() {
     Max = staticValues.getMoney();
-    //print("0" + "==========" + Max.toString());
+
     if (Max == 0) {
       beInRange = false;
       boxShow = false;
@@ -71,7 +71,7 @@ class _wagerAlertState extends State<wagerAlert> {
                   padding: EdgeInsets.all(5),
                   width: 70,
                   height: 40,
-                 // margin: EdgeInsets.only(left: width * 0.015, top: height * 0.5)
+
               ),
               onTap: () {
                 setState(() {
@@ -83,15 +83,12 @@ class _wagerAlertState extends State<wagerAlert> {
         ],),
           width: 70,
           height: 40,
-          margin: EdgeInsets.only(left: width * 0.015, top: height * 0.5),//color: Colors.teal,
+          margin: EdgeInsets.only(left: width * 0.015, top: height * 0.5),
       ),
-        /*  width: 70,
-          height: 40,
-          margin: EdgeInsets.only(left: width * 0.015, top: height * 0.5)
-        ),*/
+
 
       Container(
-        margin: EdgeInsets.only(top: height*0.61), //color: Colors.white,
+        margin: EdgeInsets.only(top: height*0.61),
         width: width * 0.855,
         height: height * 0.14,
         child: Row(
@@ -100,10 +97,7 @@ class _wagerAlertState extends State<wagerAlert> {
             beInRange
             //if be in range
                 ? showKeyboard
-                ? Container(//color: Colors.cyan,
-              //height: height*0.16,
-              //margin: EdgeInsets.only(left: 8),
-              //color: Colors.lightBlue,
+                ? Container(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
