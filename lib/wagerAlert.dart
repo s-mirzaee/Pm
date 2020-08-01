@@ -12,7 +12,6 @@ double Max;
 bool beInRange = true;
 int enterNumber = 0;
 bool showKeyboard = false;
-Color boxColor = Color.fromRGBO(240, 205, 95, 1);
 bool showBox = true;
 bool boxShow = true;
 double width = staticValues.getWidth();
@@ -20,7 +19,7 @@ double height = staticValues.getHeight();
 
 class wagerAlert extends StatefulWidget {
   int i = staticValues.getSelect();
-
+  static Color boxColor = Color.fromRGBO(240, 205, 95, 1);
   wagerAlert() {
     Max = staticValues.getMoney();
 
@@ -31,13 +30,15 @@ class wagerAlert extends StatefulWidget {
   }
 
   @override
-  _wagerAlertState createState() => _wagerAlertState(i);
+  _wagerAlertState createState() => _wagerAlertState(i,boxColor);
 }
 
 class _wagerAlertState extends State<wagerAlert> {
   int i;
+  Color boxColor;
 
-  _wagerAlertState(this.i);
+
+  _wagerAlertState(this.i, this.boxColor);
 
   @override
   Widget build(BuildContext context) {

@@ -32,6 +32,7 @@ class GameDesk extends StatefulWidget {
 }
 
 class _GameDeskState extends State<GameDesk> {
+  Color boxColor=wagerAlert.boxColor;
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
@@ -54,6 +55,8 @@ class _GameDeskState extends State<GameDesk> {
                         if (level == 0) {
                           if (staticValues.totalWager() != 0) {
                             setState(() {
+                              StaticValues.isClick = [false, false, false, false, false, false, false, false, false, false];
+                              boxColor = Color.fromRGBO(240, 205, 95, 1);
                               level++;
                               oddEmulator.emulator();
                             });
@@ -83,6 +86,7 @@ class _GameDeskState extends State<GameDesk> {
                           }
                         } else {
                           setState(() {
+                            Color boxColor=wagerAlert.boxColor;
                             level++;
                             oddEmulator.emulator();
                           });
