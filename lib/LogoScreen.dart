@@ -143,7 +143,7 @@ class _logoScreenState extends State<logoScreen> {
                           if (winAmount > 0)
                             (staticValues
                                 .setMoney(staticValues.getMoney() + winAmount));
-                        });
+
 
                         level = 0;
                         staticValues.createRange(staticValues.getPlayerNo());
@@ -160,7 +160,7 @@ class _logoScreenState extends State<logoScreen> {
 
                         Route route = MaterialPageRoute(
                             builder: (context) => screen.StartGame());
-                        Navigator.push(context, route);
+                        Navigator.push(context, route);});
                       },
                       child: Container(
                         //color: Colors.black12,

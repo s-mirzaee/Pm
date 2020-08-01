@@ -55,7 +55,7 @@ class _GameDeskState extends State<GameDesk> {
                         if (level == 0) {
                           if (staticValues.totalWager() != 0) {
                             setState(() {
-                              StaticValues.isClick = [false, false, false, false, false, false, false, false, false, false];
+                             // StaticValues.isClick = [false, false, false, false, false, false, false, false, false, false];
                               boxColor = Color.fromRGBO(240, 205, 95, 1);
                               level++;
                               oddEmulator.emulator();
