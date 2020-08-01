@@ -95,7 +95,7 @@ class _wagerAlertState extends State<wagerAlert> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            beInRange
+            staticValues.getMoney()!=0
             //if be in range
                 ? showKeyboard
                 ? Container(

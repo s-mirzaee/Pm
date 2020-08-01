@@ -1,3 +1,4 @@
+
 import 'package:bustem2/wagerAlert.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
@@ -55,7 +56,7 @@ class _GameDeskState extends State<GameDesk> {
                         if (level == 0) {
                           if (staticValues.totalWager() != 0) {
                             setState(() {
-                             // StaticValues.isClick = [false, false, false, false, false, false, false, false, false, false];
+                              // StaticValues.isClick = [false, false, false, false, false, false, false, false, false, false];
                               boxColor = Color.fromRGBO(240, 205, 95, 1);
                               level++;
                               oddEmulator.emulator();
@@ -135,5 +136,45 @@ class _GameDeskState extends State<GameDesk> {
               ],
               )),
         ));
+  }
+}
+class NoEnough extends StatefulWidget {
+
+  @override
+  _NoEnoughState createState() => _NoEnoughState();
+}
+
+class _NoEnoughState extends State<NoEnough> {
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      backgroundColor: Colors.black,
+      title: Text(
+        'How To Play:',
+        style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 25,
+            fontFamily: 'MTCORSVA',
+            color: Color.fromRGBO(240, 205, 95, 1)),
+      ),
+      content: Container(
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              SizedBox(
+                height: staticValues.getHeight() * 0.1,
+              ),
+              Text('NO Enough Money',
+                style: TextStyle(
+                    fontFamily: 'MTCORSVA',
+                    color: Color.fromRGBO(240, 205, 95, 1)),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }

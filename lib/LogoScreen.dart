@@ -156,11 +156,16 @@ class _logoScreenState extends State<logoScreen> {
                         staticValues.totalReturn();
                         //print(chooseCards.length.toString());
                         oddEmulator.emulator();
-
-
+                          Route route1= MaterialPageRoute(
+                              builder: (context) => screen.NoEnough());
                         Route route = MaterialPageRoute(
                             builder: (context) => screen.StartGame());
-                        Navigator.push(context, route);});
+
+                          if(staticValues.getMoney()<1)
+                            Navigator.push(context, route1);
+                          else
+                            Navigator.push(context, route);
+                        });
                       },
                       child: Container(
                         //color: Colors.black12,

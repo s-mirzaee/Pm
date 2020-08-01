@@ -1,3 +1,4 @@
+import 'package:bustem2/GameScreen.dart' as Screen;
 import 'package:custom_switch/custom_switch.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -42,7 +43,7 @@ class _MenuScreenState extends State<MenuScreen> {
                   child: Row(
                     children: <Widget>[
                       Container(
-                          //color: Colors.black12,
+                        //color: Colors.black12,
                           margin: EdgeInsets.only(left: width * 0.25),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -201,7 +202,7 @@ class _MenuScreenState extends State<MenuScreen> {
                     //backgroundPaint: Paint()..color = Colors.grey.shade200,
                   ),
                   margin:
-                      EdgeInsets.only(left: width * 0.02, top: height * 0.1),
+                  EdgeInsets.only(left: width * 0.02, top: height * 0.1),
                 ),
                 Container(
                   child: CircularText(
@@ -226,7 +227,7 @@ class _MenuScreenState extends State<MenuScreen> {
                     //backgroundPaint: Paint()..color = Colors.grey.shade200,
                   ),
                   margin:
-                      EdgeInsets.only(left: width * 0.45, top: height * 0.63),
+                  EdgeInsets.only(left: width * 0.45, top: height * 0.63),
                 ),
                 Container(
                   child: CircularText(
@@ -251,7 +252,7 @@ class _MenuScreenState extends State<MenuScreen> {
                     //backgroundPaint: Paint()..color = Colors.grey.shade200,
                   ),
                   margin:
-                      EdgeInsets.only(left: width * 0.52, top: height * 0.03),
+                  EdgeInsets.only(left: width * 0.52, top: height * 0.03),
                 ),
                 Container(
                   child: CircularText(
@@ -276,12 +277,12 @@ class _MenuScreenState extends State<MenuScreen> {
                     //backgroundPaint: Paint()..color = Colors.grey.shade200,
                   ),
                   margin:
-                      EdgeInsets.only(left: width * 0.65, top: height * 0.26),
+                  EdgeInsets.only(left: width * 0.65, top: height * 0.26),
                 ),
               ],
             )
-            /**/
-            ));
+          /**/
+        ));
   }
 }
 
@@ -317,72 +318,72 @@ class _SettingState extends State<Setting> {
           height: staticValues.getHeight(),
           child: SingleChildScrollView(
               child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text(
-                    'Play Sounds:',
-                    style: TextStyle(
-                        fontSize: 28,
-                        fontWeight: FontWeight.w100,
-                        color: Color.fromRGBO(240, 205, 95, 1),
-                        fontFamily: 'MTCORSVA',
-                        decoration: TextDecoration.none),
-                  ),
-                  CustomSwitch(
-                    activeColor: Color.fromRGBO(240, 205, 95, 1),
-                    value: SoundVolume,
-                    onChanged: (value) {
-                      setState(() {
-                        SoundVolume = value;
-                      });
-                    },
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: staticValues.getHeight() / 35,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text('Play Music:',
-                      style: TextStyle(
-                          fontSize: 28,
-                          fontWeight: FontWeight.w100,
-                          color: Color.fromRGBO(240, 205, 95, 1),
-                          fontFamily: 'MTCORSVA')),
-                  CustomSwitch(
-                    activeColor: Color.fromRGBO(240, 205, 95, 1),
-                    value: MusicVolume,
-                    onChanged: (value) {
-                      setState(() {
-                        MusicVolume = value;
-                      });
-                    },
-                  ),
-                ],
-              ),
-              FlatButton(
-                  padding: EdgeInsets.only(top: 20),
-                  onPressed: () {
-                    staticValues.resetNumber();
-                    Navigator.pushNamed(context, '/');
-                  },
-                  child: Padding(
-                      padding: EdgeInsets.only(top: 25),
-                      child: Text(
-                        'Reste Money',
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(
+                        'Play Sounds:',
                         style: TextStyle(
-                            fontSize: 30,
+                            fontSize: 28,
                             fontWeight: FontWeight.w100,
                             color: Color.fromRGBO(240, 205, 95, 1),
-                            fontFamily: 'MTCORSVA'),
-                      )))
-            ],
-          ))),
+                            fontFamily: 'MTCORSVA',
+                            decoration: TextDecoration.none),
+                      ),
+                      CustomSwitch(
+                        activeColor: Color.fromRGBO(240, 205, 95, 1),
+                        value: SoundVolume,
+                        onChanged: (value) {
+                          setState(() {
+                            SoundVolume = value;
+                          });
+                        },
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: staticValues.getHeight() / 35,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text('Play Music:',
+                          style: TextStyle(
+                              fontSize: 28,
+                              fontWeight: FontWeight.w100,
+                              color: Color.fromRGBO(240, 205, 95, 1),
+                              fontFamily: 'MTCORSVA')),
+                      CustomSwitch(
+                        activeColor: Color.fromRGBO(240, 205, 95, 1),
+                        value: MusicVolume,
+                        onChanged: (value) {
+                          setState(() {
+                            MusicVolume = value;
+                          });
+                        },
+                      ),
+                    ],
+                  ),
+                  FlatButton(
+                      padding: EdgeInsets.only(top: 20),
+                      onPressed: () {
+                        staticValues.resetNumber();
+                        Navigator.pushNamed(context, '/');
+                      },
+                      child: Padding(
+                          padding: EdgeInsets.only(top: 25),
+                          child: Text(
+                            'Reste Money',
+                            style: TextStyle(
+                                fontSize: 30,
+                                fontWeight: FontWeight.w100,
+                                color: Color.fromRGBO(240, 205, 95, 1),
+                                fontFamily: 'MTCORSVA'),
+                          )))
+                ],
+              ))),
       actions: <Widget>[
         FlatButton(
             onPressed: () {
@@ -468,8 +469,13 @@ class _HandsState extends State<Hands> {
               //print(chooseCards.length.toString());
               oddEmulator.emulator();
               staticValues.loadNumber();
+              Route route = MaterialPageRoute(
+                  builder: (context) => Screen.NoEnough());
 
-              Navigator.pushNamed(context, '/Game');
+              if(staticValues.getMoney()<1)
+                Navigator.push(context, route);
+              else
+                 Navigator.pushNamed(context, '/Game');
             },
             child: Text(
               'ok',
