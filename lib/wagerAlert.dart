@@ -18,6 +18,15 @@ double width = staticValues.getWidth();
 double height = staticValues.getHeight();
 
 class wagerAlert extends StatefulWidget {
+  void reset(){
+    Max = staticValues.getMoney();
+
+    if (Max == 0) {
+      beInRange = false;
+      boxShow = false;
+      print('reset');
+    }
+  }
   int i = staticValues.getSelect();
   static Color boxColor = Color.fromRGBO(240, 205, 95, 1);
   wagerAlert() {
@@ -42,6 +51,11 @@ class _wagerAlertState extends State<wagerAlert> {
 
   @override
   Widget build(BuildContext context) {
+    if (staticValues.getMoney() != 0) {
+      beInRange = true;
+      boxShow = true;
+    }
+
     return Stack(children: [
       Container(
         child: Stack(children: <Widget>[
@@ -95,7 +109,7 @@ class _wagerAlertState extends State<wagerAlert> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            staticValues.getMoney()!=0
+            beInRange
             //if be in range
                 ? showKeyboard
                 ? Container(
@@ -338,7 +352,7 @@ class _wagerAlertState extends State<wagerAlert> {
 
                 : Container(//color: Colors.cyanAccent,
               child: Text(
-                "No Enough Money",
+                "Not Enough Money",
                 style: TextStyle(
                     fontSize: 27,
                     fontWeight: FontWeight.bold,

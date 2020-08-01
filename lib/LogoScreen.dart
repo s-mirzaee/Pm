@@ -17,6 +17,7 @@ class _logoScreenState extends State<logoScreen> {
     var width = staticValues.getWidth();
     var height = staticValues.getHeight();
     var winAmount = staticValues.totalReturn();
+    var win=staticValues.totalReturn()-staticValues.totalWager();
     staticValues.saveNumber();
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -43,7 +44,7 @@ class _logoScreenState extends State<logoScreen> {
                 ),
                 Container(
                   child: Text(
-                    '\$$winAmount',
+                    '\$$win',
                     style: TextStyle(
                         fontSize: 39,
                         fontWeight: FontWeight.bold,
@@ -143,7 +144,7 @@ class _logoScreenState extends State<logoScreen> {
                           if (winAmount > 0)
                             (staticValues
                                 .setMoney(staticValues.getMoney() + winAmount));
-
+                        });
 
                         level = 0;
                         staticValues.createRange(staticValues.getPlayerNo());
@@ -156,16 +157,11 @@ class _logoScreenState extends State<logoScreen> {
                         staticValues.totalReturn();
                         //print(chooseCards.length.toString());
                         oddEmulator.emulator();
-                          Route route1= MaterialPageRoute(
-                              builder: (context) => screen.NoEnough());
+
+
                         Route route = MaterialPageRoute(
                             builder: (context) => screen.StartGame());
-
-                          if(staticValues.getMoney()<1)
-                            Navigator.push(context, route1);
-                          else
-                            Navigator.push(context, route);
-                        });
+                        Navigator.push(context, route);
                       },
                       child: Container(
                         //color: Colors.black12,

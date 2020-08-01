@@ -1,3 +1,4 @@
+
 import 'package:bustem2/StaticValues.dart';
 import 'package:flutter/cupertino.dart';
 import 'main.dart';
@@ -54,7 +55,10 @@ class _HandState extends State<Hand> {
               child: InkWell(
                 onTap: () {
                   staticValues.setSelect(i);
+
+
                   setState(() {
+
                     if (staticValues.wagerCounter() <
                             ((staticValues.getPlayerNo() / 2).round()) ||
                         staticValues.getWager(i) != 0 ||
