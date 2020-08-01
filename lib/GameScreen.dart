@@ -1,6 +1,7 @@
 import 'package:bustem2/wagerAlert.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
+import 'StaticValues.dart';
 import 'main.dart';
 import 'oddCalculator/oddsEmulator.dart';
 import 'table.dart';
@@ -49,6 +50,7 @@ class _GameDeskState extends State<GameDesk> {
                     child: InkWell(
                       highlightColor: Colors.white,
                       onTap: () {
+                        StaticValues.isClick = [false, false, false, false, false, false, false, false, false, false];
                         if (level == 0) {
                           if (staticValues.totalWager() != 0) {
                             setState(() {
