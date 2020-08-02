@@ -72,108 +72,270 @@ class _HandState extends State<Hand> {
                 child: Container(
                   child: Stack(
                     children: <Widget>[
-                      if (i > (StaticValues.playerNo / 2) - 1 &&
-                          StaticValues.isClick[i] == true)
-                        (Stack(
-                          children: <Widget>[
-                            Container(
-                              child: Image.asset(
-                                  'assets/images/${CardList[2 * i].id}.png'),
-                              margin: EdgeInsets.only(left: 12, bottom: 18),
-                              decoration: BoxDecoration(
-                                boxShadow: [
-                                  BoxShadow(
-                                      color: Color.fromRGBO(220, 220, 220, 1),
-                                      blurRadius: 5.5,
-                                      offset: Offset(0, 0),
-                                      spreadRadius: 6)
+                      if(i > (StaticValues.playerNo / 2) - 1)
+                        if(StaticValues.isClick[i] == true)
+                          if((oddPercent.getOdd(i)>=100 || oddPercent.getTie(i)>=100) && level == 3)
+                            Stack(
+                              children: <Widget>[
+                                Container(
+                                  child: Image.asset(
+                                      'assets/images/${CardList[2 * i].id}.png'),
+                                  margin: EdgeInsets.only(left: 12, bottom: 18),
+                                  decoration: BoxDecoration(
+                                    boxShadow: [
+                                      BoxShadow(
+                                          color: Color.fromRGBO(240, 205, 95, 1),
+                                          blurRadius: 5.5,
+                                          offset: Offset(0, 0),
+                                          spreadRadius: 6)
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  child: Image.asset(
+                                      'assets/images/${CardList[(2 * i) + 1].id}.png'),
+                                  margin: EdgeInsets.only(right: 12, top: 18),
+                                  decoration: BoxDecoration(
+                                    boxShadow: [
+                                      BoxShadow(
+                                          color: Color.fromRGBO(240, 205, 95, 1),
+                                          blurRadius: 5.5,
+                                          offset: Offset(-6, 4),
+                                          spreadRadius: 2.5)
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            )
+                          else
+                            if(level!=3)
+                              Stack(
+                                children: <Widget>[
+                                  Container(
+                                    child: Image.asset(
+                                        'assets/images/${CardList[2 * i].id}.png'),
+                                    margin: EdgeInsets.only(left: 12, bottom: 18),
+                                    decoration: BoxDecoration(
+                                      boxShadow: [
+                                        BoxShadow(
+                                            color: Color.fromRGBO(220, 220, 220, 1),
+                                            blurRadius: 5.5,
+                                            offset: Offset(0, 0),
+                                            spreadRadius: 6)
+                                      ],
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Image.asset(
+                                        'assets/images/${CardList[(2 * i) + 1].id}.png'),
+                                    margin: EdgeInsets.only(right: 12, top: 18),
+                                    decoration: BoxDecoration(
+                                      boxShadow: [
+                                        BoxShadow(
+                                            color: Color.fromRGBO(220, 220, 220, 1),
+                                            blurRadius: 5.5,
+                                            offset: Offset(-6, 4),
+                                            spreadRadius: 2.5)
+                                      ],
+                                    ),
+                                  ),
                                 ],
-                              ),
-                            ),
-                            Container(
-                              child: Image.asset(
-                                  'assets/images/${CardList[(2 * i) + 1].id}.png'),
-                              margin: EdgeInsets.only(right: 12, top: 18),
-                              decoration: BoxDecoration(
-                                boxShadow: [
-                                  BoxShadow(
-                                      color: Color.fromRGBO(220, 220, 220, 1),
-                                      blurRadius: 5.5,
-                                      offset: Offset(-6, 4),
-                                      spreadRadius: 2.5)
-                                ],
-                              ),
-                            ),
-                          ],
-                        ))
-                      else if (i > (StaticValues.playerNo / 2) - 1 &&
-                          StaticValues.isClick[i] == false)
-                        (Stack(
-                          children: <Widget>[
-                            Container(
-                              child: Image.asset(
-                                  'assets/images/${CardList[2 * i].id}.png'),
-                              margin: EdgeInsets.only(left: 12, bottom: 18),
-                            ),
-                            Container(
-                              child: Image.asset(
-                                  'assets/images/${CardList[(2 * i) + 1].id}.png'),
-                              margin: EdgeInsets.only(right: 12, top: 18),
-                            ),
-                          ],
-                        ))
-                      else if (i < StaticValues.playerNo / 2 &&
-                          StaticValues.isClick[i] == true)
-                        (Stack(
-                          children: <Widget>[
-                            Container(
-                              decoration: BoxDecoration(
-                                boxShadow: [
-                                  BoxShadow(
-                                      color: Color.fromRGBO(220, 220, 220, 1),
-                                      blurRadius: 5.5,
-                                      offset: Offset(0, 0),
-                                      spreadRadius: 6)
-                                ],
-                              ),
-                              child: Image.asset(
-                                  'assets/images/${CardList[2 * i].id}.png'),
-                              margin: EdgeInsets.only(right: 12, bottom: 18),
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                boxShadow: [
-                                  BoxShadow(
-                                      color: Color.fromRGBO(220, 220, 220, 1),
-                                      blurRadius: 5.5,
-                                      offset: Offset(6, 4),
-                                      spreadRadius: 2.5)
-                                ],
-                              ),
-                              child: Image.asset(
-                                  'assets/images/${CardList[(2 * i) + 1].id}.png'),
-                              margin: EdgeInsets.only(left: 12, top: 18),
-                            ),
-                          ],
-                        ))
+                              )
+                            else
+                              Stack(children: <Widget>[
+                                Container(
+                                  child: Image.asset(
+                                      'assets/images/${CardList[2 * i].id}.png'),
+                                  margin: EdgeInsets.only(left: 12, bottom: 18),
+                                ),
+                                Container(
+                                  child: Image.asset(
+                                      'assets/images/${CardList[(2 * i) + 1].id}.png'),
+                                  margin: EdgeInsets.only(right: 12, top: 18),
+                                ),
+                              ],
+                              )
+                        else
+                           if((oddPercent.getOdd(i)>=100 || oddPercent.getTie(i)>=100) && level == 3)
+                             Stack(
+                               children: <Widget>[
+                                 Container(
+                                   child: Image.asset(
+                                       'assets/images/${CardList[2 * i].id}.png'),
+                                   margin: EdgeInsets.only(left: 12, bottom: 18),
+                                   decoration: BoxDecoration(
+                                     boxShadow: [
+                                       BoxShadow(
+                                           color: Color.fromRGBO(240, 205, 95, 1),
+                                           blurRadius: 5.5,
+                                           offset: Offset(0, 0),
+                                           spreadRadius: 6)
+                                     ],
+                                   ),
+                                 ),
+                                 Container(
+                                   child: Image.asset(
+                                       'assets/images/${CardList[(2 * i) + 1].id}.png'),
+                                   margin: EdgeInsets.only(right: 12, top: 18),
+                                   decoration: BoxDecoration(
+                                     boxShadow: [
+                                       BoxShadow(
+                                           color: Color.fromRGBO(240, 205, 95, 1),
+                                           blurRadius: 5.5,
+                                           offset: Offset(-6, 4),
+                                           spreadRadius: 2.5)
+                                     ],
+                                   ),
+                                 ),
+                               ],
+                             )
+                           else
+                             Stack(children: <Widget>[
+                               Container(
+                                 child: Image.asset(
+                                     'assets/images/${CardList[2 * i].id}.png'),
+                                 margin: EdgeInsets.only(left: 12, bottom: 18),
+                               ),
+                               Container(
+                                 child: Image.asset(
+                                     'assets/images/${CardList[(2 * i) + 1].id}.png'),
+                                 margin: EdgeInsets.only(right: 12, top: 18),
+                               ),
+                             ],
+                             )
+
                       else
-                        (Stack(
-                          children: <Widget>[
-                            Container(
-                              child: Image.asset(
-                                  'assets/images/${CardList[2 * i].id}.png'),
-                              margin:
-                                  const EdgeInsets.only(right: 12, bottom: 18),
-                            ),
-                            Container(
-                              child: Image.asset(
-                                  'assets/images/${CardList[(2 * i) + 1].id}.png'),
-                              margin: const EdgeInsets.only(left: 12, top: 18),
-                            ),
-                          ],
-                        ))
-                  ],
-                ),
+                        if(StaticValues.isClick[i] == true)
+                          if((oddPercent.getOdd(i)>=100 || oddPercent.getTie(i)>=100) && level == 3)
+                            Stack(
+                              children: <Widget>[
+                                Container(
+                                  child: Image.asset(
+                                      'assets/images/${CardList[2 * i].id}.png'),
+                                  margin: EdgeInsets.only(left: 12, bottom: 18),
+                                  decoration: BoxDecoration(
+                                    boxShadow: [
+                                      BoxShadow(
+                                          color: Color.fromRGBO(240, 205, 95, 1),
+                                          blurRadius: 5.5,
+                                          offset: Offset(0, 0),
+                                          spreadRadius: 6)
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  child: Image.asset(
+                                      'assets/images/${CardList[(2 * i) + 1].id}.png'),
+                                  margin: EdgeInsets.only(right: 12, top: 18),
+                                  decoration: BoxDecoration(
+                                    boxShadow: [
+                                      BoxShadow(
+                                          color: Color.fromRGBO(240, 205, 95, 1),
+                                          blurRadius: 5.5,
+                                          offset: Offset(-6, 4),
+                                          spreadRadius: 2.5)
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            )
+                          else
+                            if(level == 3)
+                              Stack(children: <Widget>[
+                                Container(
+                                  child: Image.asset(
+                                      'assets/images/${CardList[2 * i].id}.png'),
+                                  margin: EdgeInsets.only(left: 12, bottom: 18),
+                                ),
+                                Container(
+                                  child: Image.asset(
+                                      'assets/images/${CardList[(2 * i) + 1].id}.png'),
+                                  margin: EdgeInsets.only(right: 12, top: 18),
+                                ),
+                              ],
+                              )
+                            else
+                              Stack(
+                                children: <Widget>[
+                                  Container(
+                                    child: Image.asset(
+                                        'assets/images/${CardList[2 * i].id}.png'),
+                                    margin: EdgeInsets.only(left: 12, bottom: 18),
+                                    decoration: BoxDecoration(
+                                      boxShadow: [
+                                        BoxShadow(
+                                            color: Color.fromRGBO(220, 220, 220, 1),
+                                            blurRadius: 5.5,
+                                            offset: Offset(0, 0),
+                                            spreadRadius: 6)
+                                      ],
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Image.asset(
+                                        'assets/images/${CardList[(2 * i) + 1].id}.png'),
+                                    margin: EdgeInsets.only(right: 12, top: 18),
+                                    decoration: BoxDecoration(
+                                      boxShadow: [
+                                        BoxShadow(
+                                            color: Color.fromRGBO(220, 220, 220, 1),
+                                            blurRadius: 5.5,
+                                            offset: Offset(-6, 4),
+                                            spreadRadius: 2.5)
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              )
+                        else
+                          if((oddPercent.getOdd(i)>=100 || oddPercent.getTie(i)>=100) && level == 3)
+                            Stack(
+                              children: <Widget>[
+                                Container(
+                                  child: Image.asset(
+                                      'assets/images/${CardList[2 * i].id}.png'),
+                                  margin: EdgeInsets.only(left: 12, bottom: 18),
+                                  decoration: BoxDecoration(
+                                    boxShadow: [
+                                      BoxShadow(
+                                          color: Color.fromRGBO(240, 205, 95, 1),
+                                          blurRadius: 5.5,
+                                          offset: Offset(0, 0),
+                                          spreadRadius: 6)
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  child: Image.asset(
+                                      'assets/images/${CardList[(2 * i) + 1].id}.png'),
+                                  margin: EdgeInsets.only(right: 12, top: 18),
+                                  decoration: BoxDecoration(
+                                    boxShadow: [
+                                      BoxShadow(
+                                          color: Color.fromRGBO(240, 205, 95, 1),
+                                          blurRadius: 5.5,
+                                          offset: Offset(-6, 4),
+                                          spreadRadius: 2.5)
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            )
+                          else
+                            Stack(children: <Widget>[
+                              Container(
+                                child: Image.asset(
+                                    'assets/images/${CardList[2 * i].id}.png'),
+                                margin: EdgeInsets.only(left: 12, bottom: 18),
+                              ),
+                              Container(
+                                child: Image.asset(
+                                    'assets/images/${CardList[(2 * i) + 1].id}.png'),
+                                margin: EdgeInsets.only(right: 12, top: 18),
+                              ),
+                            ],
+                            )
+                      ]),
                 width: handSize + 15,
                 height: handSize + 38,
                 // color: Colors.cyan,

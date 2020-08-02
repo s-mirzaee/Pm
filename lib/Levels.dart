@@ -1,5 +1,4 @@
 import 'package:bustem2/LogoScreen.dart';
-import 'package:bustem2/wagerAlert.dart';
 import 'cards.dart';
 import 'main.dart';
 import 'package:flutter/cupertino.dart';
