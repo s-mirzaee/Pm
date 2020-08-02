@@ -51,11 +51,10 @@ class _GameDeskState extends State<GameDesk> {
           debugShowCheckedModeBanner: false,
           title: 'Bust\'em Poker',
           home: Scaffold(
-              body: Stack(
-            children: <Widget>[
-              table(),
-              levels.levelUp(level),
-              Container(
+              body: Stack(children: <Widget>[
+                table(),
+                levels.levelUp(level),
+                Container(
                   //color: Colors.cyanAccent,
                   padding:
                       EdgeInsets.only(top: height * 0.86, left: width * 0.86),
@@ -211,17 +210,32 @@ class _NoEnoughState extends State<NoEnough> {
                           builder: (context) => MenuScreen());
                       Navigator.push(context, route);
                     },
-                    child: Padding(
-                        padding: EdgeInsets.only(top: 25),
-                        child: Text(
-                          'Reste Money',
-                          style: TextStyle(
-                              fontSize: 30,
-                              fontWeight: FontWeight.w100,
-                              color: Color.fromRGBO(240, 205, 95, 1),
-                              fontFamily: 'MTCORSVA'),
-                        ))),
-
+                    child: Container(
+                        child: Center(
+                          child: Text(
+                            'Reste Money',
+                            style: TextStyle(
+                                fontSize: 30,
+                                fontWeight: FontWeight.w100,
+                                color: Color.fromRGBO(240, 205, 95, 1),
+                                fontFamily: 'MTCORSVA'),
+                          ),
+                        ),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(10),
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.black45,
+                                spreadRadius: 1.5,
+                                offset: Offset(2, 4))
+                          ],
+                          color: Colors.black,
+                        ),
+                        width: 200,height: 50,
+                    )
+                ),
               ],
             ),
           ),
