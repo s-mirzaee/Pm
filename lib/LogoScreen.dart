@@ -75,7 +75,7 @@ class _logoScreenState extends State<logoScreen> {
                           child: Text(
                             'Play Again',
                             style: TextStyle(
-                                fontSize: 36,
+                                fontSize: 34,
                                 fontWeight: FontWeight.bold,
                                 color: Color.fromRGBO(240, 195, 85, 1),
                                 fontFamily: 'MTCORSVA',
@@ -114,7 +114,7 @@ class _logoScreenState extends State<logoScreen> {
                           child: Text(
                             'Quit',
                             style: TextStyle(
-                                fontSize: 36,
+                                fontSize: 34,
                                 fontWeight: FontWeight.bold,
                                 color: Color.fromRGBO(240, 195, 85, 1),
                                 fontFamily: 'MTCORSVA',
@@ -169,7 +169,7 @@ class _logoScreenState extends State<logoScreen> {
                           child: Text(
                             'Repeat',
                             style: TextStyle(
-                                fontSize: 36,
+                                fontSize: 34,
                                 fontWeight: FontWeight.bold,
                                 color: Color.fromRGBO(240, 195, 85, 1),
                                 fontFamily: 'MTCORSVA',

@@ -59,7 +59,7 @@ class board {
     int n = list.length - 5;
 
     return Container(//color: Colors.cyan,
-      height: 58,
+      height: 57.5,
       margin:  EdgeInsets.only(left: width*0.3, top: height*0.39),
       child: Row(
         children: <Widget>[
@@ -80,7 +80,7 @@ class board {
   Widget turn() {
     int n = list.length;
     return Container(
-      height: 59,
+      height: 57.5,
       margin:  EdgeInsets.only(left: (width*0.3)+160, top: height* 0.39),
       child: Row(
         children: <Widget>[
@@ -93,7 +93,7 @@ class board {
   Widget river() {
     int n = list.length;
     return Container(
-      height: 59,
+      height: 57.5,
       margin:  EdgeInsets.only(left: (width*0.3)+215, top: height*0.39),
       child: Row(
         children: <Widget>[
