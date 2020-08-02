@@ -1,3 +1,4 @@
+import 'package:bustem2/MenuScreen.dart';
 import 'package:bustem2/wagerAlert.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
@@ -206,7 +207,9 @@ class _NoEnoughState extends State<NoEnough> {
                     padding: EdgeInsets.only(top: 20),
                     onPressed: () {
                       staticValues.resetNumber();
-                      Navigator.pushNamed(context, '/');
+                      Route route = MaterialPageRoute(
+                          builder: (context) => MenuScreen());
+                      Navigator.push(context, route);
                     },
                     child: Padding(
                         padding: EdgeInsets.only(top: 25),
