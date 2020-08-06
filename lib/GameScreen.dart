@@ -21,7 +21,7 @@ class _StartGameState extends State<StartGame> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
-    SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
+    SystemChrome.setEnabledSystemUIOverlays([]);
     //print(staticValues.getMoney());
     //print(staticValues.totalWager());
     //(staticValues.getMoney() >= 1 || staticValues.totalWager() >= 1)
@@ -45,9 +45,8 @@ class _GameDeskState extends State<GameDesk> {
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
     SystemChrome.setEnabledSystemUIOverlays([]);
-    return SafeArea(
-        top: false,
-        child: MaterialApp(
+    return
+         MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Bust\'em Poker',
           home: Scaffold(
@@ -155,7 +154,7 @@ class _GameDeskState extends State<GameDesk> {
                   )),
             ],
           )),
-        ));
+        );
   }
 }
 

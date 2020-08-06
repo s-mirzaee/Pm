@@ -20,7 +20,7 @@ class _MenuScreenState extends State<MenuScreen> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
-    SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
+    SystemChrome.setEnabledSystemUIOverlays([]);
     MediaQueryData queryData = MediaQuery.of(context);
 
     staticValues.setWidth(queryData.size.width);
@@ -28,8 +28,7 @@ class _MenuScreenState extends State<MenuScreen> {
     var width = staticValues.getWidth();
     var height = staticValues.getHeight();
 
-    return
-         MaterialApp(
+    return MaterialApp(
             debugShowCheckedModeBanner: false,
             theme: ThemeData(fontFamily: 'MTCORSVA'),
             home: Stack(
@@ -299,6 +298,7 @@ class Setting extends StatefulWidget {
 class _SettingState extends State<Setting> {
   @override
   Widget build(BuildContext context) {
+
     SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
     //MediaQueryData queryData = MediaQuery.of(context);
     //final height = queryData.size.height;
