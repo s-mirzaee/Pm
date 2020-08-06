@@ -98,12 +98,12 @@ class _wagerAlertState extends State<wagerAlert> {
         ],),
           width: 70,
           height: 40,
-          margin: EdgeInsets.only(left: width * 0.015, top: height * 0.5),
+          margin: EdgeInsets.only(left: width * 0.015, top: height * 0.48),
       ),
 
 
-      Container(
-        margin: EdgeInsets.only(top: height*0.61),
+      Container(//color: Colors.white,
+        margin: EdgeInsets.only(top: height*0.6),
         width: width * 0.855,
         height: height * 0.14,
         child: Row(
@@ -204,10 +204,10 @@ class _wagerAlertState extends State<wagerAlert> {
                                     enterNumber);
                             staticValues.setIsClick(i);
 
-                            print(staticValues.getReturn(i) +
+                            /*print(staticValues.getReturn(i) +
                                 returns.returnCalculator(
                                     odds.handOddes[i],
-                                    enterNumber.toDouble()));
+                                    enterNumber.toDouble()));*/
                             staticValues.setReturn(
                                 i,
                                 (staticValues.getReturn(i) +
@@ -287,39 +287,39 @@ class _wagerAlertState extends State<wagerAlert> {
                 ),
                 if (showBox == false)
                   Column(children: [
-                    Container(
+                    Container(//color: Colors.red,
                       child: Text(
                         'w :' + '${values.getValue(i).round()}',
                         style: TextStyle(
-                            fontSize: 20,
+                            fontSize: 21,
                             fontWeight: FontWeight.bold,
                             color: Color.fromRGBO(240, 205, 95, 1),
                             fontFamily: 'MTCORSVA',
                             decoration: TextDecoration.none),
                       ),
-                      height: height * 0.07,
+                      height: height * 0.058,
                       width: width * 0.2,
                     ),
-                    Container(
+                    Container(//color: Colors.teal,
                       child: Text(
                         'r :' +
                             '${returns.returnCalculator(oddCalculator.getOdd(i), values.getValue(i)).round()}',
                         style: TextStyle(
-                            fontSize: 20,
+                            fontSize: 21,
                             fontWeight: FontWeight.bold,
                             color: Color.fromRGBO(240, 205, 95, 1),
                             fontFamily: 'MTCORSVA',
                             decoration: TextDecoration.none),
                       ),
-                      height: height * 0.07,
+                      height: height * 0.06,
                       width: width * 0.2,
                     ),
                   ]),
                 Column(
                   children: <Widget>[
                     Container(
-                      //color: Colors.red,
-                      height: height * 0.07,
+                      //color: Colors.teal,
+                      height: height * 0.058,
                       width: width * 0.22,
                       child: Text(
                         "min : 0 ",
@@ -331,8 +331,8 @@ class _wagerAlertState extends State<wagerAlert> {
                             decoration: TextDecoration.none),
                       ),
                     ),
-                    Container(
-                      height: height * 0.07,
+                    Container(//color: Colors.red,
+                      height: height * 0.06,
                       width: width * 0.22,
                       child: Text(
                         "max :" + (Max.round()).toString(),

@@ -345,7 +345,7 @@ class _HandState extends State<Hand> {
           Container(
             margin: EdgeInsets.only(
                 left: width * lefts[i] - 25, top: height * tops[i] + 46),
-            width: handSize + 68,
+            width: handSize + 60,
             height: handSize + 9,
             //color: Colors.amberAccent,
             child: Container(
@@ -356,7 +356,7 @@ class _HandState extends State<Hand> {
                         child: Text(
                           "W " + oddPercent.getOdd(i).toStringAsFixed(2)+ "/T " + oddPercent.getTie(i).toStringAsFixed(2),
                           style: TextStyle(
-                              fontSize: 15.5,
+                              fontSize: 15,
                               fontWeight: FontWeight.w500,
                               fontFamily: 'MTCORSVA',
                               decoration: TextDecoration.none),
@@ -374,7 +374,7 @@ class _HandState extends State<Hand> {
                       child: Text(
                         "Wager :" + staticValues.getWager(i).toString(),
                         style: TextStyle(
-                            fontSize: 15.5,
+                            fontSize: 15,
                             fontWeight: FontWeight.w500,
                             fontFamily: 'MTCORSVA',
                             decoration: TextDecoration.none),
@@ -389,7 +389,7 @@ class _HandState extends State<Hand> {
                         child: Text(
                           "Return :" + staticValues.getReturn(i).toString(),
                           style: TextStyle(
-                              fontSize: 15.5,
+                              fontSize: 15,
                               fontWeight: FontWeight.w500,
                               fontFamily: 'MTCORSVA',
                               decoration: TextDecoration.none),

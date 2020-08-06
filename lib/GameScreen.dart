@@ -22,11 +22,11 @@ class _StartGameState extends State<StartGame> {
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
     SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
-    print(staticValues.getMoney());
-    print(staticValues.totalWager());
-    (staticValues.getMoney() >= 1 || staticValues.totalWager() >= 1)
-        ? print('1')
-        : print('2');
+    //print(staticValues.getMoney());
+    //print(staticValues.totalWager());
+    //(staticValues.getMoney() >= 1 || staticValues.totalWager() >= 1)
+        //? print('1')
+        //: print('2');
     return (staticValues.getMoney() >= 1 || staticValues.totalWager() >= 1)
         ? GameDesk()
         : NoEnough();
@@ -44,7 +44,7 @@ class _GameDeskState extends State<GameDesk> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
-    SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
+    SystemChrome.setEnabledSystemUIOverlays([]);
     return SafeArea(
         top: false,
         child: MaterialApp(

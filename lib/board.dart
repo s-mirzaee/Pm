@@ -23,18 +23,18 @@ class board {
                    child: Text(
                     'Stack : \$ ${staticValues.getMoney().round()} ',
                     style: TextStyle(
-                        fontSize: 25,
+                        fontSize: 23.5,
                         fontWeight: FontWeight.bold,
                         color: Color.fromRGBO(240, 205, 95, 1),
                         fontFamily: 'MTCORSVA',
                         decoration: TextDecoration.none),
                   ),
                 ),
-                 Container(margin: EdgeInsets.only(left: width*0.63),
+                 Container(margin: EdgeInsets.only(left: width*0.636),
                   child: Text(
                     'Total Wager :\$ ${staticValues.totalWager()} ',
                     style: TextStyle(
-                        fontSize: 25,
+                        fontSize: 23.5,
                         fontWeight: FontWeight.bold,
                         color: Color.fromRGBO(240, 205, 95, 1),
                         fontFamily: 'MTCORSVA',
@@ -59,8 +59,8 @@ class board {
     int n = list.length - 5;
 
     return Container(//color: Colors.cyan,
-      height: 57.5,
-      margin:  EdgeInsets.only(left: width*0.3, top: height*0.39),
+      height: 62,
+      margin:  EdgeInsets.only(left: width*0.288, top: height*0.392),
       child: Row(
         children: <Widget>[
           Image.asset('assets/images/${list[n].id}.png'),
@@ -80,8 +80,8 @@ class board {
   Widget turn() {
     int n = list.length;
     return Container(
-      height: 57.5,
-      margin:  EdgeInsets.only(left: (width*0.3)+160, top: height* 0.39),
+      height: 62,
+      margin:  EdgeInsets.only(left: (width*0.3)+160, top: height* 0.392),
       child: Row(
         children: <Widget>[
           Image.asset('assets/images/${list[n - 2].id}.png'),
@@ -93,8 +93,8 @@ class board {
   Widget river() {
     int n = list.length;
     return Container(
-      height: 57.5,
-      margin:  EdgeInsets.only(left: (width*0.3)+215, top: height*0.39),
+      height: 62,
+      margin:  EdgeInsets.only(left: (width*0.3)+217, top: height*0.392),
       child: Row(
         children: <Widget>[
           Image.asset('assets/images/${list[n - 1].id}.png'),
