@@ -375,7 +375,7 @@ class _SettingState extends State<Setting> {
                   child: Padding(
                       padding: EdgeInsets.only(top: 25),
                       child: Text(
-                        'Reste Money',
+                        'Reset Money',
                         style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.w100,

@@ -212,7 +212,7 @@ class _NoEnoughState extends State<NoEnough> {
                     child: Container(
                         child: Center(
                           child: Text(
-                            'Reste Money',
+                            'Reset Money',
                             style: TextStyle(
                                 fontSize: 30,
                                 fontWeight: FontWeight.w100,
