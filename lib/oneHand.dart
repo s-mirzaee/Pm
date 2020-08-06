@@ -142,18 +142,19 @@ class _HandState extends State<Hand> {
                                 ],
                               )
                             else
-                              Stack(children: <Widget>[
-                                Container(
-                                  child: Image.asset(
-                                      'assets/images/${CardList[2 * i].id}.png'),
-                                  margin: EdgeInsets.only(left: 12, bottom: 18),
-                                ),
-                                Container(
-                                  child: Image.asset(
-                                      'assets/images/${CardList[(2 * i) + 1].id}.png'),
-                                  margin: EdgeInsets.only(right: 12, top: 18),
-                                ),
-                              ],
+                              Stack(
+                                children: <Widget>[
+                                  Container(
+                                    child: Image.asset(
+                                        'assets/images/${CardList[2 * i].id}.png'),
+                                    margin: EdgeInsets.only(left: 12, bottom: 18),
+                                  ),
+                                  Container(
+                                    child: Image.asset(
+                                        'assets/images/${CardList[(2 * i) + 1].id}.png'),
+                                    margin: EdgeInsets.only(right: 12, top: 18),
+                                  ),
+                                ],
                               )
                         else
                            if((oddPercent.getOdd(i)>=100 || oddPercent.getTie(i)>=100) && level == 3)
@@ -190,18 +191,19 @@ class _HandState extends State<Hand> {
                                ],
                              )
                            else
-                             Stack(children: <Widget>[
-                               Container(
-                                 child: Image.asset(
-                                     'assets/images/${CardList[2 * i].id}.png'),
-                                 margin: EdgeInsets.only(left: 12, bottom: 18),
-                               ),
-                               Container(
-                                 child: Image.asset(
-                                     'assets/images/${CardList[(2 * i) + 1].id}.png'),
-                                 margin: EdgeInsets.only(right: 12, top: 18),
-                               ),
-                             ],
+                             Stack(
+                               children: <Widget>[
+                                 Container(
+                                   child: Image.asset(
+                                       'assets/images/${CardList[2 * i].id}.png'),
+                                   margin: EdgeInsets.only(left: 12, bottom: 18),
+                                 ),
+                                 Container(
+                                   child: Image.asset(
+                                       'assets/images/${CardList[(2 * i) + 1].id}.png'),
+                                   margin: EdgeInsets.only(right: 12, top: 18),
+                                 ),
+                               ],
                              )
 
                       else
@@ -241,26 +243,25 @@ class _HandState extends State<Hand> {
                             )
                           else
                             if(level == 3)
-                              Stack(children: <Widget>[
-                                Container(
-                                  child: Image.asset(
-                                      'assets/images/${CardList[2 * i].id}.png'),
-                                  margin: EdgeInsets.only(left: 12, bottom: 18),
-                                ),
-                                Container(
-                                  child: Image.asset(
-                                      'assets/images/${CardList[(2 * i) + 1].id}.png'),
-                                  margin: EdgeInsets.only(right: 12, top: 18),
-                                ),
-                              ],
-                              )
-                            else
                               Stack(
                                 children: <Widget>[
                                   Container(
                                     child: Image.asset(
                                         'assets/images/${CardList[2 * i].id}.png'),
-                                    margin: EdgeInsets.only(left: 12, bottom: 18),
+                                    margin:
+                                    const EdgeInsets.only(right: 12, bottom: 18),
+                                  ),
+                                  Container(
+                                    child: Image.asset(
+                                        'assets/images/${CardList[(2 * i) + 1].id}.png'),
+                                    margin: const EdgeInsets.only(left: 12, top: 18),
+                                  ),
+                                ],
+                              )
+                            else
+                              Stack(
+                                children: <Widget>[
+                                  Container(
                                     decoration: BoxDecoration(
                                       boxShadow: [
                                         BoxShadow(
@@ -270,20 +271,23 @@ class _HandState extends State<Hand> {
                                             spreadRadius: 6)
                                       ],
                                     ),
+                                    child: Image.asset(
+                                        'assets/images/${CardList[2 * i].id}.png'),
+                                    margin: EdgeInsets.only(right: 12, bottom: 18),
                                   ),
                                   Container(
-                                    child: Image.asset(
-                                        'assets/images/${CardList[(2 * i) + 1].id}.png'),
-                                    margin: EdgeInsets.only(right: 12, top: 18),
                                     decoration: BoxDecoration(
                                       boxShadow: [
                                         BoxShadow(
                                             color: Color.fromRGBO(220, 220, 220, 1),
                                             blurRadius: 5.5,
-                                            offset: Offset(-6, 4),
+                                            offset: Offset(6, 4),
                                             spreadRadius: 2.5)
                                       ],
                                     ),
+                                    child: Image.asset(
+                                        'assets/images/${CardList[(2 * i) + 1].id}.png'),
+                                    margin: EdgeInsets.only(left: 12, top: 18),
                                   ),
                                 ],
                               )
@@ -322,18 +326,20 @@ class _HandState extends State<Hand> {
                               ],
                             )
                           else
-                            Stack(children: <Widget>[
-                              Container(
-                                child: Image.asset(
-                                    'assets/images/${CardList[2 * i].id}.png'),
-                                margin: EdgeInsets.only(left: 12, bottom: 18),
-                              ),
-                              Container(
-                                child: Image.asset(
-                                    'assets/images/${CardList[(2 * i) + 1].id}.png'),
-                                margin: EdgeInsets.only(right: 12, top: 18),
-                              ),
-                            ],
+                            Stack(
+                              children: <Widget>[
+                                Container(
+                                  child: Image.asset(
+                                      'assets/images/${CardList[2 * i].id}.png'),
+                                  margin:
+                                  const EdgeInsets.only(right: 12, bottom: 18),
+                                ),
+                                Container(
+                                  child: Image.asset(
+                                      'assets/images/${CardList[(2 * i) + 1].id}.png'),
+                                  margin: const EdgeInsets.only(left: 12, top: 18),
+                                ),
+                              ],
                             )
                       ]),
                 width: handSize + 15,

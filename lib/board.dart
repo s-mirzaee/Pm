@@ -30,7 +30,7 @@ class board {
                         decoration: TextDecoration.none),
                   ),
                 ),
-                 Container(margin: EdgeInsets.only(left: width*0.636),
+                 Container(margin: EdgeInsets.only(left: width*0.638),
                   child: Text(
                     'Total Wager :\$ ${staticValues.totalWager()} ',
                     style: TextStyle(
@@ -60,7 +60,7 @@ class board {
 
     return Container(//color: Colors.cyan,
       height: 62,
-      margin:  EdgeInsets.only(left: width*0.288, top: height*0.392),
+      margin:  EdgeInsets.only(left: width*0.31, top: height*0.385),
       child: Row(
         children: <Widget>[
           Image.asset('assets/images/${list[n].id}.png'),
@@ -81,7 +81,7 @@ class board {
     int n = list.length;
     return Container(
       height: 62,
-      margin:  EdgeInsets.only(left: (width*0.3)+160, top: height* 0.392),
+      margin:  EdgeInsets.only(left: (width*0.33)+160, top: height* 0.385),
       child: Row(
         children: <Widget>[
           Image.asset('assets/images/${list[n - 2].id}.png'),
@@ -94,7 +94,7 @@ class board {
     int n = list.length;
     return Container(
       height: 62,
-      margin:  EdgeInsets.only(left: (width*0.3)+217, top: height*0.392),
+      margin:  EdgeInsets.only(left: (width*0.33)+217, top: height*0.385),
       child: Row(
         children: <Widget>[
           Image.asset('assets/images/${list[n - 1].id}.png'),
