@@ -381,7 +381,7 @@ class _SettingState extends State<Setting> {
                             fontWeight: FontWeight.w100,
                             color: Color.fromRGBO(240, 205, 95, 1),
                             fontFamily: 'MTCORSVA'),
-                      )))
+                     )))
             ],
           ))),
       actions: <Widget>[
@@ -414,6 +414,13 @@ class _HandsState extends State<Hands> {
   Widget build(BuildContext context) {
     MediaQueryData queryData = MediaQuery.of(context);
     var height = queryData.size.height;
+    // The equivalent of the "smallestWidth" qualifier on Android.
+    var shortestSide = queryData.size.shortestSide;
+
+// Determine if we should use mobile layout or not, 600 here is
+// a common breakpoint for a typical 7-inch tablet.
+    final bool isTablet = shortestSide > 600;
+    print (isTablet);
     return AlertDialog(
       backgroundColor: Colors.black,
       title: Center(
