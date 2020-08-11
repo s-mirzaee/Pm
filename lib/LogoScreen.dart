@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'MenuScreen.dart';
 import 'board.dart';
+import 'dart:math';
 
 class logoScreen extends StatefulWidget {
   @override
@@ -34,7 +35,7 @@ class _logoScreenState extends State<logoScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  'You Won :',
+                  win>=0?'You Won :':'you Lose:',
                   style: TextStyle(
                       fontSize: 38,
                       fontWeight: FontWeight.bold,
@@ -44,7 +45,7 @@ class _logoScreenState extends State<logoScreen> {
                 ),
                 Container(
                   child: Text(
-                    '\$$win',
+                    '\$${win.abs()}',
                     style: TextStyle(
                         fontSize: 39,
                         fontWeight: FontWeight.bold,
