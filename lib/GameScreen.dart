@@ -47,6 +47,12 @@ class _GameDeskState extends State<GameDesk> {
     SystemChrome.setEnabledSystemUIOverlays([]);
     return
          MaterialApp(
+           builder: (context, child) {
+             return MediaQuery(
+               child: child,
+               data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+             );
+           },
           debugShowCheckedModeBanner: false,
           title: 'Bust\'em Poker',
           home: Scaffold(
@@ -167,6 +173,12 @@ class _NoEnoughState extends State<NoEnough> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      builder: (context, child) {
+        return MediaQuery(
+          child: child,
+          data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+        );
+      },
       debugShowCheckedModeBanner: false,
       home: Stack(
         children: <Widget>[

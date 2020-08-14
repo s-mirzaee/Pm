@@ -21,6 +21,12 @@ class _logoScreenState extends State<logoScreen> {
     var win=staticValues.totalReturn()-staticValues.totalWager();
     staticValues.saveNumber();
     return MaterialApp(
+      builder: (context, child) {
+        return MediaQuery(
+          child: child,
+          data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+        );
+      },
       debugShowCheckedModeBanner: false,
       home: Stack(
         children: <Widget>[

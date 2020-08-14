@@ -33,6 +33,9 @@ class _HandState extends State<Hand> {
 
   @override
   Widget build(BuildContext context) {
+
+         MediaQuery.of(context).copyWith(textScaleFactor: 1.0);
+
     int n = ((CardList.length - 5) / 2).toInt();
     size Size = new size(n);
     List<double> lefts = Size.lefts();

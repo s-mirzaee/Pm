@@ -29,6 +29,12 @@ class _MenuScreenState extends State<MenuScreen> {
     var height = staticValues.getHeight();
 
     return MaterialApp(
+        builder: (context, child) {
+          return MediaQuery(
+            child: child,
+            data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+          );
+        },
             debugShowCheckedModeBanner: false,
             theme: ThemeData(fontFamily: 'MTCORSVA'),
             home: Stack(
@@ -291,11 +297,13 @@ bool MusicVolume = true;
 bool SoundVolume = true;
 
 class Setting extends StatefulWidget {
+
   @override
   _SettingState createState() => _SettingState();
 }
 
 class _SettingState extends State<Setting> {
+
   @override
   Widget build(BuildContext context) {
 
@@ -303,6 +311,7 @@ class _SettingState extends State<Setting> {
     //MediaQueryData queryData = MediaQuery.of(context);
     //final height = queryData.size.height;
     return AlertDialog(
+
       backgroundColor: Colors.black,
       title: Text(
         'setting:',

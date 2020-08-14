@@ -23,8 +23,13 @@ board Board = new board(chooseCards);
 class RunApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
+      builder: (context, child) {
+        return MediaQuery(
+          child: child,
+          data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+        );
+      },
       debugShowCheckedModeBanner: false,
       title: "BustEmHoldem",
       initialRoute: '/',
