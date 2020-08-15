@@ -217,4 +217,15 @@ class StaticValues {
   double getWidth() {
     return width;
   }
+  static bool Tablet = false;
+  double shortest =0;
+
+  double setShortest(i){
+    shortest = i;
+  }
+
+  void isTablet(){
+    if(shortest>600)
+      Tablet = true;
+  }
 }

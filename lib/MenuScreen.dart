@@ -1,4 +1,5 @@
 
+import 'package:bustem2/wagerAlert.dart';
 import 'package:custom_switch/custom_switch.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +9,7 @@ import 'board.dart';
 import 'main.dart';
 import 'oddCalculator/oddsEmulator.dart';
 import 'package:flutter_circular_text/circular_text.dart';
+import 'package:bustem2/StaticValues.dart';
 
 oddsEmulator oddEmulator = new oddsEmulator();
 
@@ -22,12 +24,19 @@ class _MenuScreenState extends State<MenuScreen> {
     SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
     SystemChrome.setEnabledSystemUIOverlays([]);
     MediaQueryData queryData = MediaQuery.of(context);
-
+  
     staticValues.setWidth(queryData.size.width);
     staticValues.setHeight(queryData.size.height);
+    var shortest = queryData.size.shortestSide;
+    staticValues.setShortest(shortest);
+    staticValues.isTablet();
+    //bool isTablet = false;
+    //print (shortest);
+    //if(shortest>600)
+      //isTablet= true;
+    print('$StaticValues.Tablet');
     var width = staticValues.getWidth();
     var height = staticValues.getHeight();
-
     return MaterialApp(
         builder: (context, child) {
           return MediaQuery(
@@ -39,151 +48,300 @@ class _MenuScreenState extends State<MenuScreen> {
             theme: ThemeData(fontFamily: 'MTCORSVA'),
             home: Stack(
               children: <Widget>[
-                Container(
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage(
-                              'assets/images/katie-harp-Em96eDRJPD8-unsplash.jpg'),
-                          fit: BoxFit.cover)),
-                  child: Row(
-                    children: <Widget>[
-                      Container(
+                //Container(color: Colors.amberAccent,),
+                if(StaticValues.Tablet == false)
+
+                  Container(
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage(
+                                'assets/images/katie-harp-Em96eDRJPD8-unsplash.jpg'),
+                            fit: BoxFit.cover)),
+                    child: Row(
+                      children: <Widget>[
+                        Container(
                           //color: Colors.black12,
-                          margin: EdgeInsets.only(left: width * 0.25),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            //crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Transform.rotate(
-                                angle: math.pi / 9,
-                                child: Container(
-                                  child: Image.asset(
-                                      'assets/images/ace-of-hearts.png',
-                                      height: height * 0.122),
-                                ),
-                              ),
-                              Transform.rotate(
-                                angle: -math.pi / 15,
-                                child: Container(
-                                  margin: EdgeInsets.only(
-                                      top: height / 14.5, bottom: height / 15),
-                                  child: Image.asset(
-                                      'assets/images/ace-of-spades.png',
-                                      height: height * 0.125),
-                                ),
-                              ),
-                              Transform.rotate(
-                                angle: math.pi / 15,
-                                child: Container(
-                                  child: Image.asset(
-                                      'assets/images/playing-cards.png',
-                                      height: height * 0.125),
-                                ),
-                              ),
-                              Container(
-                                child: Transform.rotate(
-                                  angle: -math.pi / 12,
+                            margin: EdgeInsets.only(left: width * 0.25),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              //crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Transform.rotate(
+                                  angle: math.pi / 9,
                                   child: Container(
                                     child: Image.asset(
-                                        'assets/images/ace-of-clubs.png',
+                                        'assets/images/ace-of-hearts.png',
+                                        height: height * 0.122),
+                                  ),
+                                ),
+                                Transform.rotate(
+                                  angle: -math.pi / 15,
+                                  child: Container(
+                                    margin: EdgeInsets.only(
+                                        top: height / 14.5, bottom: height / 15),
+                                    child: Image.asset(
+                                        'assets/images/ace-of-spades.png',
                                         height: height * 0.125),
                                   ),
                                 ),
-                                margin: EdgeInsets.only(top: 35),
-                              )
+                                Transform.rotate(
+                                  angle: math.pi / 15,
+                                  child: Container(
+                                    child: Image.asset(
+                                        'assets/images/playing-cards.png',
+                                        height: height * 0.125),
+                                  ),
+                                ),
+                                Container(
+                                  child: Transform.rotate(
+                                    angle: -math.pi / 12,
+                                    child: Container(
+                                      child: Image.asset(
+                                          'assets/images/ace-of-clubs.png',
+                                          height: height * 0.125),
+                                    ),
+                                  ),
+                                  margin: EdgeInsets.only(top: 35),
+                                )
+                              ],
+                            )),
+                        Container(
+                          //margin: EdgeInsets.only(bottom: (height*0.5)-200),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            //crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              Container(
+                                child: FlatButton(
+                                  child: Text('Play',
+                                      style: TextStyle(
+                                          fontSize: 38,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          decoration: TextDecoration.none)),
+                                  textColor: Colors.black,
+                                  onPressed: () {
+                                    return showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return Hands();
+                                      },
+                                    );
+                                  },
+                                ),
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(top: height * 0.07),
+                                child: FlatButton(
+                                  child: Text('Setting',
+                                      style: TextStyle(
+                                          fontSize: 38,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          decoration: TextDecoration.none)),
+                                  textColor: Colors.black,
+                                  onPressed: () {
+                                    return showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return Setting();
+                                      },
+                                    );
+                                  },
+                                ),
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(top: height * 0.076),
+                                child: FlatButton(
+                                  child: Text('Help',
+                                      style: TextStyle(
+                                          fontSize: 38,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          decoration: TextDecoration.none)),
+                                  textColor: Colors.black,
+                                  onPressed: () {
+                                    return showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return Help();
+                                      },
+                                    );
+                                  },
+                                ),
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(top: height * 0.075),
+                                child: FlatButton(
+                                  child: Text('About us',
+                                      style: TextStyle(
+                                          fontSize: 38,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          decoration: TextDecoration.none)),
+                                  textColor: Colors.black,
+                                  onPressed: () {
+                                    return showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return About();
+                                      },
+                                    );
+                                  },
+                                ),
+                              ),
                             ],
-                          )),
-                      Container(
-                        //margin: EdgeInsets.only(bottom: (height*0.5)-200),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          //crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
-                            Container(
-                              child: FlatButton(
-                                child: Text('Play',
-                                    style: TextStyle(
-                                        fontSize: 38,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.black,
-                                        decoration: TextDecoration.none)),
-                                textColor: Colors.black,
-                                onPressed: () {
-                                  return showDialog(
-                                    context: context,
-                                    builder: (context) {
-                                      return Hands();
-                                    },
-                                  );
-                                },
-                              ),
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(top: height * 0.07),
-                              child: FlatButton(
-                                child: Text('Setting',
-                                    style: TextStyle(
-                                        fontSize: 38,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.black,
-                                        decoration: TextDecoration.none)),
-                                textColor: Colors.black,
-                                onPressed: () {
-                                  return showDialog(
-                                    context: context,
-                                    builder: (context) {
-                                      return Setting();
-                                    },
-                                  );
-                                },
-                              ),
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(top: height * 0.076),
-                              child: FlatButton(
-                                child: Text('Help',
-                                    style: TextStyle(
-                                        fontSize: 38,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.black,
-                                        decoration: TextDecoration.none)),
-                                textColor: Colors.black,
-                                onPressed: () {
-                                  return showDialog(
-                                    context: context,
-                                    builder: (context) {
-                                      return Help();
-                                    },
-                                  );
-                                },
-                              ),
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(top: height * 0.075),
-                              child: FlatButton(
-                                child: Text('About us',
-                                    style: TextStyle(
-                                        fontSize: 38,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.black,
-                                        decoration: TextDecoration.none)),
-                                textColor: Colors.black,
-                                onPressed: () {
-                                  return showDialog(
-                                    context: context,
-                                    builder: (context) {
-                                      return About();
-                                    },
-                                  );
-                                },
-                              ),
-                            ),
-                          ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
+                  )
+                  else
+                  Container(
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage(
+                                'assets/images/katie-harp-Em96eDRJPD8-unsplash.jpg'),
+                            fit: BoxFit.cover)),
+                    child: Row(
+                      children: <Widget>[
+                        Container(
+                          //color: Colors.black12,
+                            margin: EdgeInsets.only(left: width * 0.25),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              //crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Transform.rotate(
+                                  angle: math.pi / 9,
+                                  child: Container(
+                                    child: Image.asset(
+                                        'assets/images/ace-of-hearts.png',
+                                        height: height * 0.11),
+                                  ),
+                                ),
+                                Transform.rotate(
+                                  angle: -math.pi / 15,
+                                  child: Container(
+                                    margin: EdgeInsets.only(
+                                        top: height / 15, bottom: height / 15),
+                                    child: Image.asset(
+                                        'assets/images/ace-of-spades.png',
+                                        height: height * 0.11),
+                                  ),
+                                ),
+                                Transform.rotate(
+                                  angle: math.pi / 15,
+                                  child: Container(
+                                    child: Image.asset(
+                                        'assets/images/playing-cards.png',
+                                        height: height * 0.11),
+                                  ),
+                                ),
+                                Container(
+                                  child: Transform.rotate(
+                                    angle: -math.pi / 12,
+                                    child: Container(
+                                      child: Image.asset(
+                                          'assets/images/ace-of-clubs.png',
+                                          height: height * 0.11),
+                                    ),
+                                  ),
+                                  margin: EdgeInsets.only(top: height/15),
+                                )
+                              ],
+                            )),
+                        Container(
+                          margin: EdgeInsets.only(left: height*0.04),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            //crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              Container(
+                                child: FlatButton(
+                                  child: Text('Play',
+                                      style: TextStyle(
+                                          fontSize: 50,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          decoration: TextDecoration.none)),
+                                  textColor: Colors.black,
+                                  onPressed: () {
+                                    return showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return Hands();
+                                      },
+                                    );
+                                  },
+                                ),
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(top: height * 0.1),
+                                child: FlatButton(
+                                  child: Text('Setting',
+                                      style: TextStyle(
+                                          fontSize: 50,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          decoration: TextDecoration.none)),
+                                  textColor: Colors.black,
+                                  onPressed: () {
+                                    return showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return Setting();
+                                      },
+                                    );
+                                  },
+                                ),
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(top: height * 0.1),
+                                child: FlatButton(
+                                  child: Text('Help',
+                                      style: TextStyle(
+                                          fontSize: 50,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          decoration: TextDecoration.none)),
+                                  textColor: Colors.black,
+                                  onPressed: () {
+                                    return showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return Help();
+                                      },
+                                    );
+                                  },
+                                ),
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(top: height * 0.1),
+                                child: FlatButton(
+                                  child: Text('About us',
+                                      style: TextStyle(
+                                          fontSize: 50,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          decoration: TextDecoration.none)),
+                                  textColor: Colors.black,
+                                  onPressed: () {
+                                    return showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return About();
+                                      },
+                                    );
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
                 Container(
                   child: CircularText(
                     children: [
@@ -191,7 +349,7 @@ class _MenuScreenState extends State<MenuScreen> {
                         text: Text(
                           "strategy empowered by poker",
                           style: TextStyle(
-                              fontSize: 28,
+                              fontSize:40,
                               color: Colors.black26,
                               fontWeight: FontWeight.bold,
                               fontFamily: 'MTCORSVA'),
@@ -202,12 +360,12 @@ class _MenuScreenState extends State<MenuScreen> {
                         //direction: CircularTextDirection.clockwise,
                       ),
                     ],
-                    radius: 110,
+                    radius: 180,
                     position: CircularTextPosition.inside,
                     //backgroundPaint: Paint()..color = Colors.grey.shade200,
                   ),
                   margin:
-                      EdgeInsets.only(left: width * 0.02, top: height * 0.1),
+                      EdgeInsets.only(left: width * 0.01, top: height * 0.1),
                 ),
                 Container(
                   child: CircularText(
@@ -227,7 +385,7 @@ class _MenuScreenState extends State<MenuScreen> {
                         //direction: CircularTextDirection.anticlockwise,
                       ),
                     ],
-                    radius: 58,
+                    radius: 78,
                     position: CircularTextPosition.inside,
                     //backgroundPaint: Paint()..color = Colors.grey.shade200,
                   ),
@@ -241,7 +399,7 @@ class _MenuScreenState extends State<MenuScreen> {
                         text: Text(
                           "Business strategy empowered by poker",
                           style: TextStyle(
-                              fontSize: 29,
+                              fontSize: 35,
                               color: Color.fromRGBO(0, 0, 0, 0.17),
                               fontWeight: FontWeight.bold,
                               fontFamily: 'MTCORSVA'),
@@ -252,7 +410,7 @@ class _MenuScreenState extends State<MenuScreen> {
                         //direction: CircularTextDirection.clockwise,
                       ),
                     ],
-                    radius: 122,
+                    radius: 142,
                     position: CircularTextPosition.inside,
                     //backgroundPaint: Paint()..color = Colors.grey.shade200,
                   ),
@@ -266,7 +424,7 @@ class _MenuScreenState extends State<MenuScreen> {
                         text: Text(
                           "Business strategy empowered by poker",
                           style: TextStyle(
-                              fontSize: 40,
+                              fontSize: 50,
                               color: Color.fromRGBO(0, 0, 0, 0.16),
                               fontWeight: FontWeight.bold,
                               fontFamily: 'MTCORSVA'),
@@ -277,12 +435,37 @@ class _MenuScreenState extends State<MenuScreen> {
                         //direction: CircularTextDirection.clockwise,
                       ),
                     ],
-                    radius: 160,
+                    radius: 180,
                     position: CircularTextPosition.inside,
                     //backgroundPaint: Paint()..color = Colors.grey.shade200,
                   ),
                   margin:
                       EdgeInsets.only(left: width * 0.65, top: height * 0.26),
+                ),
+                Container(
+                  child: CircularText(
+                    children: [
+                      TextItem(
+                        text: Text(
+                          "Business strategy empowered by poker",
+                          style: TextStyle(
+                              fontSize: 43,
+                              color: Color.fromRGBO(0, 0, 0, 0.16),
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'MTCORSVA'),
+                        ),
+                        space: 9.7,
+                        //startAngle: 0,
+                        startAngleAlignment: StartAngleAlignment.center,
+                        //direction: CircularTextDirection.clockwise,
+                      ),
+                    ],
+                    radius: 145,
+                    position: CircularTextPosition.inside,
+                    //backgroundPaint: Paint()..color = Colors.grey.shade200,
+                  ),
+                  margin:
+                  EdgeInsets.only(left: width * 0.56, top: height * 0.62),
                 ),
               ],
             )
@@ -297,13 +480,11 @@ bool MusicVolume = true;
 bool SoundVolume = true;
 
 class Setting extends StatefulWidget {
-
   @override
   _SettingState createState() => _SettingState();
 }
 
 class _SettingState extends State<Setting> {
-
   @override
   Widget build(BuildContext context) {
 
@@ -311,12 +492,11 @@ class _SettingState extends State<Setting> {
     //MediaQueryData queryData = MediaQuery.of(context);
     //final height = queryData.size.height;
     return AlertDialog(
-
       backgroundColor: Colors.black,
       title: Text(
         'setting:',
         style: TextStyle(
-            fontSize: 40,
+            fontSize: 45,
             fontWeight: FontWeight.w100,
             color: Color.fromRGBO(240, 205, 95, 1),
             fontFamily: 'MTCORSVA',
@@ -324,7 +504,8 @@ class _SettingState extends State<Setting> {
       ),
       content: Container(
           color: Colors.black,
-          height: staticValues.getHeight(),
+          height: height*0.3,
+          width: width*0.25,
           child: SingleChildScrollView(
               child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -332,35 +513,40 @@ class _SettingState extends State<Setting> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text(
-                    'Play Sounds:',
-                    style: TextStyle(
-                        fontSize: 28,
-                        fontWeight: FontWeight.w100,
-                        color: Color.fromRGBO(240, 205, 95, 1),
-                        fontFamily: 'MTCORSVA',
-                        decoration: TextDecoration.none),
+                  Container(margin: EdgeInsets.only(top: height*0.05),
+                      child: Text(
+                        'Play Sounds:',
+                        style: TextStyle(
+                            fontSize: 33,
+                            fontWeight: FontWeight.w100,
+                            color: Color.fromRGBO(240, 205, 95, 1),
+                            fontFamily: 'MTCORSVA',
+                            decoration: TextDecoration.none),
+                      ),
                   ),
-                  CustomSwitch(
-                    activeColor: Color.fromRGBO(240, 205, 95, 1),
-                    value: SoundVolume,
-                    onChanged: (value) {
-                      setState(() {
-                        SoundVolume = value;
-                      });
-                    },
+                  Container(
+                     margin: EdgeInsets.only(top: height*0.06),
+                    child: CustomSwitch(
+                      activeColor: Color.fromRGBO(240, 205, 95, 1),
+                      value: SoundVolume,
+                      onChanged: (value) {
+                        setState(() {
+                          SoundVolume = value;
+                        });
+                      },
+                    ),
                   ),
                 ],
               ),
               SizedBox(
-                height: staticValues.getHeight() / 35,
+                height: height*0.03,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text('Play Music:',
                       style: TextStyle(
-                          fontSize: 28,
+                          fontSize: 33,
                           fontWeight: FontWeight.w100,
                           color: Color.fromRGBO(240, 205, 95, 1),
                           fontFamily: 'MTCORSVA')),
@@ -376,13 +562,12 @@ class _SettingState extends State<Setting> {
                 ],
               ),
               FlatButton(
-                  padding: EdgeInsets.only(top: 20),
+                  padding: EdgeInsets.only(top: height*0.07),
                   onPressed: () {
                     staticValues.resetNumber();
                     Navigator.pushNamed(context, '/');
                   },
-                  child: Padding(
-                      padding: EdgeInsets.only(top: 25),
+
                       child: Text(
                         'Reset Money',
                         style: TextStyle(
@@ -390,14 +575,14 @@ class _SettingState extends State<Setting> {
                             fontWeight: FontWeight.w100,
                             color: Color.fromRGBO(240, 205, 95, 1),
                             fontFamily: 'MTCORSVA'),
-                     )))
+                     ))
             ],
           ))),
       actions: <Widget>[
         FlatButton(
             onPressed: () {
-              print("PlaySound: $SoundVolume");
-              print("PlayMusic : $MusicVolume");
+              //print("PlaySound: $SoundVolume");
+              //print("PlayMusic : $MusicVolume");
               Navigator.pushNamed(context, '/');
             },
             child: Text(
@@ -423,28 +608,31 @@ class _HandsState extends State<Hands> {
   Widget build(BuildContext context) {
     MediaQueryData queryData = MediaQuery.of(context);
     var height = queryData.size.height;
-    // The equivalent of the "smallestWidth" qualifier on Android.
-    var shortestSide = queryData.size.shortestSide;
+
 
 // Determine if we should use mobile layout or not, 600 here is
 // a common breakpoint for a typical 7-inch tablet.
-    final bool isTablet = shortestSide > 600;
-    print (isTablet);
+
+    //print (isTablet);
     return AlertDialog(
       backgroundColor: Colors.black,
       title: Center(
-        child: Text(
-          'Number of Hands:',
-          style: TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.w100,
-              color: Color.fromRGBO(240, 205, 95, 1),
-              fontFamily: 'MTCORSVA'),
+        child: Container(
+          margin: EdgeInsets.only(top: 8),
+          child: Text(
+            'Number of Hands:',
+            style: TextStyle(
+                fontSize: 40,
+                fontWeight: FontWeight.w100,
+                color: Color.fromRGBO(240, 205, 95, 1),
+                fontFamily: 'MTCORSVA'),
+          ),
         ),
       ),
       content: Container(
         color: Colors.black,
-        height: height / 10,
+        height: height*0.06,
+        width: width*0.3,
         child: Center(
           child: DropdownButton<int>(
             value: staticValues.getPlayerNo(),
@@ -461,7 +649,7 @@ class _HandsState extends State<Hands> {
                 child: Text(
                   value.toString(),
                   style: TextStyle(
-                      fontSize: 27,
+                      fontSize: 40,
                       fontWeight: FontWeight.w500,
                       color: Color.fromRGBO(166, 166, 166, 1),
                       fontFamily: 'MTCORSVA'),
@@ -489,15 +677,19 @@ class _HandsState extends State<Hands> {
 
  Navigator.pushNamed(context, '/Game');
             },
-            child: Text(
-              'ok',
-              style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.w100,
-                  color: Color.fromRGBO(240, 205, 95, 1),
-                  fontFamily: 'MTCORSVA'),
-            ))
-      ],
+            child: Container(
+              child:Text(
+                'ok',
+                style: TextStyle(
+                    fontSize: 38,
+                    fontWeight: FontWeight.w100,
+                    color: Color.fromRGBO(240, 205, 95, 1),
+                    fontFamily: 'MTCORSVA'),
+              ),
+              margin: EdgeInsets.only(right: 30,bottom: 15),
+            )
+        )
+      ]
     );
   }
 }
@@ -510,7 +702,7 @@ class Help extends StatelessWidget {
     return AlertDialog(
       backgroundColor: Colors.black,
       title: Text(
-        'How To Play:',
+        'BustEmPoker, Where Poker meets Wall Street!',
         style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 25,
@@ -523,24 +715,54 @@ class Help extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               SizedBox(
-                height: staticValues.getHeight() * 0.1,
+                height: staticValues.getHeight() * 0.01,
               ),
               Text(
-                'Despite the mind-game aspect of poker, usually the highest-value hand determines the winner – unless youre bluffing of course! It’s important to aim to make the strongest poker hand – especially for beginners. The best high hand in most poker formats is a Royal Flush.' +
+                  '-      What is BustEmPoker? Business Strategy Empowered by Poker ...'+'\n',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'MTCORSVA',
+                      color: Color.fromRGBO(240, 205, 95, 1))
+              ),
+
+              Text(
+                    'It is said that poker is like life. Nothing is absolute and it is a mix of skill, perseverance, keeping emotion at check, asset (chip) management, knowing people, position and timing, and of course luck. Many on Wall Street count poker as one of their favorite hobbies. BustEmPoker unravels these in a fun game that is as simple as a coin flip or as involved as the stock market!  A game that is exciting, fun, entertaining, dynamic, and great tool for hedging! It is the ultimate poker game that you can use to learn and advance your poker skills, or empower your business strategies, or just have fun!  So, make your choice and experience the excitement!' +
+                    '\n' ,
+                  style: TextStyle(
+
+                      fontFamily: 'MTCORSVA',
+                      color: Color.fromRGBO(240, 205, 95, 1))
+
+              ),
+                    Text(
+                    '-      How is BustEmPoker played?',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'MTCORSVA',
+                          color: Color.fromRGBO(240, 205, 95, 1))
+                    ),
+                    Text(
                     '\n' +
-                    'Position is everything in poker and all action centres around the Button – except for Stud. Early Position, like the Small and Big Blinds, are to the left of the Button and act first after the flop. Seats to the right of the Button are Late Position (acting last post-flop), and seats in between are Middle Position.' +
-                    '\n' +
-                    'Pre-flop action begins with the player seated left of the BB (Big Blind). Action then continues clockwise with the BB acting last. Pre-flop, players have three courses of action; folding, calling, or raising. Once all players have acted and the pot is right the betting round ends.' +
-                    '\n' +
-                    'The Flop is made up of the first 3 of 5 community cards. Post-flop, players have the option to check (bet nothing), bet, call, fold or raise – depending on their position at the table and any other prior action.' +
-                    '\n' +
-                    'This fourth community card is dealt directly after the post-flop betting round comes to an end. Youll have the same options post-flop as pre-flop; check (bet nothing), bet, call, fold or raise – depending on your position and any prior action.' +
-                    '\n' +
-                    'When you finally arrive at the river – the fifth community card – you should have a hand that can win. Or you might even try a bluff if everyone checks to it to you. Plus, there are no more cards that can beat you!' +
-                    '\n' +
-                    'For a showdown to happen, there have to be at least 2 players left. The winning player must reveal their cards to win the hand. The winner is determined by who has the best 5-card hand. That player gets to scoop in the pot. In Omaha, there are two pots to scoop!' +
-                    '\n' +
-                    'Once the winner has been settled on, it’s time to shuffle up and deal the next round. Whether you’re playing Texas Hold’em, Omaha Hi or Omaha Hi/Lo; Tournaments, Sit & Gos or at the Cash Tables, there’s always a seat with your name on it at 888poker!',
+                    'Hands are dealt like regular poker game. Player can choose between 2 to 10 hands per game. Hands are dealt face up or open. Odds for each hand winning is provided. Player must bet on at least one hand pre-flop. For a k-handed game, player can bet only on at most k/2 hands. Additional bets can be made after flop and turn on the same hand(s) with new odds provided, or on any other hand(s). This allows to increase win potential and/or hedge against losing. Prior street(s) bets remain in effect. Here are the steps: ',
+                        style: TextStyle(
+                          fontFamily: 'MTCORSVA',
+                          color: Color.fromRGBO(240, 205, 95, 1)),
+                    ),
+
+        Text(
+                    '\n'+
+                    '-      Choose number of hands.' +
+                    '\n'+
+                    '-      The odd to Win and the odd to Tie will be appeared for each hand.' +
+                    '\n'+
+                    '-      Bet on at least one hand.' +
+                    '\n'+
+                    '-      Flop: odds change and they are provided to the player. Additional bets can be made.' +
+                    '\n'+
+                    '-      Turn: odds change and they are provided to the player. Additional bets can be made.' +
+                    '\n'+
+                    '-      River: obviously no more betting as outcome known!' +
+                    '\n',
                 style: TextStyle(
                     fontFamily: 'MTCORSVA',
                     color: Color.fromRGBO(240, 205, 95, 1)),

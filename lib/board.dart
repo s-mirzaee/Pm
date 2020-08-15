@@ -1,3 +1,4 @@
+import 'package:bustem2/StaticValues.dart';
 import 'package:bustem2/wagerAlert.dart';
 import 'main.dart';
 import 'oneHand.dart';
@@ -16,34 +17,64 @@ class board {
       child: Stack(
         children: <Widget>[
           //header
-          Container(
-              child: Container(margin: EdgeInsets.only(top: height*0.01),
-                child: Stack(children: <Widget>[
+          if(StaticValues.Tablet == false)
+            Container(margin: EdgeInsets.only(top: height*0.01),
+              child: Stack(
+                children: <Widget>[
                   Container(margin: EdgeInsets.only(left: width*0.04),
-                   child: Text(
-                    'Stack : \$ ${staticValues.getMoney().round()} ',
-                    style: TextStyle(
-                        fontSize: 23.5,
-                        fontWeight: FontWeight.bold,
-                        color: Color.fromRGBO(240, 205, 95, 1),
-                        fontFamily: 'MTCORSVA',
-                        decoration: TextDecoration.none),
+                    child: Text(
+                      'Stack : \$ ${staticValues.getMoney().round()} ',
+                      style: TextStyle(
+                          fontSize: 23.5,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromRGBO(240, 205, 95, 1),
+                          fontFamily: 'MTCORSVA',
+                          decoration: TextDecoration.none),
+                    ),
                   ),
-                ),
-                 Container(margin: EdgeInsets.only(left: width*0.638),
-                  child: Text(
-                    'Total Wager :\$ ${staticValues.totalWager()} ',
-                    style: TextStyle(
-                        fontSize: 23.5,
-                        fontWeight: FontWeight.bold,
-                        color: Color.fromRGBO(240, 205, 95, 1),
-                        fontFamily: 'MTCORSVA',
-                        decoration: TextDecoration.none),
+                  Container(margin: EdgeInsets.only(left: width*0.638),
+                    child: Text(
+                      'Total Wager :\$ ${staticValues.totalWager()} ',
+                      style: TextStyle(
+                          fontSize: 23.5,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromRGBO(240, 205, 95, 1),
+                          fontFamily: 'MTCORSVA',
+                          decoration: TextDecoration.none),
+                    ),
+                  )
+                ],
+              ),
+            )
+          else
+            Container(margin: EdgeInsets.only(top: height*0.01),
+              child: Stack(
+                children: <Widget>[
+                  Container(margin: EdgeInsets.only(left: width*0.04),
+                    child: Text(
+                      'Stack : \$ ${staticValues.getMoney().round()} ',
+                      style: TextStyle(
+                          fontSize: 33,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromRGBO(240, 205, 95, 1),
+                          fontFamily: 'MTCORSVA',
+                          decoration: TextDecoration.none),
+                    ),
                   ),
-                ),
-              ],
+                  Container(margin: EdgeInsets.only(left: width*0.51),
+                    child: Text(
+                      'Total Wager :\$ ${staticValues.totalWager()} ',
+                      style: TextStyle(
+                          fontSize: 33,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromRGBO(240, 205, 95, 1),
+                          fontFamily: 'MTCORSVA',
+                          decoration: TextDecoration.none),
+                    ),
+                  )
+                ],
+              ),
             ),
-          )),
           for (int i = 0; i < n; i++)
             Stack(
               children: <Widget>[
