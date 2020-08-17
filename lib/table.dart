@@ -10,10 +10,6 @@ class table extends StatelessWidget {
     SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
     var width = staticValues.getWidth();
     var height = staticValues.getHeight();
-    /*var deskH_t = height * 0.15;
-    var deskH_b = 0.25;
-    var deskW_l = width * 0.08;
-    var deskW_r = width * 0.08;*/
     var deskH_t = height;
     var deskH_b = height;
     var deskW_l = width;
@@ -27,7 +23,7 @@ class table extends StatelessWidget {
 
     if(StaticValues.Tablet == true)
       deskH_b = height * 0.32;
-      deskH_t = height * 0.15;
+      deskH_t = height * 0.2;
       deskW_l = height * 0.08;
       deskW_r = height * 0.08;
 

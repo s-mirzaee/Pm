@@ -19,10 +19,14 @@ CardList handCard = new CardList();
 List<Cards> chooseCards = handCard.cardlist(staticValues.getPlayerNo());
 Levels levels = new Levels(chooseCards);
 board Board = new board(chooseCards);
-
+bool expire=now.isAfter(expireDate);
+var now = new DateTime.now();
+var expireDate = DateTime(2021, 1, 1);
 class RunApp extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
       builder: (context, child) {
         return MediaQuery(
@@ -34,7 +38,7 @@ class RunApp extends StatelessWidget {
       title: "BustEmHoldem",
       initialRoute: '/',
       routes: {
-        '/': (context) => MenuScreen(),
+        '/': (context) =>expire? Expire(): MenuScreen(),
         '/Game': (context) => StartGame(),
         '/Desk': (context) => GameDesk(),
         '/End': (context) => logoScreen(),
