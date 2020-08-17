@@ -1017,7 +1017,7 @@ class Help extends StatelessWidget {
               color: Color.fromRGBO(240, 205, 95, 1)),
         ),
         content: Container(
-          width: StaticValues.width*0.4,
+          width: StaticValues.width*0.65,
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,

@@ -22,8 +22,8 @@ class table extends StatelessWidget {
       deskW_r = height * 0.08;
 
     if(StaticValues.Tablet == true)
-      deskH_b = height * 0.32;
-      deskH_t = height * 0.2;
+      deskH_b = height * 0.33;
+      deskH_t = height * 0.17;
       deskW_l = height * 0.08;
       deskW_r = height * 0.08;
 
@@ -44,11 +44,11 @@ class table extends StatelessWidget {
                       spreadRadius: 9,
                     )
                   ],
-                  borderRadius: BorderRadius.all(Radius.elliptical(150, 200)),
+                  borderRadius: BorderRadius.all(Radius.elliptical(155, 205)),
                 ),
                 child: Container(
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.elliptical(150, 200)),
+                      borderRadius: BorderRadius.all(Radius.elliptical(155, 205)),
                       image: DecorationImage(
                           image: AssetImage(
                               'assets/images/katie-harp-Em96eDRJPD8-unsplash.jpg'),
@@ -62,7 +62,7 @@ class table extends StatelessWidget {
                 left: deskW_l + 24,
                 bottom: deskH_b + 24),
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.elliptical(130, 200)),
+                borderRadius: BorderRadius.all(Radius.elliptical(135, 205)),
                 color: Colors.black,
                 boxShadow: [
                   BoxShadow(
@@ -82,7 +82,7 @@ class table extends StatelessWidget {
               image: DecorationImage(
                   image: AssetImage('assets/images/poker-table.jpg'),
                   fit: BoxFit.cover),
-              borderRadius: BorderRadius.all(Radius.elliptical(130, 200)),
+              borderRadius: BorderRadius.all(Radius.elliptical(135, 205)),
             ),
           ),
         ],
